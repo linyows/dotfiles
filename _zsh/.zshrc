@@ -149,7 +149,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
 # cdd を追加
-source $HOME/.mytools/.zsh/plugin/cdd
+source $HOME/.zsh/plugin/cdd
 
 if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases

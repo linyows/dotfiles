@@ -1,9 +1,12 @@
 #!/bin/sh
 
+echo " Begins the initialization. \033[40m\033[1;35m;)\033[0m"
+
 DIR=".mytools"
 BACKUP_DIR=".mytools_backup"
 BACKUP_PATH=$HOME/$BACKUP_DIR/`date +%Y-%m-%d-%H-%M-%S`
 mkdir -p $BACKUP_PATH
+echo " Make links for dotfiles... \033[47m\033[1;35m:)\033[0m"
 
 #
 # zsh
@@ -35,6 +38,13 @@ elif [ -d $HOME/.oh-my-zsh ]; then
     mv $HOME/.oh-my-zsh $BACKUP_PATH
 fi
 ln -fsv $HOME/$DIR/_zsh/oh-my-zsh $HOME/.oh-my-zsh
+
+if [ -L $HOME/.zsh ]; then
+    rm -rf $HOME/.zsh
+elif [ -d $HOME/.zsh ]; then
+    mv $HOME/.zsh $BACKUP_PATH
+fi
+ln -fsv $HOME/$DIR/_zsh $HOME/.zsh
 
 #
 # bash
@@ -101,12 +111,16 @@ elif [ -f $HOME/.gitignore ]; then
 fi
 ln -fsv $HOME/$DIR/_git/.gitignore $HOME/.gitignore
 
+echo " Git submodule init... \033[47m\033[1;35m:)\033[0m"
+
 #
 # submodule
 #
 cd $HOME/$DIR
 git submodule init
 git submodule update
+
+echo " Vim bundle install... \033[47m\033[1;35m:)\033[0m"
 
 #
 # vim
@@ -146,6 +160,8 @@ fi
 # mac only
 #
 if [ -d /Users ]; then
+    echo " Init for mac... \033[47m\033[1;35m:)\033[0m"
+
     # vimperator
     if [ -L $HOME/.vimperatorrc ]; then
         rm -rf $HOME/.vimperatorrc
@@ -172,7 +188,7 @@ if [ -d /Users ]; then
 fi
 
 if [ $? -eq 0 ]; then
-    echo "Successfully initialized... ;)"
+    echo " Successfully initialized. \033[40m\033[1;32m;)\033[0m"
 else
-    echo "some problems occur... O_o"
+    echo " Some problems occur... \033[40m\033[1;31mO_o\033[0m"
 fi

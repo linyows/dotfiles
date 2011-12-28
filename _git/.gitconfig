@@ -1,0 +1,23 @@
+[user]
+    name = linyows
+    email = linyows@gmail.com
+[color]
+    ui = auto
+[alias]
+    ch = checkout
+    cm = commit -m
+    ca = commit -a
+    st = status
+    br = branch
+    df = diff
+    wh = whatchanged
+    hi = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    gr = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+    stt = diff --stat
+    su = log --stat --summary
+[core]
+    excludesfile = ~/.gitignore
+    quotepath = false
+    editor = vim
+[http]
+    sslVerify = false

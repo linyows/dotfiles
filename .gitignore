@@ -1,0 +1,24 @@
+.DS_Store
+.netrwhist
+*.swp
+*.cache
+*~
+doc/tags
+doc/tags-ja
+
+# for empty dir
+!empty
+
+# .vim
+.vim/bundle/*
+.vim/bundle/**/*
+.vim/tmp/backup/*
+.vim/tmp/backup/**/*
+.vim/tmp/swap/*
+.vim/tmp/swap/**/*
+.vim/tmp/plugin/*
+.vim/tmp/plugin/**/*
+.vim/tmp/viminfo.txt
+
+# .vimperator
+.vimperator/info/*

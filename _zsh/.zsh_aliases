@@ -1,0 +1,90 @@
+# vim
+if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+    export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
+    alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g "$@"'
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+else
+    export EDITOR='vim'
+fi
+alias vi='vim -u NONE'
+
+# ctags
+if [ -f /Applications/MacVim.app/Contents/MacOS/ctags ]; then
+    alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+fi
+
+# screen
+alias sc='screen'
+alias scexit='screen -r -X quit'
+
+# git
+if [ -f /usr/local/bin/git ]; then
+alias git='/usr/local/bin/git'
+fi
+
+# ruby
+if [ -f /usr/bin/ruby1.9.1 ]; then
+    alias ruby='/usr/bin/ruby1.9.1'
+fi
+if [ -f /usr/bin/gem1.9.1 ]; then
+    alias gem='/usr/bin/gem1.9.1'
+fi
+
+# other
+alias ana='request-log-analyzer'
+alias node-dev='~/node_modules/node-dev/node-dev'
+
+# ls
+# case "$OSTYPE" in
+    # freebsd*|darwin*)
+        # alias ls='ls -G -w'
+    # ;;
+    # *)
+        # alias ls='ls --color=auto'
+    # ;;
+# esac
+# alias ll='ls -alF'
+# alias lla='ls -A'
+
+alias sshfs='~/bin/sshfs-binaries/sshfs-static-leopard'
+alias py="python"
+alias wget='wget --no-check-certificate'
+alias javac='javac -J-Dfile.encoding=UTF-8'
+alias java='java -Dfile.encoding=UTF-8'
+alias p="popd"
+alias v="vi"
+
+# rails
+alias r="rails"
+alias rr="rake routes | less"
+alias rd="rails destroy"
+alias rspec='rspec -c'
+alias rdm='rake db:migrate'
+alias b='bundle exec'
+alias plog='grc powder applog' # dependent on grc
+
+# git
+# alias g="git"
+# alias ci="git commit"
+# alias cia="git commit --amend"
+# alias gl="git pull --rebase"
+# alias pus="git push"
+# alias c="git checkout"
+# alias b='git branch'
+# alias f='git flow'
+# alias ff='git flow feature'
+# alias ffs='git flow feature start'
+# alias fff='git flow feature finish'
+# alias fr='git flow release'
+# alias frs='git flow release start'
+# alias frf='git flow release finish'
+# alias gw='git wtf'
+# alias gc='git clone --recursive'
+
+# grep や ack で絞り込んだ結果を vim で開く
+# http://subtech.g.hatena.ne.jp/secondlife/20100819/1282200855
+alias -g V="| vim -"
+
+# for Mac
+alias there="fcd"
+alias here="open ."

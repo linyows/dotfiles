@@ -162,7 +162,7 @@ if [ -d /Users ]; then
     ln -fsv $HOME/$DIR/_vimperator $HOME/.vimperator
 
     # tmux-MacOSX-pasteboard
-    if [ -f $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace]; then
+    if [ -f $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace ]; then
         mv $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace $BACKUP_PATH
     fi
 

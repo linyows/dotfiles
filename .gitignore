@@ -9,16 +9,16 @@ doc/tags-ja
 # for empty dir
 !empty
 
-# .vim
-.vim/bundle/*
-.vim/bundle/**/*
-.vim/tmp/backup/*
-.vim/tmp/backup/**/*
-.vim/tmp/swap/*
-.vim/tmp/swap/**/*
-.vim/tmp/plugin/*
-.vim/tmp/plugin/**/*
-.vim/tmp/viminfo.txt
+# _vim
+_vim/bundle/*
+_vim/bundle/**/*
+_vim/tmp/backup/*
+_vim/tmp/backup/**/*
+_vim/tmp/swap/*
+_vim/tmp/swap/**/*
+_vim/tmp/plugin/*
+_vim/tmp/plugin/**/*
+_vim/tmp/viminfo.txt
 
 # .vimperator
-.vimperator/info/*
+_vimperator/info/*

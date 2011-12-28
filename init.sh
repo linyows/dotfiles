@@ -1,12 +1,16 @@
 #!/bin/sh
 
-echo " Begins the initialization. \033[40m\033[1;35m;)\033[0m"
-
 DIR=".mytools"
 BACKUP_DIR=".mytools_backup"
 BACKUP_PATH=$HOME/$BACKUP_DIR/`date +%Y-%m-%d-%H-%M-%S`
+
+echo ""
+echo "\033[1;33mBegins the initialization.\033[0m
+backup dir: \033[1;37m$BACKUP_PATH\033[0m"
+
 mkdir -p $BACKUP_PATH
-echo " Make links for dotfiles... \033[47m\033[1;35m:)\033[0m"
+
+echo "[\033[1;34m make links for dotfiles... \033[0m]"
 
 #
 # zsh
@@ -111,7 +115,7 @@ elif [ -f $HOME/.gitignore ]; then
 fi
 ln -fsv $HOME/$DIR/_git/.gitignore $HOME/.gitignore
 
-echo " Git submodule init... \033[47m\033[1;35m:)\033[0m"
+echo "[\033[1;34m git submodule init... \033[0m]"
 
 #
 # submodule
@@ -120,7 +124,7 @@ cd $HOME/$DIR
 git submodule init
 git submodule update
 
-echo " Vim bundle install... \033[47m\033[1;35m:)\033[0m"
+echo "[\033[1;34m vim bundle install... \033[0m]"
 
 #
 # vim
@@ -160,7 +164,8 @@ fi
 # mac only
 #
 if [ -d /Users ]; then
-    echo " Init for mac... \033[47m\033[1;35m:)\033[0m"
+    echo "\033[1;33mInit for mac... \033[0m"
+    echo "[\033[1;34m make links for dotfiles... \033[0m]"
 
     # vimperator
     if [ -L $HOME/.vimperatorrc ]; then
@@ -177,6 +182,8 @@ if [ -d /Users ]; then
     fi
     ln -fsv $HOME/$DIR/_vimperator $HOME/.vimperator
 
+    echo "[\033[1;34m make tmux-MacOSX-pasteboard... \033[0m]"
+
     # tmux-MacOSX-pasteboard
     if [ -f $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace ]; then
         mv $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace $BACKUP_PATH
@@ -188,7 +195,8 @@ if [ -d /Users ]; then
 fi
 
 if [ $? -eq 0 ]; then
-    echo " Successfully initialized. \033[40m\033[1;32m;)\033[0m"
+    echo "\033[1;32mSuccessfully initialized!\033[1;33m ;)\033[0m"
 else
-    echo " Some problems occur... \033[40m\033[1;31mO_o\033[0m"
+    echo "\033[1;31mSome problems occur...\033[1;33m O_o\033[0m"
 fi
+echo ""

@@ -19,7 +19,7 @@ alias scexit='screen -r -X quit'
 
 # git
 if [ -f /usr/local/bin/git ]; then
-alias git='/usr/local/bin/git'
+    alias git='/usr/local/bin/git'
 fi
 
 # ruby
@@ -30,6 +30,16 @@ if [ -f /usr/bin/gem1.9.1 ]; then
     alias gem='/usr/bin/gem1.9.1'
 fi
 
+# rbenv
+if [ -f /usr/local/bin/rbenv ]; then
+    eval "$(rbenv init -)"
+    source ~/.rbenv/completions/rbenv.bash
+fi
+
+# node-dev
+if [ -f ~/node_modules/node-dev/node-dev ]; then
+    alias node-dev='~/node_modules/node-dev/node-dev'
+fi
+
 # other
 alias ana='request-log-analyzer'
-alias node-dev='~/node_modules/node-dev/node-dev'

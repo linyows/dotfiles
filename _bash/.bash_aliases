@@ -30,12 +30,6 @@ if [ -f /usr/bin/gem1.9.1 ]; then
     alias gem='/usr/bin/gem1.9.1'
 fi
 
-# rbenv
-if [ -f /usr/local/bin/rbenv ]; then
-    eval "$(rbenv init -)"
-    source ~/.rbenv/completions/rbenv.bash
-fi
-
 # node-dev
 if [ -f ~/node_modules/node-dev/node-dev ]; then
     alias node-dev='~/node_modules/node-dev/node-dev'

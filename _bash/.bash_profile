@@ -22,6 +22,12 @@ if [ -d /Users ]; then
 
     # npm
     export PATH=/usr/local/share/npm/bin:$PATH
+
+    # rbenv
+    if [ -f /usr/local/bin/rbenv ]; then
+        eval "$(rbenv init -)"
+        source ~/.rbenv/completions/rbenv.bash
+    fi
 fi
 
 # default

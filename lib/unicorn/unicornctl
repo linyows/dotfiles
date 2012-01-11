@@ -1,0 +1,111 @@
+#!/bin/sh
+
+UNICORN="unicorn_rails"
+ASSETS_LINK=$HOME/Projects/nginx_assets
+LAUNCHCTL="unicorn.plist"
+PROJECT=${2:-"project"}
+RAILS_ENV=${3:-"development"}
+
+find_unicorn_pid(){
+  ps -ef | grep unicorn | grep master | awk '{printf $2;}'
+}
+
+find_unicorn_settings_file(){
+  find ~ -name unicorn\:$(echo $PROJECT | sed 's/\//\:/g').rb
+}
+
+find_project_directory(){
+  find ~ -regex ".*/$PROJECT"
+}
+
+find_unicorn_plist(){
+  echo `find ~ -name $LAUNCHCTL`;
+}
+
+link_assets_dir(){
+  echo "Linking assets directory"
+  unlink_assets_dir
+  ln -s $1/public $ASSETS_LINK
+}
+
+unlink_assets_dir(){
+  rm $ASSETS_LINK 2>/dev/null
+}
+
+stop_unicorn(){
+  echo "Killing unicorn process"
+  kill -QUIT $(find_unicorn_pid)
+  echo "Cleaning up asset dir"
+  unlink_assets_dir
+}
+
+restart_unicorn(){
+  echo "Restarting unicorn process"
+  kill -HUP $(find_unicorn_pid)
+}
+
+launch_unicorn(){
+  echo "Launching unicorn daemon"
+  launchctl load $(unicorn_plist) && \
+  link_assets_dir $(find_project_directory)
+}
+
+start_unicorn(){
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+  conf=$(find_unicorn_settings_file)
+  dir=$(find_project_directory)
+  echo "Starting unicorn in $RAILS_ENV mode"
+  echo "Project : $dir"
+  echo "Configuration : $conf"
+
+  cd $dir && \
+  bundle exec $UNICORN -c $conf -E $RAILS_ENV -D && \
+  link_assets_dir $dir
+}
+
+check_unicorn_running(){
+  if [ "$(find_unicorn_pid)" ]; then
+    return 0
+  else
+    echo "unicorn is not currently running"
+    return 1
+  fi
+}
+
+warn_already_running(){
+  if [ "$(find_unicorn_pid)" ]; then
+    echo "unicorn is already running"
+    return 0
+  else
+    return 1
+  fi
+}
+
+show_pid(){
+  echo $(find_unicorn_pid)
+}
+
+case $1 in
+  start)
+    warn_already_running || start_unicorn
+  ;;
+  stop)
+    check_unicorn_running && stop_unicorn
+  ;;
+  restart)
+    check_unicorn_running && restart_unicorn
+  ;;
+  launch)
+    warn_already_running || launch_unicorn
+  ;;
+  pid)
+    check_unicorn_running && show_pid
+  ;;
+  *)
+    echo "usage : [sudo] unicornctl [pid|start|stop|restart|launch]"
+    exit 1
+  ;;
+esac
+
+exit $?

@@ -1,0 +1,74 @@
+#!/bin/sh
+
+NGINX=/usr/local/sbin/nginx
+LAUNCHCTL=/System/Library/LaunchDaemons/org.nginx.nginx.plist
+
+find_nginx_pid(){
+  echo `ps -ef | grep nginx | grep master | awk '{printf $2;}'`;
+}
+
+stop_nginx(){
+  echo "Killing Nginx process"
+  kill -6 $(find_nginx_pid)
+}
+
+restart_nginx(){
+  echo "Restarting Nginx process"
+  kill -HUP $(find_nginx_pid)
+}
+
+launch_nginx(){
+  echo "Launching Nginx daemon"
+  launchctl load ${LAUNCHCTL}
+}
+
+start_nginx(){
+  echo "Starting Nginx"
+  `${NGINX}`
+}
+
+check_nginx_running(){
+  if [ "$(find_nginx_pid)" ]; then
+    return 0
+  else
+    echo "Nginx is not currently running"
+    return 1
+  fi
+}
+
+warn_already_running(){
+  if [ "$(find_nginx_pid)" ]; then
+    echo "Nginx is already running"
+    return 0
+  else
+    return 1
+  fi
+}
+
+show_pid(){
+  echo $(find_nginx_pid)
+}
+
+case $1 in
+  start)
+    warn_already_running || start_nginx
+  ;;
+  stop)
+    check_nginx_running && stop_nginx
+  ;;
+  restart)
+    check_nginx_running && restart_nginx
+  ;;
+  launch)
+    warn_already_running || launch_nginx
+  ;;
+  pid)
+    check_nginx_running && show_pid
+  ;;
+  *)
+    echo "usage : [sudo] nginxctl [pid|start|stop|restart|launch]"
+    exit 1
+  ;;
+esac
+
+exit $?

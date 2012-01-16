@@ -22,3 +22,7 @@ _vim/tmp/viminfo.txt
 
 # .vimperator
 _vimperator/info/*
+_vimperator/info/default/*
+
+# tmux clipboad
+bin/reattach-to-user-namespace

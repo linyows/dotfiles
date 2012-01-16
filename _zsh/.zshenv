@@ -43,6 +43,8 @@ _zshenv_add_path PATH "$HOME/.mytools/bin"
 _zshenv_add_path PATH "$HOME/git/config/bin/*" # git で管理する bin
 _zshenv_add_path PATH "$HOME/sbin"
 _zshenv_add_path PATH "$HOME/node_modules/.bin"
+_zshenv_add_path PATH "$HOME/.rbenv"
+_zshenv_add_path PATH "$HOME/.rbenv/shims"
 _zshenv_add_path PATH "/usr/local/bin"
 _zshenv_add_path PATH "/usr/local/sbin"
 _zshenv_add_path PATH "/usr/local/*/bin"

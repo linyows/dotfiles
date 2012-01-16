@@ -24,6 +24,10 @@ if [ -d /Users ]; then
     export PATH=/usr/local/share/npm/bin:$PATH
 
     # rbenv
+    export PATH=$HOME/.rbenv:$PATH
+    export PATH=$HOME/.rbenv/shims:$PATH
+
+    # rbenv
     if [ -f /usr/local/bin/rbenv ]; then
         eval "$(rbenv init -)"
         source ~/.rbenv/completions/rbenv.bash

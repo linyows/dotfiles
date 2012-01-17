@@ -143,6 +143,8 @@
         Bundle 'guileen/vim-node'
         " CUI版Vimでもクリップボードを使えるように
         Bundle 'fakeclip'
+        " ステータスラインカスタマイズ
+        Bundle 'Lokaltog/vim-powerline'
     " }}}
 
     " Unite {

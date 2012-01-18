@@ -49,6 +49,15 @@ source $ZSH/oh-my-zsh.sh
     zstyle ':completion:*:cd:*' tag-order local-directories path-directories
     zstyle ':completion:*' list-colors 'di=;00;38;05;44' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=00;38;05;44' 'cd=00;38;05;44'
 
+    # historical backward/forward search with linehead string binded to ^P/^N
+    autoload history-search-end
+    zle -N history-beginning-search-backward-end history-search-end
+    zle -N history-beginning-search-forward-end history-search-end
+    bindkey "^p" history-beginning-search-backward-end
+    bindkey "^n" history-beginning-search-forward-end
+    bindkey "\\ep" history-beginning-search-backward-end
+    bindkey "\\en" history-beginning-search-forward-end
+
     # glob (*) での履歴のインクリメンタル検索
     bindkey '^R' history-incremental-pattern-search-backward
     bindkey '^S' history-incremental-pattern-search-forward
@@ -143,13 +152,12 @@ source $ZSH/oh-my-zsh.sh
     colors
 # }}}
 
-# glob (*) での履歴のインクリメンタル検索
-# http://subtech.g.hatena.ne.jp/secondlife/20110222/1298354852
-bindkey '^R' history-incremental-pattern-search-backward
-bindkey '^S' history-incremental-pattern-search-forward
-
-# cdd を追加
-source $HOME/.zsh/plugin/cdd
+# Plugins {{{
+    # cdd を追加
+    source $HOME/.zsh/plugin/cdd
+    # incriment search
+    source $HOME/.zsh/plugin/incr*.zsh
+# }}}
 
 # .zsh_aliases
 if [ -f ~/.zsh_aliases ]; then

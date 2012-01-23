@@ -48,6 +48,11 @@ source $ZSH/oh-my-zsh.sh
     # カレントディレクトリに候補がない場合のみ cdpath 上のディレクトリを候補
     zstyle ':completion:*:cd:*' tag-order local-directories path-directories
     zstyle ':completion:*' list-colors 'di=;00;38;05;44' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=00;38;05;44' 'cd=00;38;05;44'
+    zstyle ':completion:*' format '%B%d%b'
+    zstyle ':completion:*' group-name ''
+    zstyle ':completion:*' use-cache true # 補完候補をキャッシュ
+    zstyle ':completion:*' verbose yes # 詳細な情報
+    # zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH" # sudo時にはsudo用のパス使用
 
     # historical backward/forward search with linehead string binded to ^P/^N
     autoload history-search-end
@@ -89,7 +94,7 @@ source $ZSH/oh-my-zsh.sh
     setopt AUTO_PARAM_KEYS        # カッコの対応などを自動的に補完
     setopt AUTO_RESUME            # サスペンド中のプロセスと同じコマンド名を実行した場合はリジューム
     setopt CHECK_JOBS             # シェルを抜ける (exit) 時に、zsh: you have runnning jobs と警告を出す
-    setopt CORRECT                # コマンドのスペルチェック
+    setopt CORRECT                # コマンドのスペルチェック,自動修正
     setopt CORRECT_ALL            # 対象のファイルもスペルチェックをする
     setopt EXTENDED_GLOB          # ファイル名で #, ~, ^ の 3 文字を正規表現として扱う
     setopt EXTENDED_HISTORY       # zsh の開始, 終了時刻をヒストリファイルに書き込む
@@ -111,6 +116,17 @@ source $ZSH/oh-my-zsh.sh
     setopt SHARE_HISTORY          # 履歴の共有
     setopt AUTOPUSHD              # cd 時に自動で push
     setopt PUSHD_IGNORE_DUPS      # 同じディレクトリを pushd しない
+
+    setopt AUTO_PUSHD
+    setopt LIST_PACKED            # 補完候補を詰めて表示
+    setopt NOLISTBEEP             # 補完表示時にビープ音を鳴らさない
+    setopt COMPLETE_ALIASES       # エイリアスを設定したコマンドでも補完機能を使えるようにする
+    setopt TRANSIENT_RPROMPT      # コピペしやすいようにコマンド実行後は右プロンプトを消す。
+    setopt COMPLETE_IN_WORD       # カーソル位置で補完する。
+    setopt GLOB_COMPLETE          # globを展開しないで候補の一覧から補完する。
+    setopt HIST_EXPAND            # 補完時にヒストリを自動的に展開する。
+    setopt NO_BEEP                # 補完候補がないときなどにビープ音を鳴らさない。
+    setopt BRACE_CCL              # {a-c} を a b c に展開する機能を使えるようにする
 
     #setopt EQUALS                # =command を command のパス名に展開する
     #setopt HIST_VERIFY           # ヒストリを呼び出してから実行する間に一旦編集
@@ -157,6 +173,13 @@ source $ZSH/oh-my-zsh.sh
     source $HOME/.zsh/plugin/cdd
     # incriment search
     source $HOME/.zsh/plugin/incr*.zsh
+# }}}
+
+# Etc {{
+    # 実行したプロセスの消費時間が3秒以上かかったら消費時間の統計情報を表示
+    REPORTTIME=3
+    chpwd_functions=($chpwd_functions dirs) # ディレクトリが変わったらディレクトリスタックを表示
+    WORDCHARS=${WORDCHARS:s,/,,} # 「/」も単語区切りとみなす
 # }}}
 
 # .zsh_aliases

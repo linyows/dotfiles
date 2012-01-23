@@ -51,12 +51,12 @@ alias ana='request-log-analyzer'
 # alias lla='ls -A'
 
 alias sshfs='~/bin/sshfs-binaries/sshfs-static-leopard'
-alias py="python"
+#alias py="python"
 alias wget='wget --no-check-certificate'
-alias javac='javac -J-Dfile.encoding=UTF-8'
-alias java='java -Dfile.encoding=UTF-8'
-alias p="popd"
-alias v="vi"
+# alias javac='javac -J-Dfile.encoding=UTF-8'
+# alias java='java -Dfile.encoding=UTF-8'
+# alias p="popd"
+# alias v="vi"
 
 # rails
 alias r="rails"
@@ -64,26 +64,33 @@ alias rr="rake routes | less"
 alias rd="rails destroy"
 alias rspec='rspec -c'
 alias rdm='rake db:migrate'
-alias b='bundle exec'
+alias rr='rake route'
+alias be='bundle exec'
+alias bu='bundle update'
+alias bi='bundle install --path vendor/bundle'
+alias bc='bundle clean'
 alias plog='grc powder applog' # dependent on grc
 
 # git
-# alias g="git"
-# alias ci="git commit"
-# alias cia="git commit --amend"
-# alias gl="git pull --rebase"
-# alias pus="git push"
-# alias c="git checkout"
-# alias b='git branch'
-# alias f='git flow'
-# alias ff='git flow feature'
-# alias ffs='git flow feature start'
-# alias fff='git flow feature finish'
-# alias fr='git flow release'
-# alias frs='git flow release start'
-# alias frf='git flow release finish'
-# alias gw='git wtf'
-# alias gc='git clone --recursive'
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gca="git commit --amend"
+alias gpr="git pull --rebase"
+alias gpm="git push origin master"
+alias gpd="git push origin develop"
+alias gcm="git checkout master"
+alias gcd="git checkout develop"
+alias gb='git branch'
+alias gf='git flow'
+alias gff='git flow feature'
+alias gffs='git flow feature start'
+alias gfff='git flow feature finish'
+alias gfr='git flow release'
+alias gfrs='git flow release start'
+alias gfrf='git flow release finish'
+alias gw='git wtf'
+alias gc='git clone'
+alias gcr='git clone --recursive'
 
 # grep や ack で絞り込んだ結果を vim で開く
 # http://subtech.g.hatena.ne.jp/secondlife/20100819/1282200855

@@ -50,8 +50,8 @@ alias ana='request-log-analyzer'
 # alias ll='ls -alF'
 # alias lla='ls -A'
 
-alias sshfs='~/bin/sshfs-binaries/sshfs-static-leopard'
-#alias py="python"
+# alias sshfs='~/bin/sshfs-binaries/sshfs-static-leopard'
+# alias py="python"
 alias wget='wget --no-check-certificate'
 # alias javac='javac -J-Dfile.encoding=UTF-8'
 # alias java='java -Dfile.encoding=UTF-8'
@@ -72,14 +72,17 @@ alias bc='bundle clean'
 alias plog='grc powder applog' # dependent on grc
 
 # git
-alias gc="git commit"
-alias gcm="git commit -m"
-alias gca="git commit --amend"
+alias gco="git commit -m"
+alias gcoa="git commit --amend"
 alias gpr="git pull --rebase"
+alias gp="git push"
 alias gpm="git push origin master"
 alias gpd="git push origin develop"
+alias gc="git checkout"
 alias gcm="git checkout master"
 alias gcd="git checkout develop"
+alias gmm="git merge master"
+alias gmd="git merge develop"
 alias gb='git branch'
 alias gf='git flow'
 alias gff='git flow feature'
@@ -89,7 +92,7 @@ alias gfr='git flow release'
 alias gfrs='git flow release start'
 alias gfrf='git flow release finish'
 alias gw='git wtf'
-alias gc='git clone'
+# alias gc='git clone --depth 1'
 alias gcr='git clone --recursive'
 
 # grep や ack で絞り込んだ結果を vim で開く

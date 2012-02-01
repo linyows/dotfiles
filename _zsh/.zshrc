@@ -276,4 +276,10 @@ fi
             echo "[$result]"
         fi
     }
+
+    # sshしたら新規ウインドウでタブ名を接続名にする
+    function ssh_tmux() {
+        eval server=\${$#}
+        eval tmux new-window -n "'${server}'" "'ssh $@'"
+    }
 # }}}

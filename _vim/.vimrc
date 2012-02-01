@@ -124,7 +124,7 @@
         " <Leader>beでバッファのリストを表示
         "Bundle 'bufexplorer.zip'
         " tree表示のfiler
-        Bundle 'scrooloose/nerdtree'
+        "Bundle 'scrooloose/nerdtree'
         " vim上でスクリプト実行、結果表示。コマンドモードで\r
         Bundle 'thinca/vim-quickrun'
         " svn commit をした時に表示されるログの編集画面と一緒に、svn diff の内容も表示
@@ -149,6 +149,7 @@
 
     " Unite {
         Bundle 'Shougo/unite.vim'
+        Bundle 'Shougo/vimfiler'
         "see more plugin http://bit.ly/m5PKnU
         Bundle 'Sixeight/unite-grep'
         Bundle 'tsukkee/unite-help'
@@ -769,6 +770,12 @@
         cnoremap UF Unite font<Enter>
         cnoremap UB Unite hamburger<Enter>
         cnoremap UD Unite drink<Enter>
+    " }}}
+
+    " vimfiler {{{
+        " セーフモード解除
+        let g:vimfiler_safe_mode_by_default = 0
+        " see keybind: http://d.hatena.ne.jp/h1mesuke/20100611/p1
     " }}}
 
     " ack.vim {{{

@@ -788,8 +788,8 @@
         nnoremap <silent> [Space]v :<C-u>VimFiler<CR>
         nnoremap [Space]ff :<C-u>VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle<CR>
 
-        call vimfiler#set_execute_file('vim', ['vim', 'notepad'])
-        call vimfiler#set_execute_file('txt', 'vim')
+        " call vimfiler#set_execute_file('vim', ['vim', 'notepad'])
+        " call vimfiler#set_execute_file('txt', 'vim')
 
         let g:vimfiler_enable_clipboard = 0
         let g:vimfiler_safe_mode_by_default = 0

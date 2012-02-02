@@ -5,6 +5,17 @@
 " linyows <linyows@gmail.com>
 " https://github.com/linyows/.vim
 
+" Initialize {{{
+    let s:iswin = has('win32') || has('win64')
+
+    " Use English interface.
+    if s:iswin
+      language message en
+    else
+      language mes C
+    endif
+" }}}
+
 " Vundle Plugin {{{
     set nocompatible " Vi互換にしない
     filetype off
@@ -773,8 +784,34 @@
     " }}}
 
     " vimfiler {{{
-        " セーフモード解除
+        "nmap [Space]v <Plug>(vimfiler_switch)
+        nnoremap <silent> [Space]v :<C-u>VimFiler<CR>
+        nnoremap [Space]ff :<C-u>VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle<CR>
+
+        call vimfiler#set_execute_file('vim', ['vim', 'notepad'])
+        call vimfiler#set_execute_file('txt', 'vim')
+
+        let g:vimfiler_enable_clipboard = 0
         let g:vimfiler_safe_mode_by_default = 0
+        let g:vimshell_cd_command = 'TabpageCD'
+        let g:vimfiler_as_default_explorer = 1
+        let g:vimfiler_detect_drives = s:iswin ? [
+              \ 'C:/', 'D:/', 'E:/', 'F:/', 'G:/', 'H:/', 'I:/',
+              \ 'J:/', 'K:/', 'L:/', 'M:/', 'N:/'] :
+              \ split(glob('/mnt/*'), '\n') + split(glob('/media/*'), '\n') +
+              \ split(glob('/Users/*'), '\n')
+
+        " if s:iswin
+        " " Use trashbox.
+          " let g:unite_kind_file_use_trashbox = 1
+        " else
+        " " Like Textmate icons.
+          " let g:vimfiler_tree_leaf_icon = ' '
+          " let g:vimfiler_tree_opened_icon = '▾'
+          " let g:vimfiler_tree_closed_icon = '▸'
+          " let g:vimfiler_file_icon = '-'
+          " let g:vimfiler_marked_file_icon = '*'
+        " endif
         " see keybind: http://d.hatena.ne.jp/h1mesuke/20100611/p1
     " }}}
 

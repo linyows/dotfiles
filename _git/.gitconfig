@@ -7,7 +7,9 @@
     ch = checkout
     cm = commit -m
     ca = commit -a
-    st = status
+    st = status -sb
+    fork = checkout -b
+    join = merge --no-ff
     br = branch
     df = diff
     wh = whatchanged

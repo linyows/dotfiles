@@ -282,4 +282,13 @@ fi
         eval server=\${$#}
         eval tmux new-window -n "'${server}'" "'ssh $@'"
     }
+
+    # insert clipboad (not tmux)
+    function myip() {
+        if [ $SHLVL = 1 ]; then
+            ifconfig en1 | grep netmask | awk '{ print $2 }' | pbcopy && pbpaste
+        else
+            ifconfig en1 | grep netmask | awk '{ print $2 }'
+        fi
+    }
 # }}}

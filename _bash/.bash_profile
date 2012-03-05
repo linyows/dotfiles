@@ -28,7 +28,7 @@ if [ -d /Users ]; then
     export PATH=$HOME/.rbenv/shims:$PATH
 
     # rbenv
-    if [ -f /usr/local/bin/rbenv ]; then
+    if [ -f ~/.rbenv/completions/rbenv.bash ]; then
         eval "$(rbenv init -)"
         source ~/.rbenv/completions/rbenv.bash
     fi

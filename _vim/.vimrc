@@ -364,8 +364,8 @@
         if has('gui_macvim')
             if has('gui_running')
                 " full screen
-                set fuoptions=maxvert,maxhorz
-                au GUIEnter * set fullscreen
+                "set fuoptions=maxvert,maxhorz
+                "au GUIEnter * set fullscreen
                 " hidden scroll bar
                 set guioptions-=r
                 set guioptions-=R
@@ -376,8 +376,8 @@
                 set lines=50               " window縦
                 "set showtabline=2         " タブを常に表示
                 "set imdisable             " IMを無効化
-                autocmd FocusGained * set transparency=10     " フォーカス時透明度
-                autocmd FocusLost * set transparency=80       " フォーカスしてない時透明度
+                "autocmd FocusGained * set transparency=10     " フォーカス時透明度
+                "autocmd FocusLost * set transparency=80       " フォーカスしてない時透明度
                 set antialias             " アンチエイリアス
                 set guifont=VL_Gothic:h12 " フォント
             endif

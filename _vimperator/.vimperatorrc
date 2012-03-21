@@ -127,7 +127,7 @@
         " GoogleReader
         :autocmd LocationChange 'www\.google\.(com|co\.jp)/reader' :fmap! -vkey j k n p m s t v o A r S N P X O 0 1 2 = gh ga gs gt gu u / ? <M-a> <M-c> <M-x> <M-v>
         " Github
-        :autocmd LocationChange 'github\.com/[0-9A-z-]+/[0-9A-z-]+' :fmap c / j k n p o u e x s r a z ? t w
+        ":autocmd LocationChange 'github\.com/[0-9A-z-]+/[0-9A-z-]+' :fmap c / j k n p o u e x s r a z ? t w
     " }}}
 
     " migemo_hint.js {{{

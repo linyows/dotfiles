@@ -18,6 +18,7 @@
     gr = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
     stt = diff --stat
     su = log --stat --summary
+    pd = log ORIG_HEAD..HEAD -p
 [core]
     excludesfile = ~/.gitignore
     quotepath = false

@@ -157,7 +157,7 @@ if [ -d /Users ]; then
   make -f make_mac.mak
 # linux
 else
-  make -f make_gcc.mak
+  make -f make_unix.mak
 fi
 
 #

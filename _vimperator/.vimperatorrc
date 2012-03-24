@@ -120,21 +120,14 @@
     " }}}
 
     " feedSomeKeys_2.js {{{
-        " - Init
+        " Init
         :autocmd LocationChange .* :fmapc
-
-        " - Gmail
-        ":autocmd LocationChange 'mail\.google\.com/[mail|a]' :fmap -depth 4 c / j k n p o u e x s r a l # [ ] z ? ! gi gs gt gd ga gc . <C-a> <C-c> <C-x> <C-v>
-        ":autocmd LocationChange 'mail\.google\.com/[mail|a]' :fmap -depth 4 c / j k n p o u e x s r a l # [ ] z ? ! gi gs gt gd ga gc . <M-a> <M-c> <M-x> <M-v>
+        " Gmail
         :autocmd LocationChange 'mail\.google\.com/[mail|a]' :fmap c / j k n p o u e x s r a # [ ] z ? ! gi gs gt gd ga gc . <M-a> <M-c> <M-x> <M-v>
-
-        " - GoogleReader
-        ":autocmd LocationChange 'www\.google\.(com|co\.jp)/reader' :fmap! -vkey j k n p m s t v o A r S N P X O 0 1 2 = gh ga gs gt gu u / ? <C-a> <C-c> <C-x> <C-v>
+        " GoogleReader
         :autocmd LocationChange 'www\.google\.(com|co\.jp)/reader' :fmap! -vkey j k n p m s t v o A r S N P X O 0 1 2 = gh ga gs gt gu u / ? <M-a> <M-c> <M-x> <M-v>
-
-        " - Fastladder/LDR
-        " :autocmd LocationChange fastladder\.com/reader :fmap! j k s a r p o v c <Space> <S-Space> < >
-        " :autocmd LocationChange reader\.livedoor\.com/reader :fmap! j k s a r p o v c <Space> <S-Space> < >
+        " Github
+        ":autocmd LocationChange 'github\.com/[0-9A-z-]+/[0-9A-z-]+' :fmap c / j k n p o u e x s r a z ? t w
     " }}}
 
     " migemo_hint.js {{{

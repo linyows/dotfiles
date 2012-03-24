@@ -617,6 +617,7 @@
     " YankRing.vim {{{
         " yank_historyファイル場所指定
         let g:yankring_history_file = '.vim/tmp/plugin/.yankring_history'
+        let g:yankring_manual_clipboard_check = 0
         " 履歴のリストを表示
         nmap Y :<C-u>YRShow<CR>
         " 履歴をクリア

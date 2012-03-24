@@ -652,7 +652,7 @@
         let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
         let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
         let Tlist_Enable_Fold_Column = 1          " 折りたたみ
-        let Tlist_Auto_Open = 1                   " 自動表示
+        let Tlist_Auto_Open = 0                   " 自動表示
         let Tlist_Auto_Update = 1
         let Tlist_WinWidth = 30
         "map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー

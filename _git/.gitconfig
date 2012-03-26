@@ -25,3 +25,5 @@
     editor = vim
 [http]
     sslVerify = false
+[github]
+    user = linyows

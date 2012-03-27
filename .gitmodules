@@ -16,3 +16,6 @@
 [submodule "_vimperator/colors/indigo"]
 	path = _vimperator/colors/indigo
 	url = git://github.com/vimpr/vimperator-colors.git
+[submodule "_zsh/plugin/z"]
+	path = _zsh/plugin/z
+	url = git://github.com/rupa/z.git

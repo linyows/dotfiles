@@ -120,7 +120,7 @@ source $ZSH/oh-my-zsh.sh
     setopt AUTO_PUSHD
     setopt LIST_PACKED            # 補完候補を詰めて表示
     setopt NOLISTBEEP             # 補完表示時にビープ音を鳴らさない
-    setopt COMPLETE_ALIASES       # エイリアスを設定したコマンドでも補完機能を使えるようにする
+    #setopt COMPLETE_ALIASES       # エイリアスを設定したコマンドでも補完機能を使えるようにする -> zの補完が効かなくなるので comment out
     setopt TRANSIENT_RPROMPT      # コピペしやすいようにコマンド実行後は右プロンプトを消す。
     setopt COMPLETE_IN_WORD       # カーソル位置で補完する。
     setopt GLOB_COMPLETE          # globを展開しないで候補の一覧から補完する。

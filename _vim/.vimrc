@@ -634,8 +634,8 @@
         map <Leader>mn :MemoNew<CR>
         map <Leader>ml :MemoList<CR>
         map <Leader>mg :MemoGrep<CR>
-        "let g:memolist_path = 'path/to/dir'
-        "let g:memolist_memo_suffix       = 'txt'
+        let g:memolist_path = '~/Dropbox/Document/Note'
+        let g:memolist_memo_suffix       = 'md'
         "let g:memolist_memo_date         = '%Y-%m-%d %H:%M'
         "let g:memolist_memo_date         = 'epoch'
         "let g:memolist_memo_date         = '%D %T'
@@ -775,11 +775,11 @@
         " 全部乗せ
         nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
         " ウィンドウを分割して開く
-        au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-        au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+        au FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+        au FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
         " ウィンドウを縦に分割して開く
-        au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-        au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+        au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+        au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
         " ESCキーを2回押すと終了する
         au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
         au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>

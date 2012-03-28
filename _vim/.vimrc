@@ -165,8 +165,8 @@
         Bundle 'Sixeight/unite-grep'
         Bundle 'tsukkee/unite-help'
         Bundle 'h1mesuke/unite-outline'
-        Bundle 'linyows/unite-li3'
-        Bundle 'heavenshell/unite-zf'
+        "Bundle 'linyows/unite-li3'
+        "Bundle 'heavenshell/unite-zf'
         "Bundle 'heavenshell/unite-sf2'
         Bundle 'oppara/vim-unite-cake'
         Bundle 'basyura/unite-rails'
@@ -179,11 +179,13 @@
         Bundle 'ujihisa/unite-colorscheme'
         Bundle 'ujihisa/unite-locate'
         Bundle 'mattn/unite-remotefile'
-        Bundle 'mattn/unite-mcdonalds-vim'
-        Bundle 'mattn/unite-genpatsu-fukushima-vim'
+        "Bundle 'mattn/unite-mcdonalds-vim'
+        "Bundle 'mattn/unite-genpatsu-fukushima-vim'
     " }}}
 
     " Others {
+        " Manage Markdown File
+        Bundle 'glidenote/memolist.vim'
         " vimでevernote (need python support)
         "Bundle 'kakkyz81/evervim'
     " }}}
@@ -628,6 +630,20 @@
         nnoremap <silent> ,yt :<C-u>:YRSetTop
     " }}}
 
+    " memolist.vim {{{
+        map <Leader>mn :MemoNew<CR>
+        map <Leader>ml :MemoList<CR>
+        map <Leader>mg :MemoGrep<CR>
+        "let g:memolist_path = 'path/to/dir'
+        "let g:memolist_memo_suffix       = 'txt'
+        "let g:memolist_memo_date         = '%Y-%m-%d %H:%M'
+        "let g:memolist_memo_date         = 'epoch'
+        "let g:memolist_memo_date         = '%D %T'
+        "let g:memolist_prompt_tags       = 'true'
+        "let g:memolist_prompt_categories = 'true'
+        "let g:memolist_qfixgrep          = 'true'
+    " }}}
+
     " evervim {{{
         " 作業用ワークディレクトリ指定
         let g:evervim_workdir = $HOME . '/.vim/tmp/plugin/.evervim'
@@ -780,8 +796,6 @@
         cnoremap UO Unite outline<Enter>
         cnoremap UC Unite colorscheme<Enter>
         cnoremap UF Unite font<Enter>
-        cnoremap UB Unite hamburger<Enter>
-        cnoremap UD Unite drink<Enter>
     " }}}
 
     " vimfiler {{{

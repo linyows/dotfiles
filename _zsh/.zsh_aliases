@@ -72,13 +72,12 @@ alias bc='bundle clean'
 alias plog='grc powder applog' # dependent on grc
 
 # git
-alias gco="git commit -m"
 alias gcoa="git commit --amend"
-alias gpl="git pull"
+alias gpl="git pull origin"
 alias gplm="git pull origin master"
 alias gpld="git pull origin develop"
 alias gplr="git pull --rebase"
-alias gps="git push"
+alias gps="git push origin"
 alias gpsm="git push origin master"
 alias gpsd="git push origin develop"
 alias gc="git checkout"

@@ -19,6 +19,8 @@
     stt = diff --stat
     su = log --stat --summary
     pd = log ORIG_HEAD..HEAD -p
+[pull]
+    #rebase = true
 [core]
     excludesfile = ~/.gitignore
     quotepath = false

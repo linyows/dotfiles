@@ -184,6 +184,8 @@
     " }}}
 
     " Others {
+        " github interface
+        Bundle 'thinca/vim-github'
         " Manage Markdown File
         Bundle 'glidenote/memolist.vim'
         " vimでevernote (need python support)

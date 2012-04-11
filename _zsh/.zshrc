@@ -175,10 +175,21 @@ source $ZSH/oh-my-zsh.sh
     precmd() {
       _z --add "$(pwd -P)"
     }
+
     # cdd を追加
     #source $HOME/.zsh/plugin/cdd
+
     # incriment search
     source $HOME/.zsh/plugin/incr*.zsh
+
+    # Incriment
+    # https://github.com/hchbaw/auto-fu.zsh
+    if [ -f ~/.zsh/plugin/auto-fu/auto-fu.zsh ]; then
+        #source ~/.zsh/plugin/auto-fu/auto-fu.zsh
+        #zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate _list _history
+        #zstyle ':auto-fu:var' postdisplay ''
+        #zle-line-init () {auto-fu-init;}; zle -N zle-line-init
+    fi
 # }}}
 
 # Etc {{

@@ -17,6 +17,9 @@ fi
 alias sc='screen'
 alias scexit='screen -r -X quit'
 
+# weechat (for broken display on tmux)
+alias wee='TERM=screen-256color weechat-curses'
+
 # git
 if [ -f /usr/local/bin/git ]; then
     alias git='/usr/local/bin/git'

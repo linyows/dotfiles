@@ -19,3 +19,6 @@
 [submodule "_zsh/plugin/z"]
 	path = _zsh/plugin/z
 	url = git://github.com/rupa/z.git
+[submodule "_zsh/plugin/auto-fu"]
+	path = _zsh/plugin/auto-fu
+	url = git://github.com/hchbaw/auto-fu.zsh.git

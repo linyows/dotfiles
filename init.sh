@@ -34,7 +34,7 @@ if [ -L $HOME/.zsh_aliases ]; then
 elif [ -f $HOME/.zsh_aliases ]; then
     mv $HOME/.zsh_aliases $BACKUP_PATH
 fi
-cp -f $HOME/$DIR/_zsh/.zsh_aliases $HOME/.zsh_aliases
+ln -f $HOME/$DIR/_zsh/.zsh_aliases $HOME/.zsh_aliases
 
 if [ -L $HOME/.oh-my-zsh ]; then
     rm -rf $HOME/.oh-my-zsh

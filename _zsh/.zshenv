@@ -66,6 +66,7 @@ _zshenv_add_path PATH "/usr/*/sbin"
 _zshenv_add_path PATH "/usr/local/lib/flex3/bin"
 _zshenv_add_path PATH "/usr/local/src/apache-maven-2.2.1/bin"
 _zshenv_add_path PATH "/usr/local/ImageMagick-6.5.8-5/lib"
+_zshenv_add_path PATH "/usr/share/python"
 _zshenv_add_path PATH "/usr/local/share/python"
 
 export CPATH=
@@ -79,6 +80,8 @@ _zshenv_add_path CPATH "/opt/include"
 
 #export JRUBY_HOME=/usr/local/lib/jruby
 #export PATH=$JRUBY_HOME/bin:$PATH
+
+export PYTHONPATH=/usr/share/python:/usr/local/share/python:$PYTHONPATH
 
 # load local.zshenv
 if [ -f "$HOME/.zshenv.local" ]; then

@@ -1,16 +1,17 @@
-# Readme
+linyows dotfiles
+================
 
-My development tools.  
-using iterm2 (256 colors).
+this is linyows's development tools.
 
-# Install
+Dependency
+----------
 
-brew, apt or yum
-
+    brew, apt or yum
     git, zsh, tmux, vim7.3(enabled python), ctags, ack, tree
 
-# Setup
+Install
+-------
 
-    $ cd ~/
-    $ git clone git://github.com/linyows/.mytools.git
-    $ sh ~/.mytools/setup.sh
+    $ git clone git://github.com/linyows/dotfiles.git ~/.dotfiles
+    $ cd ~/.dotfiles
+    $ ./bin/dotfiles

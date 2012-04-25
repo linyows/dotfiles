@@ -39,4 +39,4 @@ export PATH=/bin:/sbin:/usr/bin:/usr/sbin:$PATH
 
 # local
 export PATH=/usr/local/bin/:/usr/local/sbin/:$PATH
-export PATH=$HOME/.mytools/bin:$PATH
+export PATH=$HOME/.dotfiles/bin:$PATH

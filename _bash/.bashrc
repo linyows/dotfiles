@@ -11,11 +11,11 @@ if [ -f ~/.rvm/scripts/rvm ]; then
     . ~/.rvm/scripts/rvm
 fi
 # bash_completion
-if [ -f ~/.mytools/lib/git-completion/git-completion.bash ]; then
-    . ~/.mytools/lib/git-completion/git-completion.bash
+if [ -f ~/.dotfiles/lib/git-completion/git-completion.bash ]; then
+    . ~/.dotfiles/lib/git-completion/git-completion.bash
 fi
-if [ -f ~/.mytools/lib/git-flow-completion/git-flow-completion.bash ]; then
-    . ~/.mytools/lib/git-flow-completion/git-flow-completion.bash
+if [ -f ~/.dotfiles/lib/git-flow-completion/git-flow-completion.bash ]; then
+    . ~/.dotfiles/lib/git-flow-completion/git-flow-completion.bash
 fi
 
 HISTTIMEFORMAT='%y/%m/%d %H:%M:%S $ '

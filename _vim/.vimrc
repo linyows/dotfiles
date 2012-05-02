@@ -763,6 +763,11 @@
 
     " unite.vim {{{
         let g:unite_data_directory = expand('~/.vim/tmp/plugin/.unite')
+        let g:unite_source_grep_default_opts = '-Hn --color=never'
+        if executable('ack-grep')
+            let g:unite_source_grep_command = 'ack-grep'
+            let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+        endif
         " 入力モードで開始する
         "let g:unite_enable_start_insert=1
         " バッファ一覧

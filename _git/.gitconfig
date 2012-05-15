@@ -25,6 +25,7 @@
     excludesfile = ~/.gitignore
     quotepath = false
     editor = vim
+    pager = less -r
 [http]
     sslVerify = false
 [github]

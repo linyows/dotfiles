@@ -308,4 +308,16 @@ fi
             ifconfig en1 | grep netmask | awk '{ print $2 }'
         fi
     }
+
+    # cache for rake routes
+    function routes_cache {
+        local routes_cache; routes_cache="./tmp/routes_cache"
+        if [ "$1" = "--force" ]; then
+            rm $routes_cache;
+        fi
+        if ! [ -e $routes_cache ]; then
+            bundle exec rake routes > $routes_cache
+        fi
+        cat $routes_cache
+    }
 # }}}

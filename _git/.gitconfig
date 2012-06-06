@@ -19,6 +19,7 @@
     stt = diff --stat
     su = log --stat --summary
     pd = log ORIG_HEAD..HEAD -p
+    refresh = submodule foreach 'git checkout master && git pull origin master'
 [pull]
     #rebase = true
 [core]

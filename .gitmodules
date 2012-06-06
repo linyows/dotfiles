@@ -22,3 +22,9 @@
 [submodule "_zsh/plugin/auto-fu"]
 	path = _zsh/plugin/auto-fu
 	url = git://github.com/hchbaw/auto-fu.zsh.git
+[submodule "lib/git-now"]
+	path = lib/git-now
+	url = git://github.com/toshi-kawanishi/git-now.git
+[submodule "lib/git-tools"]
+	path = lib/git-tools
+	url = git://github.com/tyru/gittools.git

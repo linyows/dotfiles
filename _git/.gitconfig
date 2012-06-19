@@ -13,12 +13,14 @@
     join = merge --no-ff
     br = branch
     df = diff
+    stt = diff --stat
     wh = whatchanged
     hi = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     gr = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-    stt = diff --stat
     su = log --stat --summary
     pd = log ORIG_HEAD..HEAD -p
+    lg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
+    today = log --oneline --since='12 hour ago'
     refresh = submodule foreach 'git checkout master && git pull origin master'
 [pull]
     #rebase = true

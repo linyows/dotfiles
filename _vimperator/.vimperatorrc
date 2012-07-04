@@ -30,7 +30,7 @@
     "colorscheme vimplight
     set! ui.caretWidth=5
     " <C-i>でMacVimで編集
-    set editor='/usr/bin/mvim -f'
+    set editor='/Applications/MacVim.app/Contents/MacOS/mvim -f'
 " }}}
 
 " Windows: <C-a>, Mac: <M-a>

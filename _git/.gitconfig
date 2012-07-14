@@ -22,6 +22,9 @@
     lg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
     today = log --oneline --since='12 hour ago'
     refresh = submodule foreach 'git checkout master && git pull origin master'
+    type = cat-file -t
+    dump = cat-file -p
+    ls = ls-files
 [pull]
     #rebase = true
 [core]

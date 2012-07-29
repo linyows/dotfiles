@@ -87,3 +87,5 @@ export PYTHONPATH=/usr/share/python:/usr/local/share/python:$PYTHONPATH
 if [ -f "$HOME/.zshenv.local" ]; then
     source "$HOME/.zshenv.local"
 fi
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

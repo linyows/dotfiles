@@ -26,12 +26,12 @@ if [ -f /usr/local/bin/git ]; then
 fi
 
 # ruby
-if [ -f /usr/bin/ruby1.9.1 ]; then
-    alias ruby='/usr/bin/ruby1.9.1'
-fi
-if [ -f /usr/bin/gem1.9.1 ]; then
-    alias gem='/usr/bin/gem1.9.1'
-fi
+# if [ -f /usr/bin/ruby1.9.1 ]; then
+    # alias ruby='/usr/bin/ruby1.9.1'
+# fi
+# if [ -f /usr/bin/gem1.9.1 ]; then
+    # alias gem='/usr/bin/gem1.9.1'
+# fi
 
 # node-dev
 if [ -f ~/node_modules/node-dev/node-dev ]; then

@@ -320,4 +320,12 @@ fi
         fi
         cat $routes_cache
     }
+
+    function generate_and_commit() {
+        if [ $# -eq 0 ]; then
+            echo 'woops... no argument'
+        else
+            bundle exec rails generate controller $@ && git add -A && git commit -m "Generate with: $ $(fc -ln -1)"
+        fi
+    }
 # }}}

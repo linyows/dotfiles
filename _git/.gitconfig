@@ -7,13 +7,14 @@
     ch = checkout
     cm = commit -m
     ca = commit -a
-    st = status
     #st = status -sb
+    st = status -s
     fork = checkout -b
     join = merge --no-ff
     br = branch
-    df = diff
+    df = diff HEAD^ --word-diff
     stt = diff --stat
+    diffstats = diff HEAD^ --stat
     wh = whatchanged
     hi = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     gr = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
@@ -22,6 +23,14 @@
     lg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
     today = log --oneline --since='12 hour ago'
     refresh = submodule foreach 'git checkout master && git pull origin master'
+    count = shortlog -sn
+    undo = reset --soft HEAD^
+    amend = commit --amend -C HEAD
+    credit = commit --amend --author "$1 <$2>" -C HEAD
+    findby = branch --contains
+    nomerged = branch --no-merged
+    merged = branch --merged
+    lost = fsck --lost-found
     type = cat-file -t
     dump = cat-file -p
     ls = ls-files
@@ -32,6 +41,12 @@
     quotepath = false
     editor = vim
     pager = less -r
+[rerere]
+    enabled = true
+[help]
+    autocorrect = true
+[remotes]
+    #mygroup = 'remote1 remote2'
 [http]
     sslVerify = false
 [github]

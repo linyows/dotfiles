@@ -26,3 +26,5 @@ _vimperator/info/default/*
 
 # tmux clipboad
 bin/reattach-to-user-namespace
+
+history/*

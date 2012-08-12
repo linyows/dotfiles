@@ -118,6 +118,16 @@ ln -fsv $HOME/$DIR/_git/.gitignore $HOME/.gitignore
 echo "[\033[1;34m git submodule init... \033[0m]"
 
 #
+# pry
+#
+if [ -L $HOME/.pryrc ]; then
+    rm -rf  $HOME/.pryrc
+elif [ -f $HOME/.pryrc ]; then
+    mv $HOME/.pryrc $BACKUP_PATH
+fi
+ln -fsv $HOME/$DIR/_rc/.pryrc $HOME/.pryrc
+
+#
 # submodule
 #
 cd $HOME/$DIR

@@ -128,6 +128,26 @@ fi
 ln -fsv $HOME/$DIR/_rc/.pryrc $HOME/.pryrc
 
 #
+# gem
+#
+if [ -L $HOME/.gemrc ]; then
+    rm -rf  $HOME/.gemrc
+elif [ -f $HOME/.gemrc ]; then
+    mv $HOME/.gemrc $BACKUP_PATH
+fi
+ln -fsv $HOME/$DIR/_rc/.gemrc $HOME/.gemrc
+
+#
+# ack
+#
+if [ -L $HOME/.ackrc ]; then
+    rm -rf  $HOME/.ackrc
+elif [ -f $HOME/.ackrc ]; then
+    mv $HOME/.ackrc $BACKUP_PATH
+fi
+ln -fsv $HOME/$DIR/_rc/.ackrc $HOME/.ackrc
+
+#
 # submodule
 #
 cd $HOME/$DIR

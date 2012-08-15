@@ -33,10 +33,10 @@ class Hash
   end
 end
 
-if defined?(Rails) && Rails.env
-  require 'logger'
-  ActiveRecord::Base.logger = Logger.new(STDOUT)
-  ActiveRecord::Base.clear_active_connections!
+if defined?(::Rails) && Rails.env
+  # require 'logger'
+  # ActiveRecord::Base.logger = Logger.new(STDOUT)
+  # ActiveRecord::Base.clear_active_connections!
 
   # require_without_bundler 'hirb'
   # # https://github.com/cldwalker/hirb/issues/46#issuecomment-1870823

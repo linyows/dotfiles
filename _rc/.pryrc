@@ -4,18 +4,26 @@ Pry.config.pager = false
 Pry.config.editor = 'vim'
 Pry.config.history.should_save = true
 Pry.config.history.file = '~/.dotfiles/history/.pry_history'
+
+rails_env = defined?(::Rails) ?
+  "#{Rails.env.production? ? "\033[7;31m#{Rails.env}\033[0m" : 'dev'} " : nil
+info = "#{rails_env}#{RUBY_VERSION}"
 Pry.prompt = [
-  proc{ |target_self, nest_level, pry|
-    prompt = ''
-    prompt << "#{Rails.version}@" if defined?(Rails)
-    prompt << "#{RUBY_VERSION}"
-    "#{pry.input_array.size} | #{prompt}(#{Pry.view_clip(target_self)})#{":#{nest_level}" unless nest_level.zero?}> "
+  proc { |target_self, nest_level, pry|
+    number = pry.input_array.size
+    target = Pry.view_clip(target_self)
+    level = nest_level.zero? ? nil : ":#{nest_level}"
+    sep = "\033[1;34m|\033[0m"
+    prompt = "\033[1;34m>\033[0m"
+    "#{number} #{sep} #{info}(#{target})#{level}#{prompt} "
   },
-  proc{ |target_self, nest_level, pry|
-    prompt = ''
-    prompt << "#{Rails.version}@" if defined?(Rails)
-    prompt << "#{RUBY_VERSION}"
-    "#{pry.input_array.size} | #{prompt}(#{Pry.view_clip(target_self)})#{":#{nest_level}" unless nest_level.zero?}* "
+  proc { |target_self, nest_level, pry|
+    number = pry.input_array.size
+    target = Pry.view_clip(target_self)
+    level = nest_level.zero? ? nil : ":#{nest_level}"
+    sep = "|"
+    prompt = "*"
+    "#{number} #{sep} #{info}(#{target})#{level}#{prompt} "
   }
 ]
 
@@ -31,6 +39,17 @@ class Hash
   def self.toy(n = 10)
     Hash[Array.toy(n).zip(Array.toy(n){ |c| (96 + (c + 1)).chr })]
   end
+end
+
+def h; { hello: 'world', free: 'of charge' }; end
+def beep; putc ?\a; nil; end
+def d; rand(4) + 1; end
+
+## Benchmarking
+# Inspired by <http://stackoverflow.com/questions/123494/whats-your-favourite-irb-trick/123834#123834>.
+def time(repetitions = 100, &block)
+  require 'benchmark'
+  Benchmark.bm{|b| b.report{repetitions.times(&block)}}
 end
 
 if defined?(::Rails) && Rails.env
@@ -58,37 +77,13 @@ if defined?(::Rails) && Rails.env
   end
 end
 
-def a
-  (1..6).to_a
-end
-
-def h
-  { hello: 'world', free: 'of charge' }
-end
-
-## Benchmarking
-# Inspired by <http://stackoverflow.com/questions/123494/whats-your-favourite-irb-trick/123834#123834>.
-def time(repetitions = 100, &block)
-  require 'benchmark'
-  Benchmark.bm{|b| b.report{repetitions.times(&block)}}
-end
-
-## Odds and Ends
-def beep
-  putc ?\a
-  nil
-end
-
-# For choosing the first Anki flash card deck.
-def d
-  rand(4) + 1
-end
-
-begin
-  require 'awesome_print'
-  Pry.config.print = proc{|output, value|
-    Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)
-  }
-rescue LoadError => err
-  warn '=> Unable to load awesome_print'
+unless defined?(::AwesomePrint)
+  begin
+    require 'awesome_print'
+    # Pry.config.print = proc { |output, value|
+      # Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)
+    # }
+  rescue LoadError => err
+    warn '=> Unable to load awesome_print'
+  end
 end

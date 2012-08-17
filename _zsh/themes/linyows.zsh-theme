@@ -27,8 +27,19 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[purple]%}"
 ZSH_THEME_GIT_PROMPT_DELETED="%{$my_dark_navy%}"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[black]%}"
 
+# mark
+prompt_zigzag='⚡'
+prompt_cross='✝ '
+prompt_arrow='»'
+prompt_anchor='⚓'
+prompt_cloud='☁ '
+prompt_ok='✔ '
+prompt_ng='✘ '
+prompt_note1='♪ '
+prompt_note2='♬'
+
 # main prompt
-PROMPT='%{$fg_bold[blue]%}%p%{$fg[blue]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$my_green%} % $(git_prompt_status)⚡%{$reset_color%} '
+PROMPT='%{$fg_bold[blue]%}%p%{$fg[blue]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$my_green%} % $(git_prompt_status)$prompt_cross%{$reset_color%} '
 
 # right prompt
 RPROMPT='$FG[236]%n@%m $FG[238]$(rvm_prompt_info || rbenv_prompt_info) $FG[240]$PWD%{$reset_color%}%'

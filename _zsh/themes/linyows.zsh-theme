@@ -11,7 +11,7 @@ eval my_navy='$FG[032]'
 eval my_dark_navy='$FG[024]'
 eval my_purple='$FG[105]'
 eval my_green='$FG[048]'
-eval my_light_pink='$FG[167]'
+eval my_pink='$FG[199]'
 
 # git status
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}[%{$my_light_gray%}"
@@ -22,7 +22,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}]%{$reset_color%}"
 # sorted by priority
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[yellow]%}"
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$my_light_pink%}"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$my_pink%}"
 ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[purple]%}"
 ZSH_THEME_GIT_PROMPT_DELETED="%{$my_dark_navy%}"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[black]%}"

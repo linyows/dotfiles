@@ -229,25 +229,6 @@ fi
         ls -lt ${1+"$@"} | head -20;
     }
 
-    # http://d.hatena.ne.jp/aircastle/20080428
-    # CPU 使用率の高い方から8つ
-    function pst() {
-      psa | head -n 1
-        psa | sort -r -n +2 | grep -v "ps -auxww" | grep -v grep | head -n 8
-    }
-
-    # メモリ占有率の高い方から8つ
-    function psm() {
-      psa | head -n 1
-        psa | sort -r -n +3 | grep -v "ps -auxww" | grep -v grep | head -n 8
-    }
-
-    # 全プロセスから引数の文字列を含むものを grep
-    function psg() {
-      psa | head -n 1                                      # ラベルを表示
-        psa | grep $* | grep -v "ps -auxww" | grep -v grep # grep プロセスを除外
-    }
-
     # http://subtech.g.hatena.ne.jp/secondlife/20080604/1212562182
     function cdf () {
         local -a tmpparent; tmpparent=""
@@ -263,13 +244,6 @@ fi
             fi
             num=$(($num + 1))
         done
-    }
-    function cdrake () {
-        cdf "Rakefile"
-    }
-
-    function cdcat () {
-        cdf "Makefile.PL"
     }
 
     # it's a function to draw mandelbrot fractal

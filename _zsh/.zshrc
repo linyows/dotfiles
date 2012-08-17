@@ -315,4 +315,8 @@ fi
             bundle exec rails generate controller $@ && git add -A && git commit -m "Generate with: $ $(fc -ln -1)"
         fi
     }
+
+    function find_swp() {
+        find . -name "*.swp*" -print
+    }
 # }}}

@@ -5,7 +5,20 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="../../themes/linyows"
+
+# good
+# ZSH_THEME="cloud"
+# ZSH_THEME="josh"
+# ZSH_THEME="af-magic"
+
+# soso
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="daveverwer"
+# ZSH_THEME="fletcherm"
+# ZSH_THEME="gallifrey"
+# ZSH_THEME="jnrowe"
+# ZSH_THEME="norm"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

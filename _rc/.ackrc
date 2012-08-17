@@ -10,7 +10,6 @@
 --type-add=js=.js.erb,.js.coffee
 
 --type-set=json=.json
---type-set=rake=.rake
 --type-set=rb=.rb
 --type-set=txt=.txt
 --type-set=md=.md

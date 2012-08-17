@@ -10,20 +10,18 @@ rails_env = defined?(::Rails) ?
 info = "#{rails_env}#{RUBY_VERSION}"
 Pry.prompt = [
   proc { |target_self, nest_level, pry|
-    number = pry.input_array.size
     target = Pry.view_clip(target_self)
     level = nest_level.zero? ? nil : ":#{nest_level}"
-    sep = "\033[1;34m|\033[0m"
+    number = "\033[1;34m[#{pry.input_array.size}]\033[0m"
     prompt = "\033[1;34m>\033[0m"
-    "#{number} #{sep} #{info}(#{target})#{level}#{prompt} "
+    "#{number} #{info}(#{target})#{level}#{prompt} "
   },
   proc { |target_self, nest_level, pry|
-    number = pry.input_array.size
     target = Pry.view_clip(target_self)
     level = nest_level.zero? ? nil : ":#{nest_level}"
-    sep = "|"
+    number = "[#{pry.input_array.size}]"
     prompt = "*"
-    "#{number} #{sep} #{info}(#{target})#{level}#{prompt} "
+    "#{number} #{info}(#{target})#{level}#{prompt} "
   }
 ]
 

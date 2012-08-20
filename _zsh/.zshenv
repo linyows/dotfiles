@@ -85,8 +85,8 @@ _zshenv_add_path CPATH "/opt/include"
 
 export PYTHONPATH=/usr/share/python:/usr/local/share/python:$PYTHONPATH
 
-if [ -f "$HOME/.zshenv.local" ]; then
-    source "$HOME/.zshenv.local"
+if [ -d "$HOME/.rbenv" ]; then
+    eval "$(rbenv init -)"
 fi
 
 # load local.zshenv

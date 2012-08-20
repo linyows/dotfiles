@@ -44,7 +44,9 @@ _zshenv_add_path PATH "$HOME/git/config/bin/*" # git で管理する bin
 _zshenv_add_path PATH "$HOME/sbin"
 _zshenv_add_path PATH "$HOME/node_modules/.bin"
 _zshenv_add_path PATH "$HOME/.rbenv"
+_zshenv_add_path PATH "$HOME/.rbenv/bin"
 _zshenv_add_path PATH "$HOME/.rbenv/shims"
+_zshenv_add_path PATH "$HOME/.nodebrew/current/bin"
 _zshenv_add_path PATH "/usr/local/bin"
 _zshenv_add_path PATH "/usr/local/sbin"
 _zshenv_add_path PATH "/usr/local/*/bin"
@@ -83,9 +85,11 @@ _zshenv_add_path CPATH "/opt/include"
 
 export PYTHONPATH=/usr/share/python:/usr/local/share/python:$PYTHONPATH
 
+if [ -f "$HOME/.zshenv.local" ]; then
+    source "$HOME/.zshenv.local"
+fi
+
 # load local.zshenv
 if [ -f "$HOME/.zshenv.local" ]; then
     source "$HOME/.zshenv.local"
 fi
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"

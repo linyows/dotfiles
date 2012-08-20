@@ -41,5 +41,10 @@ prompt_note2='♬'
 # main prompt
 PROMPT='%{$fg_bold[blue]%}%p%{$fg[blue]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$my_green%} % $(git_prompt_status)$prompt_cross%{$reset_color%} '
 
+function rbenv_current_version() {
+    ruby_version=$(rbenv_prompt_info 2> /dev/null) || return
+    echo "$ruby_version"
+}
+
 # right prompt
-RPROMPT='$FG[236]%n@%m $FG[238]$(rvm_prompt_info || rbenv_prompt_info) $FG[240]$PWD%{$reset_color%}%'
+RPROMPT='$FG[236]%n@%m $FG[238]$(rvm_prompt_info || rbenv_current_version) $FG[240]$PWD%{$reset_color%}%'

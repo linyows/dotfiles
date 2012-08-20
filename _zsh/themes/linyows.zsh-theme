@@ -46,5 +46,10 @@ function rbenv_current_version() {
     echo "$ruby_version"
 }
 
+function rvm_current_version() {
+    ruby_version=$(~/.rvm/bin/rvm-prompt 2> /dev/null) || return
+    echo "$ruby_version"
+}
+
 # right prompt
-RPROMPT='$FG[236]%n@%m $FG[238]$(rvm_prompt_info || rbenv_current_version) $FG[240]$PWD%{$reset_color%}%'
+RPROMPT='$FG[236]%n@%m $FG[238]$(rbenv_current_version || rvm_current_version) $FG[240]$PWD%{$reset_color%}%'

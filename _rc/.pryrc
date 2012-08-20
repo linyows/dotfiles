@@ -4,8 +4,8 @@ Pry.config.pager = false
 Pry.config.editor = 'vim'
 Pry.config.history.should_save = true
 Pry.config.history.file = '~/.dotfiles/history/.pry_history'
-Pry.config.hooks.add_hook(:after_session, :say_bye) {
-  puts "\033[1;32mbye-bye\033[0m" }
+Pry.config.hooks.add_hook(:after_session, :say_bye!) {
+  puts "\033[1;32mbye\033[0m" }
 
 rails_env = defined?(::Rails) ?
   "#{Rails.env.production? ? "\033[7;31m#{Rails.env}\033[0m" : 'dev'} " : nil

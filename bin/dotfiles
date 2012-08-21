@@ -128,6 +128,13 @@ fi
 ln -fsv $HOME/$DIR/_rc/.pryrc $HOME/.pryrc
 
 #
+# unicorn port
+#
+if [ -f $HOME/.unicorn_port ]; then
+    cp $HOME/$DIR/_ac/.unicorn_port $HOME/.unicorn_port
+fi
+
+#
 # gem
 #
 if [ -L $HOME/.gemrc ]; then

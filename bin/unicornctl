@@ -16,7 +16,14 @@ notice() {
   $SETCOLOR_NORMAL
 }
 
+warn() {
+  $SETCOLOR_WARNING
+  echo "$1"
+  $SETCOLOR_NORMAL
+}
+
 success() {
+  #$MOVE_TO_COL
   $SETCOLOR_SUCCESS
   echo -n "$1"
   $SETCOLOR_WARNING
@@ -24,7 +31,8 @@ success() {
   $SETCOLOR_NORMAL
 }
 
-warn() {
+failure() {
+  #$MOVE_TO_COL
   $SETCOLOR_FAILURE
   echo -n "$1"
   $SETCOLOR_WARNING
@@ -49,7 +57,7 @@ start() {
         success "Done!"
         echo "=> $cmd"
     else
-        warn "Failed..."
+        failure "Failed..."
         echo "=> $cmd"
         echo $result
     fi
@@ -63,7 +71,7 @@ stop() {
         success "Done!"
         echo "=> $cmd"
     else
-        warn "Failed..."
+        failure "Failed..."
         echo "=> $cmd"
         echo $result
     fi
@@ -77,7 +85,7 @@ reload() {
         success "Done!"
         echo "=> $cmd"
     else
-        warn "Failed..."
+        failure "Failed..."
         echo "=> $cmd"
         echo $result
     fi
@@ -91,9 +99,9 @@ launch() {
 
 port() {
     if [ -f $PROJECT_ROOT/.unicorn_port ]; then
-        int=`cat $PROJECT_ROOT/.port`
+        int=`cat $PROJECT_ROOT/.unicorn_port 2> /dev/null`
     elif [ -f $HOME/.unicorn_port ]; then
-        int=`cat $HOME/.unicorn_port`
+        int=`cat $HOME/.unicorn_port 2> /dev/null`
     else
         int=""
     fi
@@ -142,7 +150,7 @@ case "$1" in
         launch
         ;;
     pid)
-        echo $unicorn_pid
+        notice $unicorn_pid
         ;;
     *)
         echo $"Usage: $0 {pid|start|stop|restart|reload}"

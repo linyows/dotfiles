@@ -319,4 +319,10 @@ fi
     function find_swp() {
         find . -name "*.swp*" -print
     }
+
+    # http://d.hatena.ne.jp/kitokitoki/20120324/p1
+    function rlog() {
+      it=$(git rev-parse --show-cdup 2>/dev/null)log/development.log &&
+      less -NRij10 +F $it
+    }
 # }}}

@@ -1,1 +1,150 @@
-../lib/unicorn/unicornctl
+#!/bin/sh
+
+#
+# color
+#
+RES_COL=60
+MOVE_TO_COL="echo -en \\033[${RES_COL}G"
+SETCOLOR_SUCCESS="echo -en \\033[1;32m"
+SETCOLOR_FAILURE="echo -en \\033[1;31m"
+SETCOLOR_WARNING="echo -en \\033[1;33m"
+SETCOLOR_NORMAL="echo -en \\033[0;39m"
+
+notice() {
+  $SETCOLOR_SUCCESS
+  echo "$1"
+  $SETCOLOR_NORMAL
+}
+
+success() {
+  $SETCOLOR_SUCCESS
+  echo -n "$1"
+  $SETCOLOR_WARNING
+  echo " ;)"
+  $SETCOLOR_NORMAL
+}
+
+warn() {
+  $SETCOLOR_FAILURE
+  echo -n "$1"
+  $SETCOLOR_WARNING
+  echo " :("
+  $SETCOLOR_NORMAL
+}
+
+#
+# config
+#
+UNICORN=unicorn
+UNICORN_CONFIG=config/unicorn.conf
+HOST=127.0.0.1
+PROJECT_ROOT=`pwd`
+
+start() {
+    echo -n "Starting Unicorn: "
+    cd $PROJECT_ROOT
+    cmd="bundle exec $UNICORN -c $UNICORN_CONFIG -o $HOST -p $PORT -D"
+    result=$(`$cmd` 2> /dev/null)
+    if [ $? -eq 0 ]; then
+        success "Done!"
+        echo "=> $cmd"
+    else
+        warn "Failed..."
+        echo "=> $cmd"
+        echo $result
+    fi
+}
+
+stop() {
+    echo -n "Stopping Unicorn: "
+    cmd="kill $unicorn_pid"
+    result=$(`$cmd` 2> /dev/null)
+    if [ $? -eq 0 ]; then
+        success "Done!"
+        echo "=> $cmd"
+    else
+        warn "Failed..."
+        echo "=> $cmd"
+        echo $result
+    fi
+}
+
+reload() {
+    echo -n "Reloading Unicorn: "
+    cmd="kill -s USR2 $unicorn_pid"
+    result=$(`$cmd` 2> /dev/null)
+    if [ $? -eq 0 ]; then
+        success "Done!"
+        echo "=> $cmd"
+    else
+        warn "Failed..."
+        echo "=> $cmd"
+        echo $result
+    fi
+}
+
+launch() {
+    echo -n "Launching unicorn daemon: "
+    echo "launchctl load $unicorn_plist && link_assets_dir $PROJECT_ROOT"
+    launchctl load $unicorn_plist && link_assets_dir $PROJECT_ROOT
+}
+
+port() {
+    if [ -f $PROJECT_ROOT/.unicorn_port ]; then
+        int=`cat $PROJECT_ROOT/.port`
+    elif [ -f $HOME/.unicorn_port ]; then
+        int=`cat $HOME/.unicorn_port`
+    else
+        int=""
+    fi
+    echo "$int"
+}
+
+is_running() {
+    if [ "$unicorn_pid" = "" ]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+echo_started() {
+    warn "Unicorn has already started..."
+    echo $unicorn_process
+}
+
+echo_not_started() {
+    warn "Unicorn has not started..."
+}
+
+PORT="$(port)"
+if [ "$PORT" = "" ]; then
+  warn "Oops! '`pwd`/.unicorn_port' or '~/.unicorn_port' not found"
+  exit 2
+fi
+unicorn_process=`ps ax | grep $PORT | grep -v "grep" | grep master | sed "s/^ *//"`
+unicorn_pid=${unicorn_process%% *}
+
+case "$1" in
+    start)
+        (is_running && echo_started) || start
+        ;;
+    stop)
+        (is_running && stop) || echo_not_started
+        ;;
+    restart)
+        (is_running && stop && sleep 1 && start) || echo_not_started
+        ;;
+    reload)
+        (is_running && reload) || echo_not_started
+        ;;
+    launch)
+        launch
+        ;;
+    pid)
+        echo $unicorn_pid
+        ;;
+    *)
+        echo $"Usage: $0 {pid|start|stop|restart|reload}"
+        exit 2
+esac

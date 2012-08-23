@@ -325,4 +325,17 @@ fi
       it=$(git rev-parse --show-cdup 2>/dev/null)log/development.log &&
       less -NRij10 +F $it
     }
+
+    # https://github.com/ivolo/animals
+    function say_hello() {
+        aa="$(curl -s animals.ivolo.me)"
+        if [ aa != "" ]; then
+            echo
+            echo -n "\\033[1;30m"
+            echo $aa
+            echo -n "\\033[0;39m"
+        fi
+    }
 # }}}
+
+say_hello

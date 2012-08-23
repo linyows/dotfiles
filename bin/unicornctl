@@ -9,6 +9,7 @@ SETCOLOR_SUCCESS="echo -n \\033[1;32m"
 SETCOLOR_FAILURE="echo -n \\033[1;31m"
 SETCOLOR_WARNING="echo -n \\033[1;33m"
 SETCOLOR_NORMAL="echo -n \\033[0;39m"
+SETCOLOR_MODERATION="echo -n \\033[1;30m"
 
 notice() {
   $SETCOLOR_SUCCESS
@@ -18,6 +19,12 @@ notice() {
 
 warn() {
   $SETCOLOR_WARNING
+  echo "$1"
+  $SETCOLOR_NORMAL
+}
+
+note() {
+  $SETCOLOR_MODERATION
   echo "$1"
   $SETCOLOR_NORMAL
 }
@@ -55,10 +62,10 @@ start() {
     result=$(`$cmd` 2> /dev/null)
     if [ $? -eq 0 ]; then
         success "Done!"
-        echo "=> $cmd"
+        note "=> $cmd"
     else
         failure "Failed..."
-        echo "=> $cmd"
+        note "=> $cmd"
         echo $result
     fi
 }
@@ -66,13 +73,13 @@ start() {
 stop() {
     echo -n "Stopping Unicorn: "
     cmd="kill $unicorn_pid"
-    result=$(`$cmd` 2> /dev/null)
+    result="$(`$cmd` 2> /dev/null)"
     if [ $? -eq 0 ]; then
         success "Done!"
-        echo "=> $cmd"
+        note "=> $cmd"
     else
         failure "Failed..."
-        echo "=> $cmd"
+        note "=> $cmd"
         echo $result
     fi
 }
@@ -83,10 +90,10 @@ reload() {
     result=$(`$cmd` 2> /dev/null)
     if [ $? -eq 0 ]; then
         success "Done!"
-        echo "=> $cmd"
+        note "=> $cmd"
     else
         failure "Failed..."
-        echo "=> $cmd"
+        note "=> $cmd"
         echo $result
     fi
 }

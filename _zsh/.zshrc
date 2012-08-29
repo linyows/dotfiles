@@ -327,7 +327,7 @@ fi
     }
 
     # https://github.com/ivolo/animals
-    function say_hello() {
+    function hey() {
         aa="$(curl -s animals.ivolo.me)"
         if [ aa != "" ]; then
             echo
@@ -337,5 +337,3 @@ fi
         fi
     }
 # }}}
-
-say_hello

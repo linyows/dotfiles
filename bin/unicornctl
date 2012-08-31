@@ -58,8 +58,12 @@ PROJECT_ROOT=`pwd`
 start() {
     echo -n "Starting Unicorn: "
     cd $PROJECT_ROOT
-    cmd="bundle exec $UNICORN -c $UNICORN_CONFIG -o $HOST -p $PORT -D"
-    result=$(`$cmd` 2> /dev/null)
+    if [ "$PORT" = '' ]; then
+      cmd="bundle exec $UNICORN -c $UNICORN_CONFIG -D"
+    else
+      cmd="bundle exec $UNICORN -c $UNICORN_CONFIG -o $HOST -p $PORT -D"
+    fi
+    result=`$cmd 2>&1`
     if [ $? -eq 0 ]; then
         success "Done!"
         note "=> $cmd"
@@ -72,8 +76,8 @@ start() {
 
 stop() {
     echo -n "Stopping Unicorn: "
-    cmd="kill $unicorn_pid"
-    result="$(`$cmd` 2> /dev/null)"
+    cmd="kill $PID"
+    result=`$cmd 2>&1`
     if [ $? -eq 0 ]; then
         success "Done!"
         note "=> $cmd"
@@ -86,8 +90,8 @@ stop() {
 
 reload() {
     echo -n "Reloading Unicorn: "
-    cmd="kill -s USR2 $unicorn_pid"
-    result=$(`$cmd` 2> /dev/null)
+    cmd="kill -s USR2 $PID"
+    result=`$cmd 2>&1`
     if [ $? -eq 0 ]; then
         success "Done!"
         note "=> $cmd"
@@ -105,18 +109,28 @@ launch() {
 }
 
 port() {
-    if [ -f $PROJECT_ROOT/.unicorn_port ]; then
-        int=`cat $PROJECT_ROOT/.unicorn_port 2> /dev/null`
-    elif [ -f $HOME/.unicorn_port ]; then
-        int=`cat $HOME/.unicorn_port 2> /dev/null`
+    if [ -f $PROJECT_ROOT/.unicorn ]; then
+        int=`cat $PROJECT_ROOT/.unicorn 2> /dev/null`
+    elif [ -f $HOME/.unicorn ]; then
+        int=`cat $HOME/.unicorn 2> /dev/null`
     else
-        int=""
+        int=''
     fi
     echo "$int"
 }
 
+pid() {
+    if [ "$PORT" = "" ]; then
+      unicorn_pid=`cat $PROJECT_ROOT/tmp/pids/unicorn.pid 2> /dev/null`
+    else
+      unicorn_process=`ps ax | grep $PORT | grep -v "grep" | grep master | sed "s/^ *//"`
+      unicorn_pid=${unicorn_process%% *}
+    fi
+    echo $unicorn_pid
+}
+
 is_running() {
-    if [ "$unicorn_pid" = "" ]; then
+    if [ "$PID" = "" ]; then
         return 1
     else
         return 0
@@ -133,12 +147,7 @@ echo_not_started() {
 }
 
 PORT="$(port)"
-if [ "$PORT" = "" ]; then
-  warn "Oops! '`pwd`/.unicorn_port' or '~/.unicorn_port' not found"
-  exit 2
-fi
-unicorn_process=`ps ax | grep $PORT | grep -v "grep" | grep master | sed "s/^ *//"`
-unicorn_pid=${unicorn_process%% *}
+PID="$(pid)"
 
 case "$1" in
     start)
@@ -157,7 +166,7 @@ case "$1" in
         launch
         ;;
     pid)
-        notice $unicorn_pid
+        notice $PID
         ;;
     *)
         echo $"Usage: $0 {pid|start|stop|restart|reload}"

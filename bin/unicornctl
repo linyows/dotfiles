@@ -51,9 +51,9 @@ failure() {
 # config
 #
 UNICORN=unicorn
-UNICORN_CONFIG=config/unicorn.conf
-HOST=127.0.0.1
 PROJECT_ROOT=`pwd`
+UNICORN_CONFIG=$PROJECT_ROOT/config/unicorn.conf
+HOST=127.0.0.1
 
 start() {
     echo -n "Starting Unicorn: "

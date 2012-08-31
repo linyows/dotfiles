@@ -64,6 +64,11 @@
         " スニペット機能をvimで(snippetsEmuより使いやすい)
         "Bundle 'msanders/snipmate.vim'
         "Bundle 'linyows/snipmate.vim'
+        " 命名規則変換
+        " abcDef: crc, AbcDef: crm,
+        " abc_def: cr_, ABC_DEF: cru,
+        " abc-def: cr-
+        Bundle 'tpope/vim-abolish'
     " }}}
 
     " Syntax {{{
@@ -156,6 +161,8 @@
         Bundle 'fakeclip'
         " ステータスラインカスタマイズ
         Bundle 'Lokaltog/vim-powerline'
+        " 図を描画
+        Bundle 'DrawIt'
     " }}}
 
     " Unite {
@@ -200,7 +207,7 @@
         " フルカラーなカラースキームを88/256色対応ターミナル上のVimで有効化
         "Bundle 'godlygeek/csapprox'
         " Scheme
-        Bundle 'larssmit/getafe'
+        Bundle 'larssmit/vim-getafe'
         Bundle 'altercation/vim-colors-solarized'
         Bundle 'tomasr/molokai'
         " カラースキーム集

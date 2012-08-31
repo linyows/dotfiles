@@ -76,7 +76,7 @@ start() {
 
 stop() {
     echo -n "Stopping Unicorn: "
-    cmd="kill $PID"
+    cmd="kill -s QUIT $PID"
     result=`$cmd 2>&1`
     if [ $? -eq 0 ]; then
         success "Done!"

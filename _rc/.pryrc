@@ -1,21 +1,33 @@
+# 色つけるとhistoryが変になるのでやめる
+# WHITE   = "\e[37m"
+# CYAN    = "\e[36m"
+# MAGENTA = "\e[35m"
+# BLUE    = "\e[34m"
+# BLUE_L  = "\e[1;34m"
+# YELLOW  = "\e[33m"
+# GREEN   = "\e[32m"
+# RED     = "\e[31m"
+# RED_R   = "\e[7;31m"
+# BLACK   = "\e[30m"
+# BOLD    = "\e[1m"
+# CLEAR   = "\e[0m"
+
 # Pry Config
-Pry.config.commands.import Pry::ExtendedCommands::Experimental
+# Pry.config.commands.import Pry::ExtendedCommands::Experimental
 Pry.config.pager = false
 Pry.config.editor = 'vim'
 Pry.config.history.should_save = true
 Pry.config.history.file = '~/.dotfiles/history/.pry_history'
-Pry.config.hooks.add_hook(:after_session, :say_bye!) {
-  puts "\033[1;32mbye\033[0m" }
+Pry.config.hooks.add_hook(:after_session, :say_bye!) { puts "bye" }
 
-rails_env = defined?(::Rails) ?
-  "#{Rails.env.production? ? "\033[7;31m#{Rails.env}\033[0m" : 'dev'} " : nil
+rails_env = defined?(::Rails) ? "#{Rails.env.production? ? "#{Rails.env}" : 'dev'} " : nil
 info = "#{rails_env}#{RUBY_VERSION}"
 Pry.prompt = [
   proc { |target_self, nest_level, pry|
     target = Pry.view_clip(target_self)
     level = nest_level.zero? ? nil : ":#{nest_level}"
-    number = "\033[1;34m[#{pry.input_array.size}]\033[0m"
-    prompt = "\033[1;34m>\033[0m"
+    number = "[#{pry.input_array.size}]"
+    prompt = ">"
     "#{number} #{info}(#{target})#{level}#{prompt} "
   },
   proc { |target_self, nest_level, pry|

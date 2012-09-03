@@ -4,13 +4,13 @@
 # color
 #
 RES_COL=60
-MOVE_TO_COL="echo -n \\033[${RES_COL}G"
-SETCOLOR_SUCCESS="echo -n \\033[1;32m"
-SETCOLOR_FAILURE="echo -n \\033[1;31m"
-SETCOLOR_WARNING="echo -n \\033[1;33m"
-SETCOLOR_NORMAL="echo -n \\033[0;39m"
-SETCOLOR_ATTENTION="echo -n \\033[1;37m"
-SETCOLOR_INFO="echo -n \\033[1;34m"
+MOVE_TO_COL="echo -en \\033[${RES_COL}G"
+SETCOLOR_SUCCESS="echo -en \\033[1;32m"
+SETCOLOR_FAILURE="echo -en \\033[1;31m"
+SETCOLOR_WARNING="echo -en \\033[1;33m"
+SETCOLOR_NORMAL="echo -en \\033[0;39m"
+SETCOLOR_ATTENTION="echo -en \\033[1;37m"
+SETCOLOR_INFO="echo -en \\033[1;34m"
 
 notice() {
   $SETCOLOR_SUCCESS
@@ -181,15 +181,6 @@ elif [ -f $HOME/.pryrc ]; then
     mv $HOME/.pryrc $BACKUP_PATH
 fi
 ln -fsv $HOME/$DIR/_rc/.pryrc $HOME/.pryrc
-
-#
-# unicorn port
-#
-if [ -f $HOME/.unicorn_port ]; then
-    echo -n ""
-else
-    cp $HOME/$DIR/_rc/.unicorn_port $HOME/.unicorn_port
-fi
 
 #
 # gem

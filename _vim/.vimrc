@@ -329,8 +329,8 @@
         set listchars=tab:>.,trail:_,nbsp:%,extends:>,precedes:<
         highlight SpecialKey term=underline ctermfg=darkgray guifg=darkgray
 
-        highlight Pmenu       ctermbg=darkgray guibg=darkgray
-        highlight PmenuSel    ctermbg=brown    ctermfg=white  guibg=brown   guifg=white
+        highlight Pmenu       ctermbg=white guibg=white
+        highlight PmenuSel    ctermbg=blue    ctermfg=white  guibg=blue   guifg=white
         highlight PmenuSbar   ctermbg=black    guibg=black
         highlight TabLine     term=reverse     cterm=reverse  ctermfg=black ctermbg=white
         highlight TabLineSel  term=bold        cterm=bold     ctermfg=black ctermbg=white

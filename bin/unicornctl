@@ -52,7 +52,7 @@ failure() {
 #
 UNICORN=unicorn
 PROJECT_ROOT=`pwd`
-UNICORN_CONFIG=$PROJECT_ROOT/config/unicorn.conf
+UNICORN_CONFIG=$PROJECT_ROOT/config/unicorn.rb
 HOST=127.0.0.1
 
 start() {

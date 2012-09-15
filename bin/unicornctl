@@ -74,23 +74,9 @@ start() {
     fi
 }
 
-stop() {
-    echo -n "Stopping Unicorn: "
-    cmd="kill -s QUIT $PID"
-    result=`$cmd 2>&1`
-    if [ $? -eq 0 ]; then
-        success "Done!"
-        note "=> $cmd"
-    else
-        failure "Failed..."
-        note "=> $cmd"
-        echo $result
-    fi
-}
-
-reload() {
-    echo -n "Reloading Unicorn: "
-    cmd="kill -s USR2 $PID"
+signal() {
+    echo -n "$1"
+    cmd="kill $2 $PID"
     result=`$cmd 2>&1`
     if [ $? -eq 0 ]; then
         success "Done!"
@@ -154,13 +140,16 @@ case "$1" in
         (is_running && echo_started) || start
         ;;
     stop)
-        (is_running && stop) || echo_not_started
+        (is_running && signal 'Stopping Unicorn: ' '-QUIT') || echo_not_started
         ;;
     restart)
-        (is_running && stop && sleep 1 && start) || echo_not_started
+        (is_running && signal 'Stopping Unicorn: ' '-QUIT' && sleep 1 && start) || echo_not_started
+        ;;
+    smart-restart)
+        (is_running && signal 'Smart restarting Unicorn: ' '-USR2') || echo_not_started
         ;;
     reload)
-        (is_running && reload) || echo_not_started
+        (is_running && signal 'Reloading Unicorn: ' '-HUP') || echo_not_started
         ;;
     launch)
         launch
@@ -169,6 +158,6 @@ case "$1" in
         notice $PID
         ;;
     *)
-        echo $"Usage: $0 {pid|start|stop|restart|reload}"
+        echo $"Usage: $0 {start|stop|restart|smart-restart|reload|pid}"
         exit 2
 esac

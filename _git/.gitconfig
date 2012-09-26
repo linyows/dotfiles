@@ -16,6 +16,7 @@
     stt = diff --stat
     diffstats = diff HEAD^ --stat
     wh = whatchanged
+    onelinelog = log --oneline
     hi = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     gr = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
     su = log --stat --summary

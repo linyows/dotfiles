@@ -156,6 +156,7 @@ source $ZSH/oh-my-zsh.sh
     export LC_CTYPE="ja_JP.UTF-8"
     export TERM=xterm-256color
     export EDITOR=vim
+    export BLOCKSIZE=1024
 
     HISTFILE=$HOME/.zsh-history
     HISTSIZE=100000

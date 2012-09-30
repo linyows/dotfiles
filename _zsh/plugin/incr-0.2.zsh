@@ -12,7 +12,7 @@ compinit
 
 bindkey -M viins '^[' vi-cmd-mode-incr
 bindkey -M viins '^h' vi-backward-delete-char-incr
-bindkey -M viins '^?' vi-backward-delete-char-incr
+#bindkey -M viins '^?' vi-backward-delete-char-incr
 bindkey -M viins '^i' expand-or-complete-prefix-incr
 bindkey -M emacs '^h' backward-delete-char-incr
 bindkey -M emacs '^?' backward-delete-char-incr

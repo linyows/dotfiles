@@ -197,12 +197,12 @@ source $ZSH/oh-my-zsh.sh
 
     # Incriment
     # https://github.com/hchbaw/auto-fu.zsh
-    if [ -f ~/.zsh/plugin/auto-fu/auto-fu.zsh ]; then
+    #if [ -f ~/.zsh/plugin/auto-fu/auto-fu.zsh ]; then
         #source ~/.zsh/plugin/auto-fu/auto-fu.zsh
         #zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate _list _history
         #zstyle ':auto-fu:var' postdisplay ''
         #zle-line-init () {auto-fu-init;}; zle -N zle-line-init
-    fi
+    #fi
 # }}}
 
 # Etc {{

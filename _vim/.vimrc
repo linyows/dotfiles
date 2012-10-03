@@ -301,6 +301,7 @@
     if has('syntax')
         syntax on
     endif
+    set foldmethod=marker           " 折りたたみを有効にする
 
     " ステータスラインに文字コードと改行文字を表示する
     "set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P

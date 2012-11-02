@@ -113,6 +113,7 @@
         Bundle 'kchmck/vim-coffee-script'
         " Vim runtime files for Haml, Sass, and SCSS
         Bundle 'tpope/vim-haml'
+        Bundle 'bbommarito/vim-slim'
         " JSLint fork (need SpiderMonkey, Rhino, Node)
         Bundle 'basyura/jslint.vim'
         " no no past (:Nonopaste, :'<,'>Nonopaste)

@@ -16,7 +16,7 @@
     endif
 " }}}
 
-" Vundle Plugin {{{
+" Vundle Plugin {
     set nocompatible " Vi互換にしない
     filetype off
     set rtp+=~/.vim/bundle/vundle/
@@ -165,7 +165,7 @@
         Bundle 'DrawIt'
     " }}}
 
-    " Unite {
+    " Unite {{{
         Bundle 'Shougo/unite.vim'
         Bundle 'Shougo/vimfiler'
         "see more plugin http://bit.ly/m5PKnU
@@ -190,7 +190,7 @@
         "Bundle 'mattn/unite-genpatsu-fukushima-vim'
     " }}}
 
-    " Others {
+    " Others {{{
         " github interface
         Bundle 'thinca/vim-github'
         " Manage Markdown File
@@ -216,9 +216,9 @@
         "Bundle 'skammer/vim-css-color'
     endif
     " }}}
-" }}}
+" }
 
-" Appearance {{{
+" Appearance {
     set helpfile=$VIMRUNTIME/doc/help.txt
     filetype plugin indent on
 
@@ -410,7 +410,7 @@
             endif
         endif
     " }}}
-" }}}
+" }
 
 " Japanese {{{
     " euc-jpがlatin1で表示される対策
@@ -467,7 +467,7 @@
     autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 " }}}
 
-" Remap {{{
+" Remap {
     ":noremap  ノーマルモード、ビジュアルモード、オペレータ待機モード
     ":vnoremap ビジュアルモード
     ":nnoremap ノーマルモード
@@ -552,9 +552,9 @@
         " vimをバックグラウンドへ
         nnoremap <Space>bg :<C-u>suspend<Enter>
     " }}}
-" }}}
+" }
 
-" Plugin Settings {{{
+" Plugin Settings {
     " Scroll {{{
         " 次表示をスムーススクロール
         nnoremap <Space>jj :call SmoothScroll("d",2, 2)<Enter>
@@ -880,9 +880,9 @@
     " open-browser.vim {{{
         nmap <Leader>w :<C-u>call openbrowser#_keymapping_smart_search('n')<CR>
     " }}}
-" }}}
+" }
 
-" Others {{{
+" Others {
     " Vim で"gf"をスラッシュで始まる相対URLに対応させる
     " see@http://hail2u.net/blog/software/support-slash-started-relative-url-in-vim-gf.html
     autocmd FileType html :setlocal path+=;/
@@ -937,4 +937,4 @@
             source ~/.vimrc.local
         endif
     " }}}
-" }}}
+" }

@@ -318,7 +318,11 @@ fi
     }
 
     function find_swp() {
-        find . -name "*.swp*" -print
+        find . -name "*.swp*" -print | grep .swp
+    }
+
+    function find_conflicted() {
+        find . -name "*.orig*" -print | grep .orig
     }
 
     # http://d.hatena.ne.jp/kitokitoki/20120324/p1

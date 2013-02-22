@@ -105,6 +105,12 @@
         Bundle 'thinca/vim-ref'
         " Simple Unit Testing Framework for Vim script
         Bundle 'h1mesuke/vim-unittest'
+        " require 対象の補完をする unite.vim ソース
+        Bundle 'unite-ruby-require'
+        " neocomplcache で Ruby 2.0 のキーワード引数を補完
+        Bundle 'rhysd/neco-ruby-keyword-args'
+        " Ruby のブロックをテキストオブジェクト化
+        " Bundle 'rhysd/vim-textobj-ruby'
         " Vim/Ruby Configuration Files
         Bundle 'vim-ruby/vim-ruby'
         " ファイル切替えなど色んな便利機能
@@ -466,6 +472,9 @@
     autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
     autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
     autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+
+    " for emblem.js syntax highlighting
+    au BufNewFile,BufRead *.emblem set filetype=slim
 " }}}
 
 " Remap {

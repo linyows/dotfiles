@@ -7,6 +7,10 @@ else
     export EDITOR='vim'
 fi
 alias vi='vim -u NONE'
+alias vim-utf8='vim -c ":e ++enc=utf8"'
+alias vim-eucjp='vim -c ":e ++enc=euc-jp"'
+alias vim-iso2022='vim -c ":e ++enc=iso-2022-jp"'
+alias vim-cp932='vim -c ":e ++enc=cp932"'
 
 # ctags
 if [ -f /Applications/MacVim.app/Contents/MacOS/ctags ]; then

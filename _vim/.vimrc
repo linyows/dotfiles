@@ -170,6 +170,8 @@
         Bundle 'Lokaltog/vim-powerline'
         " 図を描画
         Bundle 'DrawIt'
+        " Table Mode
+        Bundle 'dhruvasagar/vim-table-mode'
     " }}}
 
     " Unite {{{

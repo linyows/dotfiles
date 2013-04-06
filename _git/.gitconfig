@@ -35,13 +35,19 @@
     type = cat-file -t
     dump = cat-file -p
     ls = ls-files
+    dmb = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+[push]
+    default = simple
 [pull]
+    default = simple
     #rebase = true
 [core]
     excludesfile = ~/.gitignore
     quotepath = false
     editor = vim
     pager = less -r
+[merge]
+    log = true
 [rerere]
     enabled = true
 [help]

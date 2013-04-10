@@ -36,7 +36,8 @@
     dump = cat-file -p
     ls = ls-files
     dmb = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
-    pr = !hub pull-request -h `git config pr.head-owner`:`git rev-parse --abbrev-ref HEAD` -b `git config pr.base-owner`:`git config pr.base-branch`
+    pr = !REP_OWNER=$(git remote -v | grep -e "origin.*github.com[:/].*\\(push\\)" | sed "s/origin.*github.com[:/]//g" | sed "s/[/].*//g") && hub pull-request $2 -h $REP_OWNER:`git rev-parse --abbrev-ref HEAD` -b $REP_OWNER:$1 && shift "$#"
+    p = !hub pull-request
 [push]
     default = simple
     kokomade = tag -f 'ここまで読んだ' origin/master

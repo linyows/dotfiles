@@ -69,32 +69,6 @@
         " abc_def: cr_, ABC_DEF: cru,
         " abc-def: cr-
         Bundle 'tpope/vim-abolish'
-    " }}}
-
-    " Syntax {{{
-        " php5.3
-        Bundle 'php.vim--Garvin'
-        " JavaScript
-        "Bundle 'JavaScript-syntax'
-        " jQuery
-        Bundle 'jQuery'
-        " nginx conf
-        Bundle 'nginx.vim'
-        " markdown
-        Bundle 'tpope/vim-markdown'
-        " jade
-        Bundle 'digitaltoad/vim-jade'
-        " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
-        Bundle 'scrooloose/syntastic'
-    " }}}
-
-    " Programming {{{
-        " php用インデント
-        Bundle 'php.vim'
-        " php使用していない変数をチェック
-        Bundle 'php_localvarcheck.vim'
-        " phpDocCommentを自動作成
-        Bundle 'linyows/PDV--phpDocumentor-for-Vim'
         " ソースコード上のメソッド宣言、変数宣言の一覧を表示
         Bundle 'taglist.vim'
         " tagsを利用したソースコード閲覧・移動補助機能 tagsファイルの自動生成
@@ -106,26 +80,49 @@
         " Simple Unit Testing Framework for Vim script
         Bundle 'h1mesuke/vim-unittest'
         " require 対象の補完をする unite.vim ソース
-        Bundle 'unite-ruby-require'
+        Bundle 'rhysd/unite-ruby-require.vim'
         " neocomplcache で Ruby 2.0 のキーワード引数を補完
         Bundle 'rhysd/neco-ruby-keyword-args'
-        " Ruby のブロックをテキストオブジェクト化
-        " Bundle 'rhysd/vim-textobj-ruby'
-        " Vim/Ruby Configuration Files
-        Bundle 'vim-ruby/vim-ruby'
-        " ファイル切替えなど色んな便利機能
-        Bundle 'tpope/vim-rails'
-        " CoffeeScript support for vim
-        Bundle 'kchmck/vim-coffee-script'
-        " Vim runtime files for Haml, Sass, and SCSS
-        Bundle 'tpope/vim-haml'
-        Bundle 'bbommarito/vim-slim'
-        " JSLint fork (need SpiderMonkey, Rhino, Node)
-        Bundle 'basyura/jslint.vim'
         " no no past (:Nonopaste, :'<,'>Nonopaste)
         Bundle 'banyan/Nonopaste.vim'
         " :CopyPath, :CopyFileName
         Bundle 'taku-o/vim-copypath'
+    " }}}
+
+    " Language Syntax & Supports {{{
+        " nginx conf
+        Bundle 'nginx.vim'
+        " JavaScript
+        "Bundle 'JavaScript-syntax'
+        " jQuery
+        Bundle 'jQuery'
+        " markdown
+        Bundle 'tpope/vim-markdown'
+        " jade
+        Bundle 'digitaltoad/vim-jade'
+        " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
+        Bundle 'scrooloose/syntastic'
+        " Coffee
+        Bundle 'kchmck/vim-coffee-script'
+        " Haml, Sass, and SCSS
+        Bundle 'tpope/vim-haml'
+        " Slim
+        Bundle 'slim-template/vim-slim'
+        " Ruby のブロックをテキストオブジェクト化
+        " Bundle 'rhysd/vim-textobj-ruby'
+        " Vim/Ruby Configuration Files
+        Bundle 'vim-ruby/vim-ruby'
+        Bundle 'tpope/vim-rails'
+        " JSLint fork (need SpiderMonkey, Rhino, Node)
+        Bundle 'basyura/jslint.vim'
+        " php5.3
+        Bundle 'php.vim--Garvin'
+        " php用インデント
+        Bundle 'php.vim'
+        " php使用していない変数をチェック
+        Bundle 'php_localvarcheck.vim'
+        " phpDocCommentを自動作成
+        Bundle 'linyows/PDV--phpDocumentor-for-Vim'
     " }}}
 
     " Git {{{
@@ -135,6 +132,8 @@
         Bundle 'mattn/gist-vim'
         " git wrapper
         Bundle 'tpope/vim-fugitive'
+        " shows a git diff in the gutter
+        Bundle 'airblade/vim-gitgutter'
     " }}}
 
     " Encording {{{
@@ -891,6 +890,11 @@
 
     " open-browser.vim {{{
         nmap <Leader>w :<C-u>call openbrowser#_keymapping_smart_search('n')<CR>
+    " }}}
+
+    " gitgutter {{{
+        nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
+        nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
     " }}}
 " }
 

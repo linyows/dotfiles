@@ -40,8 +40,8 @@
     p = !hub pull-request
 [push]
     default = simple
-    kokomade = tag -f 'ここまで読んだ' origin/master
-    newspaper = log -p --reverse 'ここまで読んだ'..origin/master
+    # kokomade = tag -f 'ここまで読んだ' origin/master
+    # newspaper = log -p --reverse 'ここまで読んだ'..origin/master
 [pull]
     default = simple
     #rebase = true

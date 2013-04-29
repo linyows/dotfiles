@@ -54,8 +54,9 @@ alias ana='request-log-analyzer'
         # alias ls='ls --color=auto'
     # ;;
 # esac
-# alias ll='ls -alF'
-# alias lla='ls -A'
+alias l='ls -lA1'
+alias ll='ls -l'
+alias la='ls -lA'
 
 # alias sshfs='~/bin/sshfs-binaries/sshfs-static-leopard'
 # alias py="python"

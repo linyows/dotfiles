@@ -22,6 +22,7 @@
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
     Bundle 'gmarik/vundle'
+    Bundle 'sudo.vim'
 
     " Edit {{{
         " なめらかにスクロール

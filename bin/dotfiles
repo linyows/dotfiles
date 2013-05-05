@@ -1,8 +1,11 @@
 #!/bin/bash
 
-#
+# setup dotfiles
+DIR=".dotfiles"
+BACKUP_DIR=".dotfiles_backup"
+BACKUP_PATH=$HOME/$BACKUP_DIR/`date +%Y-%m-%d-%H-%M-%S`
+
 # color
-#
 RES_COL=60
 MOVE_TO_COL="echo -en \\033[${RES_COL}G"
 SETCOLOR_SUCCESS="echo -en \\033[1;32m"
@@ -54,233 +57,242 @@ failure() {
   $SETCOLOR_NORMAL
 }
 
-#
-# config
-#
-DIR=".dotfiles"
-BACKUP_DIR=".dotfiles_backup"
-BACKUP_PATH=$HOME/$BACKUP_DIR/`date +%Y-%m-%d-%H-%M-%S`
+init() {
+    warn "Begins the initialization."
+    cd $HOME/$DIR
+    git submodule init
+    git submodule update
+}
 
-warn "Begins the initialization."
-echo -n "Backup dir: "
-attention "$BACKUP_PATH"
-mkdir -p $BACKUP_PATH
-info "Make links for dotfiles."
+link() {
+    echo -n "Backup dir: "
+    attention "$BACKUP_PATH"
+    mkdir -p $BACKUP_PATH
 
-#
-# zsh
-#
-if [ -L $HOME/.zshrc ]; then
-    rm -rf  $HOME/.zshrc
-elif [ -f $HOME/.zshrc ]; then
-    mv $HOME/.zshrc $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_zsh/.zshrc $HOME/.zshrc
-
-if [ -L $HOME/.zshenv ]; then
-    rm -rf  $HOME/.zshenv
-elif [ -f $HOME/.zshenv ]; then
-    mv $HOME/.zshenv $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_zsh/.zshenv $HOME/.zshenv
-
-if [ -L $HOME/.zsh_aliases ]; then
-    rm -rf  $HOME/.zsh_aliases
-elif [ -f $HOME/.zsh_aliases ]; then
-    mv $HOME/.zsh_aliases $BACKUP_PATH
-fi
-ln -f $HOME/$DIR/_zsh/.zsh_aliases $HOME/.zsh_aliases
-
-if [ -L $HOME/.oh-my-zsh ]; then
-    rm -rf $HOME/.oh-my-zsh
-elif [ -d $HOME/.oh-my-zsh ]; then
-    mv $HOME/.oh-my-zsh $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_zsh/oh-my-zsh $HOME/.oh-my-zsh
-
-if [ -L $HOME/.zsh ]; then
-    rm -rf $HOME/.zsh
-elif [ -d $HOME/.zsh ]; then
-    mv $HOME/.zsh $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_zsh $HOME/.zsh
-
-#
-# bash
-#
-if [ -L $HOME/.bash_profile ]; then
-    rm -rf $HOME/.bash_profile
-elif [ -f $HOME/.bash_profile ]; then
-    mv $HOME/.bash_profile $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_bash/.bash_profile $HOME/.bash_profile
-
-if [ -L $HOME/.bashrc ]; then
-    rm -rf $HOME/.bashrc
-elif [ -f $HOME/.bashrc ]; then
-    mv $HOME/.bashrc $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_bash/.bashrc $HOME/.bashrc
-
-if [ -L $HOME/.bash_aliases ]; then
-    rm -rf $HOME/.bash_aliases
-elif [ -f $HOME/.bash_aliases ]; then
-    mv $HOME/.bash_aliases $BACKUP_PATH
-fi
-cp -f  $HOME/$DIR/_bash/.bash_aliases $HOME/.bash_aliases
-
-if [ -L $HOME/.inputrc ]; then
-    rm -rf $HOME/.inputrc
-elif [ -f $HOME/.inputrc ]; then
-    mv $HOME/.inputrc $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_bash/.inputrc $HOME/.inputrc
-
-#
-# virtual consoles
-#
-if [ -L $HOME/.tmux.conf ]; then
-    rm -rf $HOME/.tmux.conf
-elif [ -f $HOME/.tmux.conf ]; then
-    mv $HOME/.tmux.conf $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_vc/.tmux.conf $HOME/.tmux.conf
-
-if [ -L $HOME/.screenrc ]; then
-    rm -rf $HOME/.screenrc
-elif [ -f $HOME/.screenrc ]; then
-    mv $HOME/.screenrc $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_vc/.screenrc $HOME/.screenrc
-
-#
-# git
-#
-if [ -L $HOME/.gitconfig ]; then
-    rm -rf $HOME/.gitconfig
-elif [ -f $HOME/.gitconfig ]; then
-    mv $HOME/.gitconfig $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_git/.gitconfig $HOME/.gitconfig
-
-if [ -L $HOME/.gitignore ]; then
-    rm -rf $HOME/.gitignore
-elif [ -f $HOME/.gitignore ]; then
-    mv $HOME/.gitignore $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_git/.gitignore $HOME/.gitignore
-
-info "Git submodule init."
-
-#
-# pry
-#
-if [ -L $HOME/.pryrc ]; then
-    rm -rf  $HOME/.pryrc
-elif [ -f $HOME/.pryrc ]; then
-    mv $HOME/.pryrc $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_rc/.pryrc $HOME/.pryrc
-
-#
-# gem
-#
-if [ -L $HOME/.gemrc ]; then
-    rm -rf  $HOME/.gemrc
-elif [ -f $HOME/.gemrc ]; then
-    mv $HOME/.gemrc $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_rc/.gemrc $HOME/.gemrc
-
-#
-# ack
-#
-if [ -L $HOME/.ackrc ]; then
-    rm -rf  $HOME/.ackrc
-elif [ -f $HOME/.ackrc ]; then
-    mv $HOME/.ackrc $BACKUP_PATH
-fi
-ln -fsv $HOME/$DIR/_rc/.ackrc $HOME/.ackrc
-
-#
-# submodule
-#
-cd $HOME/$DIR
-git submodule init
-git submodule update
-
-info "Vim bundle install."
-
-#
-# vim
-#
-if [ -L $HOME/.vimrc ]; then
-    rm -rf $HOME/.vimrc
-elif [ -f $HOME/.vimrc ]; then
-    mv $HOME/.vimrc $BACKUP_PATH
-fi
-ln -fs $HOME/$DIR/_vim/.vimrc $HOME/.vimrc
-
-if [ -L $HOME/.vimrc.local ]; then
-    rm -rf $HOME/.vimrc.local
-elif [ -f $HOME/.vimrc.local ]; then
-    mv $HOME/.vimrc.local $BACKUP_PATH
-fi
-cp -f  $HOME/$DIR/_vim/.vimrc.local $HOME/.vimrc.local
-
-if [ -L $HOME/.vim ]; then
-    rm -rf $HOME/.vim
-elif [ -d $HOME/.vim ]; then
-    mv $HOME/.vim $BACKUP_PATH
-fi
-ln -fs $HOME/$DIR/_vim $HOME/.vim
-
-vim -c "BundleInstall" -c "q!" -c "q!"
-cd $HOME/$DIR/_vim/bundle/vimproc
-# mac
-if [ -d /Users ]; then
-  make -f make_mac.mak
-# linux
-else
-  make -f make_unix.mak
-fi
-
-#
-# mac only
-#
-if [ -d /Users ]; then
-    warn "Init for mac."
     info "Make links for dotfiles."
+    link_zsh
+    link_bash
+    link_git
+    link_vc
+    link_rc
+}
 
-    # vimperator
-    if [ -L $HOME/.vimperatorrc ]; then
-        rm -rf $HOME/.vimperatorrc
-    elif [ -f $HOME/.vimperatorrc ]; then
-        mv $HOME/.vimperatorrc $BACKUP_PATH
+link_zsh() {
+    if [ -L $HOME/.zshrc ]; then
+        rm -rf  $HOME/.zshrc
+    elif [ -f $HOME/.zshrc ]; then
+        mv $HOME/.zshrc $BACKUP_PATH
     fi
-    ln -fsv $HOME/$DIR/_vimperator/.vimperatorrc $HOME/.vimperatorrc
+    ln -fsv $HOME/$DIR/_zsh/.zshrc $HOME/.zshrc
 
-    if [ -L $HOME/.vimperator ]; then
-        rm -rf $HOME/.vimperator
-    elif [ -d $HOME/.vimperator ]; then
-        mv $HOME/.vimperator $BACKUP_PATH
+    if [ -L $HOME/.zshenv ]; then
+        rm -rf  $HOME/.zshenv
+    elif [ -f $HOME/.zshenv ]; then
+        mv $HOME/.zshenv $BACKUP_PATH
     fi
-    ln -fsv $HOME/$DIR/_vimperator $HOME/.vimperator
+    ln -fsv $HOME/$DIR/_zsh/.zshenv $HOME/.zshenv
 
-    info "Make tmux-MacOSX-pasteboard."
-
-    # tmux-MacOSX-pasteboard
-    if [ -f $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace ]; then
-        mv $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace $BACKUP_PATH
+    if [ -L $HOME/.zsh_aliases ]; then
+        rm -rf  $HOME/.zsh_aliases
+    elif [ -f $HOME/.zsh_aliases ]; then
+        mv $HOME/.zsh_aliases $BACKUP_PATH
     fi
+    ln -f $HOME/$DIR/_zsh/.zsh_aliases $HOME/.zsh_aliases
 
-    cd  $HOME/$DIR/lib/tmux-MacOSX-pasteboard
-    make reattach-to-user-namespace
-    ln -fs $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace $HOME/$DIR/bin
-fi
+    if [ -L $HOME/.oh-my-zsh ]; then
+        rm -rf $HOME/.oh-my-zsh
+    elif [ -d $HOME/.oh-my-zsh ]; then
+        mv $HOME/.oh-my-zsh $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_zsh/oh-my-zsh $HOME/.oh-my-zsh
 
-if [ $? -eq 0 ]; then
-    success "Successfully initialized!"
-else
-    failure "Some problems occur..."
-fi
+    if [ -L $HOME/.zsh ]; then
+        rm -rf $HOME/.zsh
+    elif [ -d $HOME/.zsh ]; then
+        mv $HOME/.zsh $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_zsh $HOME/.zsh
+}
+
+link_bash() {
+    if [ -L $HOME/.bash_profile ]; then
+        rm -rf $HOME/.bash_profile
+    elif [ -f $HOME/.bash_profile ]; then
+        mv $HOME/.bash_profile $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_bash/.bash_profile $HOME/.bash_profile
+
+    if [ -L $HOME/.bashrc ]; then
+        rm -rf $HOME/.bashrc
+    elif [ -f $HOME/.bashrc ]; then
+        mv $HOME/.bashrc $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_bash/.bashrc $HOME/.bashrc
+
+    if [ -L $HOME/.bash_aliases ]; then
+        rm -rf $HOME/.bash_aliases
+    elif [ -f $HOME/.bash_aliases ]; then
+        mv $HOME/.bash_aliases $BACKUP_PATH
+    fi
+    cp -f  $HOME/$DIR/_bash/.bash_aliases $HOME/.bash_aliases
+
+    if [ -L $HOME/.inputrc ]; then
+        rm -rf $HOME/.inputrc
+    elif [ -f $HOME/.inputrc ]; then
+        mv $HOME/.inputrc $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_bash/.inputrc $HOME/.inputrc
+}
+
+link_git() {
+    if [ -L $HOME/.gitconfig ]; then
+        rm -rf $HOME/.gitconfig
+    elif [ -f $HOME/.gitconfig ]; then
+        mv $HOME/.gitconfig $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_git/.gitconfig $HOME/.gitconfig
+
+    if [ -L $HOME/.gitignore ]; then
+        rm -rf $HOME/.gitignore
+    elif [ -f $HOME/.gitignore ]; then
+        mv $HOME/.gitignore $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_git/.gitignore $HOME/.gitignore
+}
+
+link_vim() {
+    if [ -L $HOME/.vimrc ]; then
+        rm -rf $HOME/.vimrc
+    elif [ -f $HOME/.vimrc ]; then
+        mv $HOME/.vimrc $BACKUP_PATH
+    fi
+    ln -fs $HOME/$DIR/_vim/.vimrc $HOME/.vimrc
+
+    if [ -L $HOME/.vimrc.local ]; then
+        rm -rf $HOME/.vimrc.local
+    elif [ -f $HOME/.vimrc.local ]; then
+        mv $HOME/.vimrc.local $BACKUP_PATH
+    fi
+    cp -f  $HOME/$DIR/_vim/.vimrc.local $HOME/.vimrc.local
+
+    if [ -L $HOME/.vim ]; then
+        rm -rf $HOME/.vim
+    elif [ -d $HOME/.vim ]; then
+        mv $HOME/.vim $BACKUP_PATH
+    fi
+    ln -fs $HOME/$DIR/_vim $HOME/.vim
+}
+
+link_vc() {
+    if [ -L $HOME/.tmux.conf ]; then
+        rm -rf $HOME/.tmux.conf
+    elif [ -f $HOME/.tmux.conf ]; then
+        mv $HOME/.tmux.conf $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_vc/.tmux.conf $HOME/.tmux.conf
+
+    if [ -L $HOME/.screenrc ]; then
+        rm -rf $HOME/.screenrc
+    elif [ -f $HOME/.screenrc ]; then
+        mv $HOME/.screenrc $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_vc/.screenrc $HOME/.screenrc
+}
+
+link_rc() {
+    # pry
+    if [ -L $HOME/.pryrc ]; then
+        rm -rf  $HOME/.pryrc
+    elif [ -f $HOME/.pryrc ]; then
+        mv $HOME/.pryrc $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_rc/.pryrc $HOME/.pryrc
+
+    # gem
+    if [ -L $HOME/.gemrc ]; then
+        rm -rf  $HOME/.gemrc
+    elif [ -f $HOME/.gemrc ]; then
+        mv $HOME/.gemrc $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_rc/.gemrc $HOME/.gemrc
+
+    # ack
+    if [ -L $HOME/.ackrc ]; then
+        rm -rf  $HOME/.ackrc
+    elif [ -f $HOME/.ackrc ]; then
+        mv $HOME/.ackrc $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_rc/.ackrc $HOME/.ackrc
+}
+
+link_for_mac() {
+    if [ -d /Users ]; then
+        warn "Init for mac."
+        info "Make links for dotfiles."
+
+        # vimperator
+        if [ -L $HOME/.vimperatorrc ]; then
+            rm -rf $HOME/.vimperatorrc
+        elif [ -f $HOME/.vimperatorrc ]; then
+            mv $HOME/.vimperatorrc $BACKUP_PATH
+        fi
+        ln -fsv $HOME/$DIR/_vimperator/.vimperatorrc $HOME/.vimperatorrc
+
+        if [ -L $HOME/.vimperator ]; then
+            rm -rf $HOME/.vimperator
+        elif [ -d $HOME/.vimperator ]; then
+            mv $HOME/.vimperator $BACKUP_PATH
+        fi
+        ln -fsv $HOME/$DIR/_vimperator $HOME/.vimperator
+
+        info "Make tmux-MacOSX-pasteboard."
+
+        # tmux-MacOSX-pasteboard
+        if [ -f $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace ]; then
+            mv $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace $BACKUP_PATH
+        fi
+
+        cd  $HOME/$DIR/lib/tmux-MacOSX-pasteboard
+        make reattach-to-user-namespace
+        ln -fs $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace $HOME/$DIR/bin
+    fi
+}
+
+setup_vim() {
+    info "Vim bundle install."
+    vim -c "BundleInstall" -c "q!" -c "q!"
+
+    cd $HOME/$DIR/_vim/bundle/vimproc
+    # mac
+    if [ -d /Users ]; then
+      make -f make_mac.mak
+    # linux
+    else
+      make -f make_unix.mak
+    fi
+}
+
+print_bye() {
+    if [ $? -eq 0 ]; then
+        success "Successfully initialized!"
+    else
+        failure "Some problems occur..."
+    fi
+}
+
+case "$1" in
+    quick)
+        init
+        link
+        print_bye
+        ;;
+    vim)
+        setup_vim
+        ;;
+    *)
+        init
+        link
+        setup_vim
+        print_bye
+        exit 2
+esac

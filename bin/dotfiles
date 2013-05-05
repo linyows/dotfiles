@@ -235,7 +235,8 @@ elif [ -d $HOME/.vim ]; then
 fi
 ln -fs $HOME/$DIR/_vim $HOME/.vim
 
-vim -c "BundleInstall" -c "q!" -c "q!"
+#vim -c "BundleInstall" -c "q!" -c "q!"
+vim +BundleInstall +q
 cd $HOME/$DIR/_vim/bundle/vimproc
 # mac
 if [ -d /Users ]; then

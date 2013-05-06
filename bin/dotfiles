@@ -73,6 +73,7 @@ link() {
     link_zsh
     link_bash
     link_git
+    link_vim
     link_vc
     link_rc
 }

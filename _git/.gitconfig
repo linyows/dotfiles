@@ -46,6 +46,7 @@
     pager = less -r
 [merge]
     log = true
+    tool = vimdiff
 [rerere]
     enabled = true
 [help]

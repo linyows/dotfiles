@@ -115,40 +115,9 @@
         :set statuslinetoolbars=feed-button,firebug-button,greasemonkey-tbb,stylish-toolbar-button
     " }}}
 
-    " matanico.js {{{
-        "let g:matanico_status_format='$SERVICENAME:$COMMENT [$SUBJECT:$URL]'
-    " }}}
-
-    " feedSomeKeys_2.js {{{
-        " Init
-        :autocmd LocationChange .* :fmapc
-        " Gmail
-        :autocmd LocationChange 'mail\.google\.com/[mail|a]' :fmap c / j k n p o u e x s r a # [ ] z ? ! gi gs gt gd ga gc . <M-a> <M-c> <M-x> <M-v>
-        " GoogleReader
-        :autocmd LocationChange 'www\.google\.(com|co\.jp)/reader' :fmap! -vkey j k n p m s t v o A r S N P X O 0 1 2 = gh ga gs gt gu u / ? <M-a> <M-c> <M-x> <M-v>
-        " Github
-        ":autocmd LocationChange 'github\.com/[0-9A-z-]+/[0-9A-z-]+' :fmap c / j k n p o u e x s r a z ? t w
-    " }}}
 
     " migemo_hint.js {{{
         set hintmatching=custom
-    " }}}
-
-    " youtubemap.js {{{
-        " プレーヤーに関しての情報を表示
-        "map ,yi :ytinfo<cr>
-        " 再生 / 一時停止
-        "map ,yp :ytpause<cr>
-        "map p :ytpause<cr>
-        " 音声あり / なし
-        "map ,ym :ytmute<cr>
-        "map m :ytmute<cr>
-        " 最大化 / ノーマル
-        "map ,yz :ytsize<cr>
-        " 指定した場所にシーク 秒数で指定 指定なしの場合一番最初
-        "map ,ys :ytseek<Space>
-        " ボリューム 0-100
-        "map ,yb :ytvolume<Space>
     " }}}
 
     " bookmarktoolbar-hint.js
@@ -161,21 +130,6 @@
     " copy.js {{{
         map C :copy<Space>
     " }}}
-
-    " direct_bookmark.js
-    " map a :sbm<Space>
-
-    " direct_hb.js
-    " map a :hb<Space>
-
-    " tombloo.js
-    " map q :tombloo<Space>
-    " map Q :tombloo<Space>ReBlog - Tumblr<CR>
-
-    "------ キーマップ設定(コマンドモード)
-    " ↑ ↓ で補完
-    " cnoremap <Up> <S-Tab>
-    " cnoremap <Down> <Tab>
 " }}}
 
 "echo "Finish loading vimperatorrc!"

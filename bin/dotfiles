@@ -224,6 +224,14 @@ link_rc() {
         mv $HOME/.ackrc $BACKUP_PATH
     fi
     ln -fsv $HOME/$DIR/_rc/.ackrc $HOME/.ackrc
+
+    # tig
+    if [ -L $HOME/.tigrc ]; then
+        rm -rf  $HOME/.tigrc
+    elif [ -f $HOME/.tigrc ]; then
+        mv $HOME/.tigrc $BACKUP_PATH
+    fi
+    ln -fsv $HOME/$DIR/_rc/.tigrc $HOME/.tigrc
 }
 
 link_for_mac() {

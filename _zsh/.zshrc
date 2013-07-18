@@ -321,8 +321,16 @@ fi
         find . -name "*.swp*" -print | grep .swp
     }
 
+    function delete_swp() {
+        find . -name "*.swp*" -print0 | xargs -0 rm
+    }
+
     function find_conflicted() {
         find . -name "*.orig*" -print | grep .orig
+    }
+
+    function delete_conflicted() {
+        find . -name "*.orig*" -print0 | xargs -0 rm
     }
 
     # http://d.hatena.ne.jp/kitokitoki/20120324/p1

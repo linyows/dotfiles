@@ -91,6 +91,7 @@
     " }}}
 
     " Language Syntax & Supports {{{
+        Bundle 'scrooloose/syntastic'
         Bundle 'nginx.vim'
         Bundle 'jQuery'
         Bundle 'tpope/vim-markdown'
@@ -98,6 +99,7 @@
         Bundle 'kchmck/vim-coffee-script'
         Bundle 'tpope/vim-haml'
         Bundle 'slim-template/vim-slim'
+        Bundle 'juvenn/mustache.vim'
         Bundle 'vim-ruby/vim-ruby'
         Bundle 'tpope/vim-rails'
         Bundle 'joker1007/vim-ruby-heredoc-syntax'

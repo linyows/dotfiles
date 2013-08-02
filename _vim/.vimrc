@@ -114,6 +114,8 @@
         " Vim/Ruby Configuration Files
         Bundle 'vim-ruby/vim-ruby'
         Bundle 'tpope/vim-rails'
+        Bundle 'joker1007/vim-ruby-heredoc-syntax'
+        Bundle 'joker1007/vim-markdown-quote-syntax'
         " JSLint fork (need SpiderMonkey, Rhino, Node)
         Bundle 'basyura/jslint.vim'
         " php5.3

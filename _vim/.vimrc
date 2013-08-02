@@ -91,40 +91,21 @@
     " }}}
 
     " Language Syntax & Supports {{{
-        " nginx conf
         Bundle 'nginx.vim'
-        " JavaScript
-        "Bundle 'JavaScript-syntax'
-        " jQuery
         Bundle 'jQuery'
-        " markdown
         Bundle 'tpope/vim-markdown'
-        " jade
         Bundle 'digitaltoad/vim-jade'
-        " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
-        Bundle 'scrooloose/syntastic'
-        " Coffee
         Bundle 'kchmck/vim-coffee-script'
-        " Haml, Sass, and SCSS
         Bundle 'tpope/vim-haml'
-        " Slim
         Bundle 'slim-template/vim-slim'
-        " Ruby のブロックをテキストオブジェクト化
-        " Bundle 'rhysd/vim-textobj-ruby'
-        " Vim/Ruby Configuration Files
         Bundle 'vim-ruby/vim-ruby'
         Bundle 'tpope/vim-rails'
         Bundle 'joker1007/vim-ruby-heredoc-syntax'
         Bundle 'joker1007/vim-markdown-quote-syntax'
-        " JSLint fork (need SpiderMonkey, Rhino, Node)
         Bundle 'basyura/jslint.vim'
-        " php5.3
         Bundle 'php.vim--Garvin'
-        " php用インデント
         Bundle 'php.vim'
-        " php使用していない変数をチェック
         Bundle 'php_localvarcheck.vim'
-        " phpDocCommentを自動作成
         Bundle 'linyows/PDV--phpDocumentor-for-Vim'
     " }}}
 

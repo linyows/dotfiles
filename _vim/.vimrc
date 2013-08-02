@@ -882,6 +882,40 @@
         nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
         nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
     " }}}
+
+    " ruby-hredoc-syntax {{{
+        let g:ruby_heredoc_syntax_filetypes = {
+                \ "xml" : {
+                \   "start" : "XML",
+                \},
+          \}
+    " }}}
+
+    " markdown-quote-syntax {{{
+        let g:markdown_quote_syntax_filetypes = {
+                \ "coffee" : {
+                \   "start" : "coffee",
+                \},
+                \ "css" : {
+                \   "start" : "\\%(css\\|scss\\)",
+                \},
+                \ "mustache" : {
+                \   "start" : "mustache",
+                \},
+                \ "haml" : {
+                \   "start" : "haml",
+                \},
+                \ "slim" : {
+                \   "start" : "slim",
+                \},
+                \ "markdown" : {
+                \   "start" : "markdown",
+                \},
+                \ "php" : {
+                \   "start" : "php",
+                \},
+          \}
+    " }}}
 " }
 
 " Others {

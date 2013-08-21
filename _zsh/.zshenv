@@ -78,6 +78,12 @@ _zshenv_add_path CPATH "/opt/include"
 
 export PYTHONPATH=/usr/share/python:/usr/local/share/python:$PYTHONPATH
 
+# http://qiita.com/linyows@github/items/04c1be6bcd2da3cf3f1c
+if [ `uname` = 'Darwin' ]; then
+    export RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-openssl-dir=`brew --prefix openssl`"
+    export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+fi
+
 if [ -d "$HOME/.rbenv" ]; then
     eval "$(rbenv init -)"
 fi

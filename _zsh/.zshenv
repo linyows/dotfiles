@@ -84,6 +84,14 @@ if [ `uname` = 'Darwin' ]; then
     export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 fi
 
+if [ -f "/etc/profile.d/nodebrew.sh" ]; then
+    source "/etc/profile.d/nodebrew.sh"
+fi
+
+if [ -f "/etc/profile.d/rbenv.sh" ]; then
+    source "/etc/profile.d/rbenv.sh"
+fi
+
 if [ -d "$HOME/.rbenv" ]; then
     eval "$(rbenv init -)"
 fi

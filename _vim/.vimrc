@@ -186,6 +186,7 @@
         Bundle 'mattn/unite-remotefile'
         "Bundle 'mattn/unite-mcdonalds-vim'
         "Bundle 'mattn/unite-genpatsu-fukushima-vim'
+        Bundle 'osyo-manga/vim-automatic'
     " }}}
 
     " Others {{{
@@ -545,6 +546,11 @@
         cnoremap CS so $VIMRUNTIME/syntax/hitest.vim<Enter>
     " }}}
 
+    " Edition {{{
+        nnoremap io  :<C-u>call append('.', '')<CR>
+        nnoremap iO  :normal! O<ESC>j
+    " }}}
+
     " Others {{{
         " 空行を挿入
         "nnoremap <Space>0 :<C-u>call append(expand('.'), '')<Cr>j
@@ -797,6 +803,12 @@
         nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
         " 全部乗せ
         nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+        " grep検索
+        nnoremap <silent> ,uc  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+        " カーソル位置の単語をgrep検索
+        nnoremap <silent> ,uf :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+        " grep検索結果の再呼出
+        nnoremap <silent> ,ur  :<C-u>UniteResume search-buffer<CR>
         " ウィンドウを分割して開く
         au FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
         au FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
@@ -921,6 +933,39 @@
                 \   "start" : "php",
                 \},
           \}
+    " }}}
+
+    " vim-automatic {{{
+        let g:automatic_config = [
+        \   {
+        \       "match" : {
+        \           "filetype" : "help",
+        \           "buftype"  : "help",
+        \       },
+        \       "set" : {
+        \           "height" : "50%",
+        \           "move"   : "bottom",
+        \       },
+        \   },
+        \   {
+        \       "match" : {
+        \           "filetype" : "quickrun",
+        \       },
+        \       "set" : {
+        \           "height" : "30%",
+        \           "move"   : "bottom",
+        \       },
+        \   },
+        \   {
+        \       "match" : {
+        \           "bufname" : '[\[\*]unite[\]\*]',
+        \       },
+        \       "set" : {
+        \           "height" : "30%",
+        \           "move"   : "bottom",
+        \       },
+        \   },
+        \]
     " }}}
 " }
 

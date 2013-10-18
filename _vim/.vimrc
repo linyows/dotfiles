@@ -88,6 +88,10 @@
         Bundle 'banyan/Nonopaste.vim'
         " :CopyPath, :CopyFileName
         Bundle 'taku-o/vim-copypath'
+        " Operator to Surround a Text Object
+        Bundle 'rhysd/vim-operator-surround'
+        Bundle 'terryma/vim-multiple-cursors'
+        Bundle 'mattboehm/vim-unstack'
     " }}}
 
     " Language Syntax & Supports {{{

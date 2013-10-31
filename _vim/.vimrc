@@ -186,7 +186,6 @@
         Bundle 'mattn/unite-remotefile'
         "Bundle 'mattn/unite-mcdonalds-vim'
         "Bundle 'mattn/unite-genpatsu-fukushima-vim'
-        Bundle 'osyo-manga/vim-automatic'
     " }}}
 
     " Others {{{
@@ -933,39 +932,6 @@
                 \   "start" : "php",
                 \},
           \}
-    " }}}
-
-    " vim-automatic {{{
-        let g:automatic_config = [
-        \   {
-        \       "match" : {
-        \           "filetype" : "help",
-        \           "buftype"  : "help",
-        \       },
-        \       "set" : {
-        \           "height" : "50%",
-        \           "move"   : "bottom",
-        \       },
-        \   },
-        \   {
-        \       "match" : {
-        \           "filetype" : "quickrun",
-        \       },
-        \       "set" : {
-        \           "height" : "30%",
-        \           "move"   : "bottom",
-        \       },
-        \   },
-        \   {
-        \       "match" : {
-        \           "bufname" : '[\[\*]unite[\]\*]',
-        \       },
-        \       "set" : {
-        \           "height" : "30%",
-        \           "move"   : "bottom",
-        \       },
-        \   },
-        \]
     " }}}
 " }
 

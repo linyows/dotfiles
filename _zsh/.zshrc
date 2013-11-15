@@ -385,4 +385,11 @@ fi
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
     }
+
+    function checkout_all_branch() {
+        for branch in `git branch -r | grep -v HEAD | awk '{sub("origin/","")}{print $1}'`
+        do
+            git checkout $branch; git pull
+        done
+    }
 # }}}

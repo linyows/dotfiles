@@ -60,8 +60,10 @@
         Bundle 'mileszs/ack.vim'
         " カーソルの下のURLを開くor単語を検索エンジンで検索
         Bundle 'tyru/open-browser.vim'
-        " text-object拡張
-        "Bundle 'tpope/vim-surround'
+        Bundle 'tpope/vim-repeat'
+        Bundle 'kana/vim-operator-user'
+        " Operator to Surround a Text Object
+        Bundle 'rhysd/vim-operator-surround'
         " スニペット機能をvimで(snippetsEmuより使いやすい)
         "Bundle 'msanders/snipmate.vim'
         "Bundle 'linyows/snipmate.vim'
@@ -88,8 +90,6 @@
         Bundle 'banyan/Nonopaste.vim'
         " :CopyPath, :CopyFileName
         Bundle 'taku-o/vim-copypath'
-        " Operator to Surround a Text Object
-        Bundle 'rhysd/vim-operator-surround'
         Bundle 'terryma/vim-multiple-cursors'
         Bundle 'mattboehm/vim-unstack'
     " }}}
@@ -131,6 +131,8 @@
     " }}}
 
     " Utility {{{
+        " like emacs evil
+        Bundle 'osyo-manga/vim-over'
         " vim Interface to Web API
         Bundle 'mattn/webapi-vim'
         " <Leader>beでバッファのリストを表示
@@ -926,6 +928,31 @@
                 \   "start" : "php",
                 \},
           \}
+    " }}}
+
+    " vim-over {{{
+        nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
+    " }}}
+
+    " vim-operator-surround {{{
+        " operator mappings
+        map <silent>sa <Plug>(operator-surround-append)
+        map <silent>sd <Plug>(operator-surround-delete)
+        map <silent>sr <Plug>(operator-surround-replace)
+
+        " delete or replace most inner surround
+
+        " if you use vim-textobj-multiblock
+        nmap <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
+        nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
+
+        " if you use vim-textobj-anyblock
+        nmap <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
+        nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
+
+        " if you use vim-textobj-between
+        nmap <silent>sdb <Plug>(operator-surround-delete)<Plug>(textobj-between-a)
+        nmap <silent>srb <Plug>(operator-surround-replace)<Plug>(textobj-between-a)
     " }}}
 " }
 

@@ -547,11 +547,6 @@
         cnoremap CS so $VIMRUNTIME/syntax/hitest.vim<Enter>
     " }}}
 
-    " Edition {{{
-        nnoremap io  :<C-u>call append('.', '')<CR>
-        nnoremap iO  :normal! O<ESC>j
-    " }}}
-
     " Others {{{
         " 空行を挿入
         "nnoremap <Space>0 :<C-u>call append(expand('.'), '')<Cr>j

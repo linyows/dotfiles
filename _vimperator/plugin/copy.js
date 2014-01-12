@@ -120,11 +120,14 @@ var excludeLabelsMap = {};
 var copy_templates = [];
 if (!liberator.globalVariables.copy_templates){
     liberator.globalVariables.copy_templates = [
+        { label: 'markdown',       value: '[%TITLE%](%URL%)' },
         { label: 'titleAndURL',    value: '%TITLE%\n%URL%' },
         { label: 'title',          value: '%TITLE%' },
         { label: 'anchor',         value: '<a href="%URL%">%TITLE%</a>' },
         { label: 'selanchor',      value: '<a href="%URL%" title="%TITLE%">%SEL%</a>' },
-        { label: 'htmlblockquote', value: '<blockquote cite="%URL%" title="%TITLE%">%HTMLSEL%</blockquote>' }
+        { label: 'htmlblockquote', value: '<blockquote cite="%URL%" title="%TITLE%">%HTMLSEL%</blockquote>' },
+        { label: 'titleAndTinyURL', value: '"%TITLE%" %tinyURL%', custom: function(){return '"' + buffer.title + '" ' + util.httpGet('http://tinyurl.com/api-create.php?url=' + encodeURIComponent(buffer.URL)).responseText;} },
+        { label: 'tinyURL', value:  'Get Tiny URL', custom: function(){return util.httpGet('http://tinyurl.com/api-create.php?url=' + encodeURIComponent(buffer.URL)).responseText;} }
     ];
 }
 

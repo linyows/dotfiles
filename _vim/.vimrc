@@ -926,7 +926,7 @@
     " }}}
 
     " vim-over {{{
-        nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
+        nnoremap <silent> <Leader>g :OverCommandLine<CR>%s/
     " }}}
 
     " vim-operator-surround {{{

@@ -49,7 +49,7 @@
         " マルチバイト対応の整形
         Bundle 'h1mesuke/vim-alignta'
         " yankの履歴を順番に呼び出せる
-        Bundle 'YankRing.vim'
+        Bundle 'LeafCage/yankround.vim'
         " undo履歴を追える (need python support)
         Bundle 'Gundo'
         " 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
@@ -636,18 +636,14 @@
         let NERDShutUp=1
     " }}}
 
-    " YankRing.vim {{{
-        " yank_historyファイル場所指定
-        let g:yankring_history_file = '.vim/tmp/plugin/.yankring_history'
-        let g:yankring_manual_clipboard_check = 0
-        " 履歴のリストを表示
-        nmap Y :<C-u>YRShow<CR>
-        " 履歴をクリア
-        nnoremap <silent> ,yc :<C-u>YRClear<CR>
-        " 数値の引数を取り、履歴のリストの指定した番号のデータを取り出してペースト
-        nnoremap <silent> ,yp :<C-u>YRGetElem
-        " 数値の引数を取り、履歴のリストの指定した番号目の履歴が先頭に
-        nnoremap <silent> ,yt :<C-u>:YRSetTop
+    " yankround.vim {{{
+        nmap p <Plug>(yankround-p)
+        nmap P <Plug>(yankround-P)
+        nmap gp <Plug>(yankround-gp)
+        nmap gP <Plug>(yankround-gP)
+        nmap <C-p> <Plug>(yankround-prev)
+        nmap <C-n> <Plug>(yankround-next)
+        nnoremap <silent> ,y :<C-u>Unite yankround<CR>
     " }}}
 
     " memolist.vim {{{

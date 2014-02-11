@@ -20,7 +20,7 @@ Pry.config.history.should_save = true
 Pry.config.history.file = '~/.dotfiles/history/.pry_history'
 Pry.config.hooks.add_hook(:after_session, :say_bye!) { puts "bye" }
 
-rails_env = defined?(::Rails) ? "#{Rails.env.production? ? "#{Rails.env}" : 'dev'} " : nil
+rails_env = defined?(::Rails) ? "#{Rails.env} " : nil
 info = "#{rails_env}#{RUBY_VERSION}"
 Pry.prompt = [
   proc { |target_self, nest_level, pry|

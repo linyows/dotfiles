@@ -5,3 +5,7 @@
 *~
 doc/tags
 doc/tags-ja
+vendor
+.env
+.env.*
+setting.rb

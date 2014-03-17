@@ -815,10 +815,10 @@
     " }}}
 
     " unite-plugins {{{
-        cnoremap UH Unite help<Enter>
-        cnoremap UO Unite outline<Enter>
-        cnoremap UC Unite colorscheme<Enter>
-        cnoremap UF Unite font<Enter>
+        " cnoremap UH Unite help<Enter>
+        " cnoremap UO Unite outline<Enter>
+        " cnoremap UC Unite colorscheme<Enter>
+        " cnoremap UF Unite font<Enter>
     " }}}
 
     " vimfiler {{{
@@ -875,9 +875,9 @@
     " }}}
 
     " Vundle {{{
-        cnoremap BI BundleInstall<Enter>
-        cnoremap B! BundleInstall!<Enter>
-        cnoremap BC BundleClean<Enter>
+        " cnoremap BI BundleInstall<Enter>
+        " cnoremap B! BundleInstall!<Enter>
+        " cnoremap BC BundleClean<Enter>
     " }}}
 
     " open-browser.vim {{{

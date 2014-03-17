@@ -39,6 +39,7 @@
     p = !hub pull-request
 [diff]
     algorithm = patience
+	noprefix = true
 [pull]
     default = simple
 [core]

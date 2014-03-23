@@ -882,12 +882,6 @@
         endfunction
     " }}}
 
-    " Vundle {{{
-        " cnoremap BI BundleInstall<Enter>
-        " cnoremap B! BundleInstall!<Enter>
-        " cnoremap BC BundleClean<Enter>
-    " }}}
-
     " open-browser.vim {{{
         nmap <Leader>w :<C-u>call openbrowser#_keymapping_smart_search('n')<CR>
     " }}}

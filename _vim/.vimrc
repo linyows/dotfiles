@@ -142,6 +142,8 @@
         "Bundle 'scrooloose/nerdtree'
         " vim上でスクリプト実行、結果表示。コマンドモードで\r
         Bundle 'thinca/vim-quickrun'
+        " GitHub Flavoerd Markdown Preview
+        Bundle 'superbrothers/vim-quickrun-markdown-gfm'
         " svn commit をした時に表示されるログの編集画面と一緒に、svn diff の内容も表示
         Bundle 'svn-diff.vim'
         " Vimでの対話コマンドの実行 (要コンパイル / Mac $ make -f make_mac.mak / Linux $ make -f make_gcc.mak)
@@ -729,6 +731,12 @@
         au Filetype scheme nnoremap <buffer><leader> :!gosh %<Space>
         au Filetype javascript nnoremap <buffer><leader> :!js %<Space>
         au Filetype vim nnoremap <silent><leader> :source %<Return>
+        let g:quickrun_config = {
+        \   'markdown': {
+        \     'type': 'markdown/gfm',
+        \     'outputter': 'browser'
+        \   }
+        \ }
     " }}}
 
     " neocomplcache.vim {{{

@@ -485,9 +485,9 @@
 
     " .vimrc {{{
         " 開く
-        nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
+        nnoremap <Leader>. :<C-u>edit $MYVIMRC<Enter>
         " 再読みこみ
-        nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
+        nnoremap <Leader>s. :<C-u>source $MYVIMRC<Enter>
     " }}}
 
     " Help {{{

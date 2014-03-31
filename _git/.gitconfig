@@ -39,6 +39,7 @@
     p = !hub pull-request
 [diff]
     algorithm = patience
+	noprefix = true
 [pull]
     default = simple
 [core]
@@ -46,6 +47,7 @@
     quotepath = false
     editor = vim
     pager = less -r
+	precomposeunicode = true
 [merge]
     log = true
     tool = vimdiff

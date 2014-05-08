@@ -182,6 +182,16 @@ source $ZSH/oh-my-zsh.sh
     colors
 # }}}
 
+# Percol
+# sudo pip install --allow-external percol --allow-unverified percol percol
+if [ `which percol >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
+    for f ($HOME/.zsh/percol-sources/*) source "${f}"
+    bindkey '^r' percol-select-history
+    bindkey '^x^b' percol-git-recent-branches
+    bindkey '^xb' percol-git-recent-all-branches
+    bindkey '^@' percol-cdr
+fi
+
 # Plugins {{{
     # z
     #_Z_CMD=j

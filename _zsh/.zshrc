@@ -335,6 +335,14 @@ fi
         find . -name "*.swp*" -print0 | xargs -0 rm
     }
 
+    function find_un() {
+        find . -name "*.un*" -print | grep .un
+    }
+
+    function delete_un() {
+        find . -name "*.un*" -print0 | xargs -0 rm
+    }
+
     function find_conflicted() {
         find . -name "*.orig*" -print | grep .orig
     }

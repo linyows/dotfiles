@@ -39,7 +39,7 @@
     p = !hub pull-request
 [diff]
     algorithm = patience
-	noprefix = true
+    noprefix = true
 [pull]
     default = simple
 [core]
@@ -47,7 +47,10 @@
     quotepath = false
     editor = vim
     pager = less -r
-	precomposeunicode = true
+    precomposeunicode = true
+    #filemode = false
+    #autocrlf = input
+    #whitespace = -trailing-space,-space-before-tab,-indent-with-non-tab,-cr-at-eol
 [merge]
     log = true
     tool = vimdiff
@@ -59,3 +62,5 @@
     sslVerify = false
 [github]
     user = linyows
+#[apply]
+    #whitespace = nowarn

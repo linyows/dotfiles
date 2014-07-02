@@ -296,6 +296,7 @@
     set viminfo+=n~/.vim/tmp/viminfo.txt " viminfo保存先指定
     set backupdir=~/.vim/tmp/backup " backupファイルのディレクトリ指定
     set backupskip=/tmp/*,/private/tmp/* " 特定の場所でbackupしない @see http://weble.org/2011/06/06/mac-cron
+    set undodir=~/.vim/tmp/undo
     "set directory=~/.vim/tmp/swap  " swapファイルのディレクトリ指定
     set hlsearch                   " 検索結果文字列のハイライトを有効にする
     " シンタックスハイライトを有効にする

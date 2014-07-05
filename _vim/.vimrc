@@ -171,6 +171,7 @@
     " Unite {{{
         Bundle 'Shougo/unite.vim'
         Bundle 'Shougo/vimfiler'
+        Bundle 'Shougo/neomru.vim'
         "see more plugin http://bit.ly/m5PKnU
         Bundle 'Sixeight/unite-grep'
         Bundle 'tsukkee/unite-help'

@@ -402,4 +402,18 @@ fi
             git checkout $branch; git pull
         done
     }
+
+    function flush_dnscache() {
+        sudo killall -HUP mDNSResponder
+    }
+
+    function refresh_dhcp() {
+        sudo networksetup -setdhcp 'Wi-Fi'
+        sleep 5
+
+        while ! ping -c 1 ghe.tokyo.pb; do
+          flush_dnscache
+          sleep 3
+        done
+    }
 # }}}

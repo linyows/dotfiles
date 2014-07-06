@@ -95,6 +95,7 @@
     " }}}
 
     " Language Syntax & Supports {{{
+        Bundle 'Blackrush/vim-gocode'
         Bundle 'scrooloose/syntastic'
         Bundle 'nginx.vim'
         Bundle 'jQuery'

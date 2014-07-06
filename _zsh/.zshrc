@@ -184,13 +184,38 @@ source $ZSH/oh-my-zsh.sh
 
 # Percol
 # sudo pip install --allow-external percol --allow-unverified percol percol
-if [ `which percol >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
-    for f ($HOME/.zsh/percol-sources/*) source "${f}"
-    bindkey '^r' percol-select-history
-    bindkey '^x^b' percol-git-recent-branches
-    bindkey '^xb' percol-git-recent-all-branches
-    bindkey '^@' percol-cdr
-fi
+# if [ `which percol >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
+#     for f ($HOME/.zsh/percol-sources/*) source "${f}"
+#     bindkey '^r' percol-select-history
+#     bindkey '^x^b' percol-git-recent-branches
+#     bindkey '^xb' percol-git-recent-all-branches
+#     bindkey '^@' percol-cdr
+# fi
+
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+function peco-function-list () {
+    local selected=$(functions | grep "^.*\ ()\ {" | sed -e "s| () {||" | grep peco- | grep -v function-list | peco --query "$LBUFFER")
+    if [ -n "$selected" ]; then
+        ${selected}
+    fi
+}
+zle -N peco-function-list
+bindkey '^p' peco-function-list
 
 # Plugins {{{
     # z

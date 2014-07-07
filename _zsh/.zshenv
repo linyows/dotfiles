@@ -78,6 +78,13 @@ _zshenv_add_path CPATH "/opt/include"
 
 export PYTHONPATH=/usr/share/python:/usr/local/share/python:$PYTHONPATH
 
+if [ `which go >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
+    source /usr/local/share/zsh/site-functions
+    export GOPATH=$HOME/.go
+    export GOROOT=/usr/local/opt/go/libexec
+    export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+fi
+
 # http://qiita.com/linyows@github/items/04c1be6bcd2da3cf3f1c
 if [ `uname` = 'Darwin' ]; then
     export RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-openssl-dir=`brew --prefix openssl`"

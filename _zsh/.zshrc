@@ -192,6 +192,7 @@ if [ `which peco >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   bindkey '^p' peco-function-list
   bindkey '^xr' peco-cdr
   bindkey '^xc'  peco-cd
+  bindkey '^xt'  peco-rake-tasks
 
   alias ll='ll | peco'
   alias top='top | peco'

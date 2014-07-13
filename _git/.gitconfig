@@ -64,3 +64,6 @@
     user = linyows
 #[apply]
     #whitespace = nowarn
+[ghq]
+    root = ~/.ghq
+    root = ~/.go/src

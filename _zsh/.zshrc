@@ -187,16 +187,17 @@ if [ `which peco >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   for f ($HOME/.zsh/peco-sources/*.zsh) source "${f}"
 
   bindkey '^r' peco-select-history
-  bindkey '^x^b' peco-git-recent-branches
-  bindkey '^xb' peco-git-recent-all-branches
-  bindkey '^p' peco-function-list
-  bindkey '^xr' peco-cdr
-  bindkey '^xc'  peco-cd
-  bindkey '^xt'  peco-rake-tasks
-  bindkey '^s'  peco-src
+  bindkey '^g' peco-git-recent-branches
+  #bindkey '^g' peco-git-recent-all-branches
+  bindkey '^o' peco-git-hashes
+  bindkey '^p' peco-functions
+  bindkey ' ^z' peco-z
+  bindkey ' ^x' peco-cd
+  bindkey ' ^t' peco-rake-tasks
+  bindkey '^s' peco-src
 
-  alias ll='ll | peco'
-  alias top='top | peco'
+  alias lp='ll | peco'
+  #alias top='top | peco'
   alias ps='ps aux | peco'
 fi
 

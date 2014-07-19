@@ -58,4 +58,5 @@ function rvm_current_version() {
 }
 
 # right prompt
-RPROMPT='$FG[236]%n@%m $FG[238]$(rbenv_current_version || rvm_current_version) $FG[240]$PWD%{$reset_color%}%'
+#RPROMPT='$FG[236]%n@%m $FG[238]$(rbenv_current_version || rvm_current_version) $FG[240]$PWD%{$reset_color%}%'
+RPROMPT='$FG[236]%n@%m $FG[240]$PWD%{$reset_color%}%'

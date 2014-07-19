@@ -5,4 +5,3 @@ function ptvim () {
     echo 'no pt'
   fi
 }
-#zle -N peco-pt-to-vim

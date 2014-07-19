@@ -1,3 +1,13 @@
+function find-proj-root () { (
+    while [ $(pwd) != "$HOME" ]; do
+        if [ -d .git ]; then
+            pwd
+            break
+        fi
+        cd ../
+    done
+) }
+
 function peco-cd () {
     local proj_root=$(find-proj-root)
     local gitignore="${proj_root}/.gitignore"

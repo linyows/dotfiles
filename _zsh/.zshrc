@@ -184,7 +184,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Peco
 if [ `which peco >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
-  for f ($HOME/.zsh/peco-sources/*) source "${f}"
+  for f ($HOME/.zsh/peco-sources/*.zsh) source "${f}"
 
   bindkey '^r' peco-select-history
   bindkey '^x^b' peco-git-recent-branches

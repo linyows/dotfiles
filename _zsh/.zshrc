@@ -188,7 +188,6 @@ if [ `which peco >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
 
   bindkey '^r' peco-select-history
   bindkey '^g' peco-git-recent-branches
-  #bindkey '^g' peco-git-recent-all-branches
   bindkey '^o' peco-git-hashes
   bindkey '^p' peco-functions
   bindkey '^z' peco-z
@@ -196,10 +195,6 @@ if [ `which peco >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   bindkey '^t' peco-rake-tasks
   bindkey '^s' peco-src
   bindkey '^k' peco-snippets
-
-  alias lp='ll | peco'
-  #alias top='top | peco'
-  alias ps='ps aux | peco'
 fi
 
 # Plugins {{{

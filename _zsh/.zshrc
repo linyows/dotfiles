@@ -12,14 +12,6 @@ ZSH_THEME="../../themes/linyows"
 # ZSH_THEME="josh"
 # ZSH_THEME="af-magic"
 
-# soso
-# ZSH_THEME="robbyrussell"
-# ZSH_THEME="daveverwer"
-# ZSH_THEME="fletcherm"
-# ZSH_THEME="gallifrey"
-# ZSH_THEME="jnrowe"
-# ZSH_THEME="norm"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -40,9 +32,6 @@ ZSH_THEME="../../themes/linyows"
 plugins=(git ruby gem brew node npm git-flow vi-mode vagrant osx fabric deb compleat rbenv pow powder pip python cpanm)
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-#------------------------------------------------------------------------------------------------------------------------------
 
 # Complement {{{
     typeset -U fpath
@@ -204,9 +193,6 @@ fi
     precmd() {
       _z --add "$(pwd -P)"
     }
-
-    # cdd を追加
-    #source $HOME/.zsh/plugin/cdd
 
     # incriment search
     source $HOME/.zsh/plugin/incr*.zsh

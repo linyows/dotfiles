@@ -103,4 +103,6 @@
     nnoremap <Space>bg :<C-u>suspend<Enter>
     " ruby hash rocket to 1.9 syntax
     vnoremap <silent> <C-h> :s/:\([a-zA-Z0-9_]\+\)\s*=>/\1:/g<CR>
+    " for miss type
+    inoremap <silent> jj <ESC>
 " }}}

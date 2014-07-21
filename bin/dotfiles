@@ -254,16 +254,23 @@ link_for_mac() {
         fi
         ln -fsv $HOME/$DIR/_vimperator $HOME/.vimperator
 
-        info "Make tmux-MacOSX-pasteboard."
+        if [ -L $HOME/Brewfile ]; then
+            rm -rf $HOME/Brewfile
+        elif [ -f $HOME/Brewfile ]; then
+            mv $HOME/Brewfile $BACKUP_PATH
+        fi
+        ln -fsv $HOME/$DIR/Brewfile $HOME/Brewfile
 
-        # tmux-MacOSX-pasteboard
-        if [ -f $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace ]; then
-            mv $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace $BACKUP_PATH
+        if [ ! -f $HOME/.config/peco ]; then
+            mkdir -p $HOME/.config/peco
         fi
 
-        cd  $HOME/$DIR/lib/tmux-MacOSX-pasteboard
-        make reattach-to-user-namespace
-        ln -fs $HOME/$DIR/lib/tmux-MacOSX-pasteboard/reattach-to-user-namespace $HOME/$DIR/bin
+        if [ -L $HOME/.config/peco/config.json ]; then
+            rm -rf $HOME/.config/peco/config.json
+        elif [ -f $HOME/.config/peco/config.json ]; then
+            mv $HOME/.config/peco/config.json $BACKUP_PATH
+        fi
+        ln -fsv $HOME/$DIR/_config/peco/config.json $HOME/.config/peco/config.json
     fi
 }
 
@@ -293,6 +300,7 @@ case "$1" in
     quick)
         init
         link
+        link_for_mac
         print_bye
         ;;
     vim)
@@ -301,6 +309,7 @@ case "$1" in
     *)
         init
         link
+        link_for_mac
         setup_vim
         print_bye
         exit 2

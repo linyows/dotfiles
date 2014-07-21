@@ -9,9 +9,7 @@
 ":cnoremap コマンドライン
 
 " .vimrc {{{
-    " 開く
-    nnoremap <Leader>. :<C-u>edit $MYVIMRC<Enter>
-    " 再読みこみ
+    " reload .vimrc
     nnoremap <Leader>s. :<C-u>source $MYVIMRC<Enter>
 " }}}
 

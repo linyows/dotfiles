@@ -184,6 +184,7 @@ if [ `which peco >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   bindkey '^t' peco-rake-tasks
   bindkey '^s' peco-src
   bindkey '^k' peco-snippets
+  bindkey '^b' peco-bd
 fi
 
 # Plugins {{{

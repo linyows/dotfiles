@@ -261,16 +261,16 @@ link_for_mac() {
         fi
         ln -fsv $HOME/$DIR/Brewfile $HOME/Brewfile
 
-        if [ ! -f $HOME/.config/peco ]; then
-            mkdir -p $HOME/.config/peco
+        if [ ! -f $HOME/.config ]; then
+            mkdir -p $HOME/.config
         fi
 
-        if [ -L $HOME/.config/peco/config.json ]; then
-            rm -rf $HOME/.config/peco/config.json
-        elif [ -f $HOME/.config/peco/config.json ]; then
-            mv $HOME/.config/peco/config.json $BACKUP_PATH
+        if [ -L $HOME/.config/peco ]; then
+            rm -rf $HOME/.config/peco
+        elif [ -f $HOME/.config/peco ]; then
+            mv $HOME/.config/peco $BACKUP_PATH
         fi
-        ln -fsv $HOME/$DIR/_config/peco/config.json $HOME/.config/peco/config.json
+        ln -fsv $HOME/$DIR/_config/peco $HOME/.config/peco
     fi
 }
 

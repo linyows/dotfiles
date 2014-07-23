@@ -13,7 +13,6 @@
 # CLEAR   = "\e[0m"
 
 # Pry Config
-# Pry.config.commands.import Pry::ExtendedCommands::Experimental
 Pry.config.pager = false
 Pry.config.editor = 'vim'
 Pry.config.history.file = File.expand_path('~/.dotfiles/history/.pry_history')

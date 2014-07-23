@@ -16,9 +16,7 @@
 # Pry.config.commands.import Pry::ExtendedCommands::Experimental
 Pry.config.pager = false
 Pry.config.editor = 'vim'
-Pry.config.history.should_save = true
-Pry.config.history.file = '~/.dotfiles/history/.pry_history'
-Pry.config.hooks.add_hook(:after_session, :say_bye!) { puts "bye" }
+Pry.config.history.file = File.expand_path('~/.dotfiles/history/.pry_history')
 
 rails_env = defined?(::Rails) ? "#{Rails.env} " : nil
 info = "#{rails_env}#{RUBY_VERSION}"

@@ -30,4 +30,10 @@ find ./ -daystart -ctime -2
 
 # date
 date +%Y%m%d
-date
+
+# ruby
+ruby -run -e httpd -- --port 3000 .
+
+# python
+python -m SimpleHTTPServer 3000
+python -m http.server 3000

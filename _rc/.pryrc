@@ -93,7 +93,7 @@ unless defined?(::AwesomePrint)
     # Pry.config.print = proc { |output, value|
       # Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)
     # }
-  rescue LoadError => err
+  rescue LoadError
     warn '=> Unable to load awesome_print'
   end
 end

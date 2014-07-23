@@ -151,6 +151,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'DrawIt'
 " Table Mode
 Bundle 'dhruvasagar/vim-table-mode'
+" english for coding
+Bundle 'koron/codic-vim'
 " }}}
 
 " Unite {{{

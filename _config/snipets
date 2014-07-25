@@ -4,6 +4,20 @@ tail -n 5000 /usr/local/apache2/logs/access_log | awk '{print $2}'  | sort | uni
 tail -n 5000 /usr/local/apache2/logs/access_log | awk '{print $12}' | sort | uniq -c | sort -gr | head -n 4
 tail -n 5000 /usr/local/apache2/logs/access_log | awk '{print $13}' | sort | uniq -c | sort -gr | head -n 4
 
+# mysql
+SELECT Host, User, Password FROM mysql.user;
+DROP USER 'user'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY PASSWORD '';
+GRANT USAGE ON *.* TO 'root'@'localhost' IDENTIFIED BY PASSWORD '';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON `foo`.* TO 'root'@'localhost';
+SHOW VARIABLES LIKE 'character_set%';
+SELECT version();
+# for old password
+UPDATE mysql.user SET plugin = 'mysql_old_password';
+FLUSH PRIVILEGES;
+SET PASSWORD FOR 'root'@'localhost' = OLD_PASSWORD('');
+UPDATE mysql.user SET Password = OLD_PASSWORD('') WHERE Host = 'localhost' AND User = 'root';
+
 # search
 netstat -ltapn | grep ESTABLISHED | more
 netstat -ltan | grep ":80 " | awk '{print $5}' | awk -F : '{print $4}' | sort | uniq -c | sort -nr | head
@@ -27,6 +41,7 @@ openssl req  -noout -modulus -in *.csr | openssl md5
 # find
 find ./ -daystart -ctime +2
 find ./ -daystart -ctime -2
+find ./ -name '*競合*' -print
 
 # date
 date +%Y%m%d
@@ -37,3 +52,7 @@ ruby -run -e httpd -- --port 3000 .
 # python
 python -m SimpleHTTPServer 3000
 python -m http.server 3000
+
+# other
+zcat db13.foo_20140625.gz | nkf -w | less
+zcat db13.foo_20140625.gz | nkf -w | mysql -uroot -p

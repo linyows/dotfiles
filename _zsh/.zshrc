@@ -185,6 +185,7 @@ if [ `which peco >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   bindkey '^s' peco-src
   bindkey '^k' peco-snippets
   bindkey '^b' peco-bd
+  bindkey '^a' peco-keypass
 fi
 
 # Plugins {{{

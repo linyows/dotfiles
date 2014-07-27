@@ -53,6 +53,11 @@ ruby -run -e httpd -- --port 3000 .
 python -m SimpleHTTPServer 3000
 python -m http.server 3000
 
+# zsh
+lines=( ${(@f)"$(ls ~)"} )
+lines=( ${(@f)"$(< INPUT.txt)"} )
+lines=( ${lines:#\#*} )
+
 # other
 zcat db13.foo_20140625.gz | nkf -w | less
 zcat db13.foo_20140625.gz | nkf -w | mysql -uroot -p

@@ -54,7 +54,7 @@ alias ana='request-log-analyzer'
         # alias ls='ls --color=auto'
     # ;;
 # esac
-alias l='ls -lA1'
+alias l='ls -A'
 alias ll='ls -l'
 alias la='ls -lA'
 

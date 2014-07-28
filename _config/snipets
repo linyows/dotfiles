@@ -61,3 +61,4 @@ lines=( ${lines:#\#*} )
 # other
 zcat db13.foo_20140625.gz | nkf -w | less
 zcat db13.foo_20140625.gz | nkf -w | mysql -uroot -p
+openssl s_client -connect foo.bar.jp:443 -showcerts | grep expire

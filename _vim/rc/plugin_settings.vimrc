@@ -222,12 +222,11 @@ let s:iswin = has('win32') || has('win64')
     let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 " }}}
 
-
 " neosnippet.vim {{{
     " Plugin key-mappings.
-    imap <C-i>     <Plug>(neosnippet_expand_or_jump)
-    smap <C-i>     <Plug>(neosnippet_expand_or_jump)
-    xmap <C-i>     <Plug>(neosnippet_expand_target)
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k>     <Plug>(neosnippet_expand_target)
 
     " SuperTab like snippets behavior.
     imap <expr><TAB> neosnippet#expandable_or_jumpable() ?

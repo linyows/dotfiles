@@ -3,28 +3,27 @@
 *.swp
 *.cache
 *~
-doc/tags
-doc/tags-ja
+/doc/tags
+/doc/tags-ja
 
 # for empty dir
 !empty
 
 # _vim
-_vim/bundle/*
-_vim/bundle/**/*
-_vim/tmp/backup/*
-_vim/tmp/backup/**/*
-_vim/tmp/swap/*
-_vim/tmp/swap/**/*
-_vim/tmp/plugin/*
-_vim/tmp/plugin/**/*
-_vim/tmp/viminfo.txt
+/_vim/bundle/*
+/_vim/bundle/**/*
+/_vim/tmp/backup/*
+/_vim/tmp/backup/**/*
+/_vim/tmp/swap/*
+/_vim/tmp/swap/**/*
+/_vim/tmp/plugin/*
+/_vim/tmp/plugin/**/*
+/_vim/tmp/viminfo.txt
 
 # .vimperator
-_vimperator/info/*
-_vimperator/info/default/*
+/_vimperator/info/*
+/_vimperator/info/default/*
 
-# tmux clipboad
-bin/reattach-to-user-namespace
+/history/*
 
-history/*
+/_config/keypass

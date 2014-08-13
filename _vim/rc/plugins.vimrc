@@ -81,7 +81,7 @@ Plugin 'mattboehm/vim-unstack'
 " }}}
 
 " Language Syntax & Supports {{{
-Plugin 'Blackrush/vim-gocode'
+Plugin 'fatih/vim-go'
 Plugin 'scrooloose/syntastic'
 Plugin 'nginx.vim'
 Plugin 'jQuery'

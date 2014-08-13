@@ -69,9 +69,9 @@
 " Color {{{
     " see@http://d.hatena.ne.jp/connvoi_tyou/20080306
     " 今、何色を表示できるのか表示
-    cnoremap CA so $VIMRUNTIME/syntax/colortest.vim<Enter>
+    noremap <Leader>ca so $VIMRUNTIME/syntax/colortest.vim<Enter>
     " 今の色設定を表示
-    cnoremap CS so $VIMRUNTIME/syntax/hitest.vim<Enter>
+    noremap <Leader>cs so $VIMRUNTIME/syntax/hitest.vim<Enter>
 " }}}
 
 " Go {{{

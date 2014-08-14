@@ -449,12 +449,20 @@ let s:iswin = has('win32') || has('win64')
 
 " vim-go {{{
     if isdirectory($GOROOT)
+        let g:gofmt_command = 'goimports'
         set rtp^=${GOROOT}/misc/vim
     endif
 
     if isdirectory($GOROOT)
         au FileType go compiler go
+        auto BufWritePre *.go Fmt
+        au BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4
     endif
+
+    " not showing tab-indent if golang
+    au FileType go set listchars=tab:\ \ 
+    au FileType go highlight NonText ctermbg=NONE ctermfg=DarkGreen
+    au FileType go highlight SpecialKey ctermbg=NONE ctermfg=DarkBlue
 
     let g:go_snippet_engine = 'neosnippet'
     "let g:go_play_open_browser = 0

@@ -1,0 +1,13 @@
+#! /bin/bash
+
+for file in `ls | grep -e ".\(rm\|wmv\)$"`; do
+  name="${file%.*}"
+  src="${PWD}/${file}"
+  dst="${PWD}/${name}.mp4"
+
+  ffmpeg -i ${src} -c:v libx264 -crf 23 -c:a libfaac -q:a 100 ${dst}
+
+  if [ $? -eq 0 ]; then
+    mv ${src} ~/.Trash/${file}
+  fi
+done

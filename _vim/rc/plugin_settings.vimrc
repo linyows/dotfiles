@@ -456,7 +456,7 @@ let s:iswin = has('win32') || has('win64')
     if isdirectory($GOROOT)
         au FileType go compiler go
         auto BufWritePre *.go Fmt
-        au BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4
+        au BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2
     endif
 
     " not showing tab-indent if golang

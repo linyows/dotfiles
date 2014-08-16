@@ -453,12 +453,14 @@ let s:iswin = has('win32') || has('win64')
         set rtp^=${GOROOT}/misc/vim
     endif
 
-    if isdirectory($GOROOT)
-        au FileType go compiler go
+    if isdirectory($GOPATH)
+        exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+        set completeopt=menu,preview
         auto BufWritePre *.go Fmt
         au BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2
     endif
 
+    au FileType go compiler go
     " not showing tab-indent if golang
     au FileType go set listchars=tab:\ \ 
     au FileType go highlight NonText ctermbg=NONE ctermfg=DarkGreen

@@ -4,9 +4,10 @@ function peco-snippets() {
         if [ -n "$selected" ]; then
             if [ -x "`which pbcopy`" ]; then
                 echo "${selected}" | pbcopy
+            else
+                BUFFER="${selected}"
+                CURSOR=$#BUFFER
             fi
-            BUFFER="${selected}"
-            CURSOR=$#BUFFER
         fi
         zle clear-screen
     fi

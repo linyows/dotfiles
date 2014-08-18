@@ -480,4 +480,7 @@ let s:iswin = has('win32') || has('win64')
     au FileType go nmap <Leader>ds <Plug>(go-def-split)
     au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
     au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+    autocmd FileType go :highlight goErr cterm=none ctermfg=DarkYellow
+    autocmd FileType go :match goErr /\<err\>/
 " }}}

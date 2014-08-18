@@ -289,6 +289,16 @@ setup_vim() {
     fi
 }
 
+setup_go() {
+    if [ `which go >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
+        go get github.com/nsf/gocode
+        go get code.google.com/p/go.tools/cmd/goimports
+        go get code.google.com/p/go.tools/cmd/godoc
+        go get code.google.com/p/go.tools/cmd/vet
+        go get code.google.com/p/go.tools/cmd/cover
+    fi
+}
+
 print_bye() {
     if [ $? -eq 0 ]; then
         success "Successfully initialized!"
@@ -312,6 +322,7 @@ case "$1" in
         link
         link_for_mac
         setup_vim
+        setup_go
         print_bye
         exit 2
 esac

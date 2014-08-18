@@ -39,7 +39,7 @@ endif
 set textwidth=0                " 自動折り返しをoffにするため無制限に設定 (段落整形したい時はgq,gwとかすればいい)
 if exists('&colorcolumn')
     set colorcolumn=+1
-    autocmd FileType sh,cpp,perl,vim,ruby,python,haskell,scheme setlocal textwidth=80
+    autocmd FileType sh,cpp,perl,vim,ruby,python,haskell,scheme,markdown setlocal textwidth=80
 endif
 set hidden                     " 変更中のファイルでも、保存しないで他のファイルを表示することが出来るようにする
 set title                      " ウィンドウのタイトルを変更する設定

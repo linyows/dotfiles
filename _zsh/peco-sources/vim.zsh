@@ -5,3 +5,9 @@ function ptvim () {
     echo 'no pt'
   fi
 }
+
+function peco-open-by-vim () {
+    find . | peco | xargs sh -c 'vim "$0" < /dev/tty'
+    zle clear-screen
+}
+zle -N peco-open-by-vim

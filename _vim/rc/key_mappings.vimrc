@@ -69,29 +69,9 @@
 " Color {{{
     " see@http://d.hatena.ne.jp/connvoi_tyou/20080306
     " 今、何色を表示できるのか表示
-    cnoremap CA so $VIMRUNTIME/syntax/colortest.vim<Enter>
+    noremap <Leader>ca so $VIMRUNTIME/syntax/colortest.vim<Enter>
     " 今の色設定を表示
-    cnoremap CS so $VIMRUNTIME/syntax/hitest.vim<Enter>
-" }}}
-
-" Go {{{
-
-    " Go に付属の plugin と gocode を有効にする
-    if isdirectory($GOROOT)
-        set rtp^=${GOROOT}/misc/vim
-    endif
-    if isdirectory($GOPATH)
-        " :Fmt などで gofmt の代わりに goimports を使う
-        let g:gofmt_command = 'goimports'
-        set rtp^=${GOPATH}/src/github.com/nsf/gocode/vim
-    endif
-
-    if isdirectory($GOROOT)
-        " 保存時に :Fmt する
-        au BufWritePre *.go Fmt
-        au BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4
-        au FileType go compiler go
-    endif
+    noremap <Leader>cs so $VIMRUNTIME/syntax/hitest.vim<Enter>
 " }}}
 
 " Others {{{

@@ -276,7 +276,7 @@ link_for_mac() {
 
 setup_vim() {
     info "Vim bundle install."
-    vim -c "BundleInstall" -c "q!" -c "q!"
+    vim +PluginInstall +qall
 
     cd $HOME/$DIR/_vim/bundle/vimproc
     # mac

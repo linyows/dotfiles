@@ -222,6 +222,31 @@ let s:iswin = has('win32') || has('win64')
     let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 " }}}
 
+" neosnippet.vim {{{
+    " Plugin key-mappings.
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+    " SuperTab like snippets behavior.
+    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: pumvisible() ? "\<C-n>" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: "\<TAB>"
+
+    " For snippet_complete marker.
+    if has('conceal')
+      set conceallevel=2 concealcursor=i
+    endif
+
+    " Enable snipMate compatibility feature.
+    "let g:neosnippet#enable_snipmate_compatibility = 1
+    " Tell Neosnippet about the other snippets
+    "let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+" }}}
+
 " unite.vim {{{
     let g:unite_data_directory = expand('~/.vim/tmp/plugin/.unite')
     let g:unite_source_grep_default_opts = '-Hn --color=never'
@@ -420,4 +445,39 @@ let s:iswin = has('win32') || has('win64')
     endfor
     return _
   endfunction
+" }}}
+
+" vim-go {{{
+    if isdirectory($GOROOT)
+        let g:gofmt_command = 'goimports'
+        set rtp^=${GOROOT}/misc/vim
+    endif
+
+    if isdirectory($GOPATH)
+        exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+        set completeopt=menu,preview
+        auto BufWritePre *.go Fmt
+        au BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2
+    endif
+
+    au FileType go compiler go
+    " not showing tab-indent if golang
+    au FileType go set listchars=tab:\ \ 
+    au FileType go highlight NonText ctermbg=NONE ctermfg=DarkGreen
+    au FileType go highlight SpecialKey ctermbg=NONE ctermfg=DarkBlue
+
+    let g:go_snippet_engine = 'neosnippet'
+    "let g:go_play_open_browser = 0
+    "let g:go_fmt_fail_silently = 1
+    "let g:go_fmt_autosave = 0
+    au FileType go nmap <Leader>i <Plug>(go-info)
+    au FileType go nmap <Leader>gd <Plug>(go-doc)
+    au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+    au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+    au FileType go nmap <leader>r <Plug>(go-run)
+    au FileType go nmap <leader>b <Plug>(go-build)
+    au FileType go nmap <leader>t <Plug>(go-test)
+    au FileType go nmap <Leader>ds <Plug>(go-def-split)
+    au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+    au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 " }}}

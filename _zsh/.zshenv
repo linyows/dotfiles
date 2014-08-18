@@ -79,10 +79,13 @@ _zshenv_add_path CPATH "/opt/include"
 export PYTHONPATH=/usr/share/python:/usr/local/share/python:$PYTHONPATH
 
 if [ `which go >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
-    source /usr/local/share/zsh/site-functions
+  if [ -d $HOME/.go ]; then
     export GOPATH=$HOME/.go
-    export GOROOT=/usr/local/opt/go/libexec
-    export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+    export PATH=$PATH:$GOPATH/bin
+  fi
+  if [ -d /usr/local/opt/go/libexec/bin ]; then
+    export PATH=$PATH:/usr/local/opt/go/libexec/bin
+  fi
 fi
 
 # http://qiita.com/linyows@github/items/04c1be6bcd2da3cf3f1c

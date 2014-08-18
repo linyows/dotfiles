@@ -186,6 +186,13 @@ if [ `which peco >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   bindkey '^k' peco-snippets
   bindkey '^b' peco-bd
   bindkey '^a' peco-keypass
+  bindkey '^v' peco-open-by-vim
+fi
+
+
+# Homebrew zsh completion
+if [ -d /usr/local/share/zsh/site-functions ]; then
+  for f (/usr/local/share/zsh/site-functions) source "${f}"
 fi
 
 # Plugins {{{

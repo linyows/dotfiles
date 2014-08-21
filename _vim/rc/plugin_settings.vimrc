@@ -448,6 +448,9 @@ let s:iswin = has('win32') || has('win64')
 " }}}
 
 " vim-go {{{
+    au FileType go map ,g :w\|:!go run %<cr>
+    au FileType go map ,t :w\|:!go test %<cr>
+
     if isdirectory($GOROOT)
         let g:gofmt_command = 'goimports'
         set rtp^=${GOROOT}/misc/vim

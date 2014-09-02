@@ -451,9 +451,9 @@ let s:iswin = has('win32') || has('win64')
     au FileType go map ,g :w\|:!go run %<cr>
     au FileType go map ,t :w\|:!go test %<cr>
 
-    if isdirectory($GOROOT)
+    if isdirectory('/usr/local/opt/go/libexec')
         let g:gofmt_command = 'goimports'
-        set rtp^=${GOROOT}/misc/vim
+        set rtp^=/usr/local/opt/go/libexec/misc/vim
     endif
 
     if isdirectory($GOPATH)

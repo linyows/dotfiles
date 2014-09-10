@@ -468,6 +468,7 @@ let s:iswin = has('win32') || has('win64')
     au FileType go set listchars=tab:\ \ 
     au FileType go highlight NonText ctermbg=NONE ctermfg=DarkGreen
     au FileType go highlight SpecialKey ctermbg=NONE ctermfg=DarkBlue
+    au FileType go auto BufWritePre * :%s/'/"/ge
 
     let g:go_snippet_engine = 'neosnippet'
     "let g:go_play_open_browser = 0

@@ -88,10 +88,14 @@ if [ `which go >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   fi
 fi
 
-# http://qiita.com/linyows@github/items/04c1be6bcd2da3cf3f1c
 if [ `uname` = 'Darwin' ]; then
-    export RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-openssl-dir=`brew --prefix openssl`"
-    export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+    export RUBY_CONFIGURE_OPTS="--disable-install-doc --with-gcc=clang \
+        --with-readline-dir=`brew --prefix readline` \
+        --with-openssl-dir=`brew --prefix openssl` \
+        --with-iconv-dir=`brew --prefix libiconv`"
+    if [ -f "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt" ]; then
+        export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+    fi
 fi
 
 if [ -f "/etc/profile.d/nodebrew.sh" ]; then

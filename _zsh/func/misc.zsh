@@ -96,20 +96,16 @@ function generate_and_commit() {
     fi
 }
 
-function find_swp() {
+function find_gomi() {
     find . -name "*.swp*" -print | grep .swp
-}
-
-function delete_swp() {
-    find . -name "*.swp*" -print0 | xargs -0 rm
-}
-
-function find_un() {
     find . -name "*.un*" -print | grep .un
+    find . -name ".DS_Store" -print
 }
 
-function delete_un() {
+function delete_gomi() {
+    find . -name "*.swp*" -print0 | xargs -0 rm
     find . -name "*.un*" -print0 | xargs -0 rm
+    find . -name ".DS_Store" -print0 | xargs -0 rm
 }
 
 function find_conflicted() {

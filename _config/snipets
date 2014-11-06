@@ -11,6 +11,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY PASSWORD '';
 GRANT USAGE ON *.* TO 'root'@'localhost' IDENTIFIED BY PASSWORD '';
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON `foo`.* TO 'root'@'localhost';
 SHOW VARIABLES LIKE 'character_set%';
+SHOW VARIABLES LIKE '%time_zone';
 SELECT version();
 # for old password
 UPDATE mysql.user SET plugin = 'mysql_old_password';

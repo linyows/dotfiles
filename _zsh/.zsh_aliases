@@ -75,7 +75,7 @@ alias rdm='rake db:migrate'
 alias rr='rake route'
 alias be='bundle exec'
 alias bu='bundle update'
-alias bi='bundle install --path vendor/bundle'
+alias bi='[ -f .bundle/config ] && bundle install || bundle install --path vendor/bundle'
 alias bc='bundle clean'
 alias plog='grc powder applog' # dependent on grc
 

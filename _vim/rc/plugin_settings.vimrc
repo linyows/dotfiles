@@ -247,6 +247,14 @@ let s:iswin = has('win32') || has('win64')
     "let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 " }}}
 
+" snippets {{{
+    let g:neosnippet#snippets_directory = [
+          \'~/.vim/snippets',
+          \'~/.vim/bundle/serverspec-snippets',
+          \'~/.vim/bundle/neosnippet_chef_recipe_snippet/autoload/neosnippet/snippets',
+          \]
+" }}}
+
 " unite.vim {{{
     let g:unite_data_directory = expand('~/.vim/tmp/plugin/.unite')
     let g:unite_source_grep_default_opts = '-Hn --color=never'

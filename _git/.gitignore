@@ -11,3 +11,4 @@ vendor
 setting.rb
 log
 id_rsa.no_passphrase
+.vagrant

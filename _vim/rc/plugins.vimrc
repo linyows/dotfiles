@@ -22,6 +22,7 @@ Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'ryuzee/neocomplcache_php_selenium_snippet'
 Plugin 'glidenote/serverspec-snippets'
+Plugin 'glidenote/rspec-result-syntax'
 " A neocomplcache plugin for English, using look command
 Plugin 'ujihisa/neco-look'
 " -- でメソッドチェーン整形

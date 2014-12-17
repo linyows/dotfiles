@@ -170,11 +170,39 @@ let s:iswin = has('win32') || has('win64')
     au Filetype javascript nnoremap <buffer><leader> :!js %<Space>
     au Filetype vim nnoremap <silent><leader> :source %<Return>
     let g:quickrun_config = {
-    \   'markdown': {
-    \     'type': 'markdown/gfm',
-    \     'outputter': 'browser'
-    \   }
-    \ }
+      \   'markdown': {
+      \     'type': 'markdown/gfm',
+      \     'outputter': 'browser'
+      \   }
+      \ }
+" }}}
+
+" rspec-result-syntax {{{
+    let g:quickrun_config['ruby.rspec'] = {
+      \'command'                  : 'rspec',
+      \'cmdopt'                   : '-cfd',
+      \'args'                     : "%{line('.')}",
+      \'exec'                     : ['bundle exec %c %o %s:%a'],
+      \'outputter/buffer/filetype': 'rspec-result',
+      \'filetype'                 : 'rspec-result'
+      \}
+    augroup RSpec
+      autocmd!
+      autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+    augroup END
+
+    let g:quickrun_config['ruby.serverspec'] = {
+      \'command'                  : 'rspec',
+      \'cmdopt'                   : '-cfd',
+      \'args'                     : "%{line('.')}",
+      \'exec'                     : ['bundle exec %c %o %s:%a'],
+      \'outputter/buffer/filetype': 'rspec-result',
+      \'filetype'                 : 'rspec-result'
+      \}
+    augroup Serverspec
+      autocmd!
+      autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.serverspec
+    augroup END
 " }}}
 
 " neocomplcache.vim {{{

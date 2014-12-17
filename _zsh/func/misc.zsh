@@ -189,3 +189,16 @@ function refresh_dhcp() {
       sleep 3
     done
 }
+# http://qiita.com/takeshinoda@github/items/2dec7a72930ec1f658af
+function weather() {
+  typeset -A weathers
+  weathers=(sky ☀️ clouds ☁️ rain ☔️ thunderstorm ⚡️ snow ⛄️ mist 🌁 )
+  owm=`curl -s 'http://api.openweathermap.org/data/2.5/weather?q=Fukuoka,jp' | jq -r '.weather[0].description'`
+  echo -n "$owm "
+  for weather in ${(k)weathers}; do
+    current=`echo $owm | grep $weather`
+    if [ "$current" != '' ]; then
+      echo "$weathers[$weather] "
+    fi
+  done
+}

@@ -276,11 +276,11 @@ let s:iswin = has('win32') || has('win64')
 " }}}
 
 " snippets {{{
-    let g:neosnippet#snippets_directory = [
-          \'~/.vim/snippets',
-          \'~/.vim/bundle/serverspec-snippets',
-          \'~/.vim/bundle/neosnippet_chef_recipe_snippet/autoload/neosnippet/snippets',
-          \]
+    let g:neosnippet#snippets_directory =
+          \'~/.vim/snippets,'
+          \'~/.vim/bundle/vim-go/gosnippets/snippets,'
+          \'~/.vim/bundle/serverspec-snippets,'
+          \'~/.vim/bundle/neosnippet_chef_recipe_snippet/autoload/neosnippet/snippets'
 " }}}
 
 " unite.vim {{{

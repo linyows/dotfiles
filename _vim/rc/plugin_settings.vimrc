@@ -488,14 +488,14 @@ let s:iswin = has('win32') || has('win64')
     au FileType go map ,t :w\|:!go test %<cr>
 
     if isdirectory('/usr/local/opt/go/libexec')
-        let g:gofmt_command = 'goimports'
+        let g:go_fmt_command = 'goimports'
         set rtp^=/usr/local/opt/go/libexec/misc/vim
     endif
 
     if isdirectory($GOPATH)
         exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
         set completeopt=menu,preview
-        auto BufWritePre *.go Fmt
+        au BufWritePre *.go :GoFmt
         au BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2
     endif
 

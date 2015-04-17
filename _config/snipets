@@ -34,6 +34,8 @@ dstat --top-cpu --top-cputime
 dstat --top-io --top-bio
 dstat --top-io-adv --top-bio-adv
 
+ip addr show eth1 scope global | grep inet | awk '{print $2}' | cut -d/ -f1
+
 # openssl
 openssl x509 -noout -modulus -in *.crt | openssl md5
 openssl rsa  -noout -modulus -in *.key | openssl md5

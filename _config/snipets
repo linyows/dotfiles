@@ -66,3 +66,7 @@ lines=( ${lines:#\#*} )
 zcat db13.foo_20140625.gz | nkf -w | less
 zcat db13.foo_20140625.gz | nkf -w | mysql -uroot -p
 openssl s_client -connect foo.bar.jp:443 -showcerts | grep expire
+
+# openstack
+nova boot --config-drive=true --image="CentOS-7.1" --flavor="0204" --nic port-id="wan" --nic port-id="lan" --availability-zone "nova:comp-node0005.u01.openstack" --security-groups="default" --user-data="./user-data" www001.example.openstack
+neutron port-list -c fixed_ips -c mac_address -c id -c device_id -c tenant_id -c status --sort-key tenant_id -D | grep "                 "

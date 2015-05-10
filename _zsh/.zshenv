@@ -98,6 +98,10 @@ if [ `uname` = 'Darwin' ]; then
     fi
 fi
 
+if [ `which direnv >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
+  eval "$(direnv hook zsh)"
+fi
+
 if [ -f "/etc/profile.d/nodebrew.sh" ]; then
     source "/etc/profile.d/nodebrew.sh"
 fi

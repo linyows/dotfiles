@@ -47,6 +47,8 @@ _zshenv_add_path PATH "$HOME/.rbenv"
 _zshenv_add_path PATH "$HOME/.rbenv/bin"
 _zshenv_add_path PATH "$HOME/.rbenv/shims"
 _zshenv_add_path PATH "$HOME/.nodebrew/current/bin"
+_zshenv_add_path PATH "$HOME/.pyenv"
+_zshenv_add_path PATH "$HOME/.pyenv/bin"
 _zshenv_add_path PATH "/usr/local/bin"
 _zshenv_add_path PATH "/usr/local/sbin"
 _zshenv_add_path PATH "/usr/local/*/bin"
@@ -112,6 +114,15 @@ fi
 
 if [ -d "$HOME/.rbenv" ]; then
     eval "$(rbenv init -)"
+fi
+
+if [ -f "/etc/profile.d/pyenv.sh" ]; then
+    source "/etc/profile.d/pyenv.sh"
+fi
+
+if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    eval "$(pyenv init -)"
 fi
 
 # load local.zshenv

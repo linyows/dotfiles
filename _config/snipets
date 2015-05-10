@@ -45,6 +45,7 @@ openssl req  -noout -modulus -in *.csr | openssl md5
 find ./ -daystart -ctime +2
 find ./ -daystart -ctime -2
 find ./ -name '*競合*' -print
+sudo find ./ -user root -exec chown linyows {} \;
 
 # date
 date +%Y%m%d

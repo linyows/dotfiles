@@ -18,11 +18,18 @@ UPDATE mysql.user SET plugin = 'mysql_old_password';
 FLUSH PRIVILEGES;
 SET PASSWORD FOR 'root'@'localhost' = OLD_PASSWORD('');
 UPDATE mysql.user SET Password = OLD_PASSWORD('') WHERE Host = 'localhost' AND User = 'root';
+# total used memory
+select @@GLOBAL.KEY_BUFFER_SIZE + @@GLOBAL.INNODB_BUFFER_POOL_SIZE + @@GLOBAL.INNODB_LOG_BUFFER_SIZE + @@GLOBAL.INNODB_ADDITIONAL_MEM_POOL_SIZE + @@GLOBAL.NET_BUFFER_LENGTH as GLOBAL_BUFFER_SIZE, @@GLOBAL.SORT_BUFFER_SIZE + @@GLOBAL.MYISAM_SORT_BUFFER_SIZE + @@GLOBAL.READ_BUFFER_SIZE + @@GLOBAL.JOIN_BUFFER_SIZE + @@GLOBAL.READ_RND_BUFFER_SIZE as THREAD_BUFFER_SIZE, @@GLOBAL.KEY_BUFFER_SIZE + @@GLOBAL.INNODB_BUFFER_POOL_SIZE + @@GLOBAL.INNODB_LOG_BUFFER_SIZE + @@GLOBAL.INNODB_ADDITIONAL_MEM_POOL_SIZE + @@GLOBAL.NET_BUFFER_LENGTH + (@@GLOBAL.SORT_BUFFER_SIZE + @@GLOBAL.MYISAM_SORT_BUFFER_SIZE + @@GLOBAL.READ_BUFFER_SIZE + @@GLOBAL.JOIN_BUFFER_SIZE + @@GLOBAL.READ_RND_BUFFER_SIZE) * @@GLOBAL.MAX_CONNECTIONS AS TOTAL_MEMORY_SIZE, (@@GLOBAL.KEY_BUFFER_SIZE + @@GLOBAL.INNODB_BUFFER_POOL_SIZE + @@GLOBAL.INNODB_LOG_BUFFER_SIZE + @@GLOBAL.INNODB_ADDITIONAL_MEM_POOL_SIZE + @@GLOBAL.NET_BUFFER_LENGTH + (@@GLOBAL.SORT_BUFFER_SIZE + @@GLOBAL.MYISAM_SORT_BUFFER_SIZE + @@GLOBAL.READ_BUFFER_SIZE + @@GLOBAL.JOIN_BUFFER_SIZE + @@GLOBAL.READ_RND_BUFFER_SIZE) * @@GLOBAL.MAX_CONNECTIONS)/1024 AS TOTAL_MEMORY_SIZE_kb, (@@GLOBAL.KEY_BUFFER_SIZE + @@GLOBAL.INNODB_BUFFER_POOL_SIZE + @@GLOBAL.INNODB_LOG_BUFFER_SIZE + @@GLOBAL.INNODB_ADDITIONAL_MEM_POOL_SIZE + @@GLOBAL.NET_BUFFER_LENGTH + (@@GLOBAL.SORT_BUFFER_SIZE + @@GLOBAL.MYISAM_SORT_BUFFER_SIZE + @@GLOBAL.READ_BUFFER_SIZE + @@GLOBAL.JOIN_BUFFER_SIZE + @@GLOBAL.READ_RND_BUFFER_SIZE) * @@GLOBAL.MAX_CONNECTIONS)/1024/1024 AS TOTAL_MEMORY_SIZE_mb, (@@GLOBAL.KEY_BUFFER_SIZE + @@GLOBAL.INNODB_BUFFER_POOL_SIZE + @@GLOBAL.INNODB_LOG_BUFFER_SIZE + @@GLOBAL.INNODB_ADDITIONAL_MEM_POOL_SIZE + @@GLOBAL.NET_BUFFER_LENGTH + (@@GLOBAL.SORT_BUFFER_SIZE + @@GLOBAL.MYISAM_SORT_BUFFER_SIZE + @@GLOBAL.READ_BUFFER_SIZE + @@GLOBAL.JOIN_BUFFER_SIZE + @@GLOBAL.READ_RND_BUFFER_SIZE) * @@GLOBAL.MAX_CONNECTIONS)/1024/1024/1024 AS TOTAL_MEMORY_SIZE_gb \G;
 
 # search
 netstat -ltapn | grep ESTABLISHED | more
-netstat -ltan | grep ":80 " | awk '{print $5}' | awk -F : '{print $4}' | sort | uniq -c | sort -nr | head
+netstat -ltan | grep ":443 " | awk '{print $5}' | awk -F : '{print $4}' | sort | uniq -c | sort -nr | head
+netstat -tan | grep ':443 ' | awk '{print $6}' | sort | uniq -c
+while :; do netstat -ltan | grep ":443 " | grep ESTAB | wc -l; sleep 1; done
 lsof -i:80
+
+# user
+sudo gpasswd -a user subgroup
 
 # dstat
 dstat -Tclmdrn
@@ -36,10 +43,23 @@ dstat --top-io-adv --top-bio-adv
 
 ip addr show eth1 scope global | grep inet | awk '{print $2}' | cut -d/ -f1
 
+tcpdump -ennqti eth0 \( arpr icmp \)
+
+# systemd
+systemctl list-units --type=service
+systemctl list-unit-files --type=service
+systemctl daemon-reload
+systemd-analyze
+systemd-detect-virt
+journalctl /usr/bin/procmail
+journalctl /usr/bin/dovecot
+
 # openssl
 openssl x509 -noout -modulus -in *.crt | openssl md5
+openssl x509 -text -noout -in foo.jp.crt
 openssl rsa  -noout -modulus -in *.key | openssl md5
 openssl req  -noout -modulus -in *.csr | openssl md5
+openssl req  -text -noout -in foo.jp.csr
 openssl s_client -connect foo.bar.jp:443 -showcerts | grep expire
 
 # find

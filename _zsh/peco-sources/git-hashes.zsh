@@ -1,10 +1,9 @@
 function peco-git-hashes () {
-    local selected_hash=$(git log --format="%ai  %an  %h  %d %s" | peco)
-    if [ -n "$selected_hash" ]; then
-        BUFFER="$(echo $selected_hash | \
-            awk 'match($0,/[[:blank:]]{2}[a-z0-9]{7}[[:blank:]]{2}/)
-            { print substr($0, RSTART, RLENGTH) }')"
-        zle accept-line
+    local selected="$(git log --format="%ai  %an  %h  %d %s" | peco | perl -pe 's/\n//g')"
+    if [ -n "$selected" ]; then
+        local remote="$(git remote -v | grep fetch | awk '{print $2}' | perl -pe 's/:/\//' | perl -pe 's/git@/https:\/\//' | perl -pe 's/\.git$//')"
+        BUFFER="open ${remote}/commit/$(echo $selected | awk '{print $5}')"
+        CURSOR=$#BUFFER
     fi
     zle clear-screen
 }

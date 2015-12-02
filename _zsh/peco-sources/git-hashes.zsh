@@ -1,5 +1,5 @@
 function peco-git-hashes () {
-    local selected="$(git log --format="%ai  %an  %h  %d %s" | peco)"
+    local selected="$(git log --format="%ai  %h  %an  %d %s" | peco)"
     if [ -n "$selected" ]; then
         local remote="$(git remote -v | grep fetch | awk '{print $2}' | \
             perl -pe 's/ssh:\/\///' | perl -pe 's/:/\//' | perl -pe 's/git@/https:\/\//' | perl -pe 's/\.git$//')"

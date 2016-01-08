@@ -51,8 +51,12 @@ systemctl list-unit-files --type=service
 systemctl daemon-reload
 systemd-analyze
 systemd-detect-virt
+
+# journalctl
 journalctl /usr/bin/procmail
 journalctl /usr/bin/dovecot
+journalctl -xe
+journalctl -u nginx
 
 # openssl
 openssl x509 -noout -modulus -in *.crt | openssl md5

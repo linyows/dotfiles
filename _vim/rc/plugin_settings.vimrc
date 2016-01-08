@@ -494,6 +494,8 @@ let s:iswin = has('win32') || has('win64')
         set completeopt=menu,preview
         au BufWritePre *.go :GoFmt
         au BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2
+        exe "set rtp+=".globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
+        autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
     endif
 
     au FileType go compiler go

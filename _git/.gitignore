@@ -16,3 +16,4 @@ id_rsa.no_passphrase
 packer_cache
 user_datas/test*.yml
 docker-build.log
+bin

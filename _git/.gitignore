@@ -18,3 +18,4 @@ bower_components
 user_datas/test*.yml
 docker-build.log
 bin
+coverage

@@ -40,7 +40,7 @@ Plugin 'h1mesuke/vim-alignta'
 " yankの履歴を順番に呼び出せる
 Plugin 'LeafCage/yankround.vim'
 " undo履歴を追える (need python support)
-Plugin 'Gundo'
+"Plugin 'Gundo'
 " 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
 Plugin 'grep.vim'
 " vimの正規表現をrubyやperlの正規表現な入力でできる
@@ -68,7 +68,7 @@ Plugin 'Source-Explorer-srcexpl.vim'
 " ディレクトリのファイル一覧、バッファ一覧、タグ一覧を別ウィンドウで表示できる
 Plugin 'winmanager'
 " perldocやphpmanual等のリファレンスをvim上で見る
-Plugin 'thinca/vim-ref'
+"Plugin 'thinca/vim-ref'
 " Simple Unit Testing Framework for Vim script
 Plugin 'h1mesuke/vim-unittest'
 " require 対象の補完をする unite.vim ソース
@@ -76,7 +76,7 @@ Plugin 'rhysd/unite-ruby-require.vim'
 " neocomplcache で Ruby 2.0 のキーワード引数を補完
 Plugin 'rhysd/neco-ruby-keyword-args'
 " no no past (:Nonopaste, :'<,'>Nonopaste)
-Plugin 'banyan/Nonopaste.vim'
+"Plugin 'banyan/Nonopaste.vim'
 " :CopyPath, :CopyFileName
 Plugin 'taku-o/vim-copypath'
 Plugin 'terryma/vim-multiple-cursors'
@@ -102,7 +102,7 @@ Plugin 'basyura/jslint.vim'
 Plugin 'php.vim--Garvin'
 Plugin 'php.vim'
 Plugin 'php_localvarcheck.vim'
-Plugin 'linyows/PDV--phpDocumentor-for-Vim'
+Plugin 'sumpygump/php-documentor-vim'
 Plugin 'puppetlabs/puppet-syntax-vim'
 " }}}
 

@@ -61,11 +61,19 @@ function rvm_prompt {
     fi
 }
 
-# sshしたら新規ウインドウでタブ名を接続名にする
+# SSHロギング
 function ssh_tmux() {
-    eval server=\${$#}
-    eval tmux new-window -n "'${server}'" "'ssh $@'"
+    #eval server=\${$#}
+    #eval tmux new-window -n "'${server}'" "'ssh $@'"
+    tmux  set-option default-terminal "screen" \; \
+          new-window -n $(echo $@ | perl -ple 's/(^|\s)-[^\s] *[^\s]+//g' | cut -d" " -f2 ) "exec ssh $(echo $@)" \; \
+          run-shell        "[ ! -d $HOME/.tmux/#W/$(date +%Y-%m-%d) ] && mkdir -p $HOME/.tmux/#W/$(date +%Y-%m-%d)" \; \
+          pipe-pane        "cat >> $HOME/.tmux/#W/$(date +%Y-%m-%d/%H%M%S.log)" \; \
+          display-message  "Started logging to $HOME/.tmux/#W/$(date +%Y-%m-%d/%H%M%S.log)"
 }
+if [[ $TMUX != '' ]] ; then
+  alias ssh=ssh_tmux
+fi
 
 # insert clipboad (not tmux)
 function myip() {

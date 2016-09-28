@@ -1,28 +1,17 @@
-" linyows <linyows@gmail.com>
-" https://github.com/linyows/.vimperator
-
 " Appearance {{{
-    " ブラウザタイトルの変更
     set titlestring=vimp
     set toolbars=notabs,nomenu,nobookmarks,noaddons,nonavigation
     set noscrollbars
     set status=input,location,position
-    " ビープ音を鳴らさずビジュアルベルを使用
     set visualbell
-    " ビジュアルベルを無効化（1.2: set visualbellstyle=display:none;）
     highlight Bell display:none
     " 検索語を強調表示
     set hlsearch
     " :[tab]open時の補完設定
-    " @ s = 検索エンジン + キーワードURL
-    " @ S = Google Suggest
-    " @ l = ロケーションバー
-    " @ f = ローカルファイル
-    set complete=Sl
+    set complete=lSt
     " ページの移動時にtwitterとかのフォームにフォーカスされないようにする
     " tips : giで直接input要素 or textarea要素にジャンプ
     set focuscontent
-    " command historyを0に
     set history=0
     " https://github.com/tlync/vimperator-addons/tree/master/colors
     colorscheme vimpwhite
@@ -89,6 +78,9 @@
     " R で.vimperatorrcを再読込み
     map R :source ~/.vimperatorrc<CR>
 
+    " プライベートブラウジング
+    "noremap <C-p> :winopen -private<CR>
+
     " c-j でEsc
     " map <C-j> <C-[>
     " imap <C-j> <C-[>
@@ -112,24 +104,18 @@
 " Plugin settings {{{
     " see http://vimperator.g.hatena.ne.jp/snaka72/20110504/1304538833
     " statusline {{{
-        :set statuslinetoolbars=feed-button,firebug-button,greasemonkey-tbb,stylish-toolbar-button
+    "    :set statuslinetoolbars=feed-button,firebug-button,greasemonkey-tbb,stylish-toolbar-button
     " }}}
-
 
     " migemo_hint.js {{{
         set hintmatching=custom
     " }}}
-
-    " bookmarktoolbar-hint.js
-    "map q <Leader>q<CR>
-    "map Q <Leader>Q<CR>
-
-    " googlesuggest.js
-    " map G :google<Space>
 
     " copy.js {{{
         map C :copy<Space>
     " }}}
 " }}}
 
-"echo "Finish loading vimperatorrc!"
+" Firefox 49でVimperatorのSmart Completionを動かす
+" http://rcmdnk.github.io/blog/2016/09/25/computer-firefox/
+js services.services.autoCompleteSearch.class_="@mozilla.org/autocomplete/search;1?name=unifiedcomplete"

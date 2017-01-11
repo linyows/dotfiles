@@ -108,6 +108,8 @@ if v:version >= 704
     call dein#add('php_localvarcheck.vim')
     call dein#add('sumpygump/php-documentor-vim')
     call dein#add('puppetlabs/puppet-syntax-vim')
+    call dein#add('c.vim')
+    call dein#add('gtags.vim')
     " }}}
 
     " Git {{{
@@ -162,6 +164,7 @@ if v:version >= 704
     call dein#add('dhruvasagar/vim-table-mode')
     " english for coding
     call dein#add('koron/codic-vim')
+    call dein#add('rhysd/vim-clang-format')
     " }}}
 
     " Unite {{{

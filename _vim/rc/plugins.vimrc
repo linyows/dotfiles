@@ -110,6 +110,7 @@ if v:version >= 704
     call dein#add('puppetlabs/puppet-syntax-vim')
     call dein#add('c.vim')
     call dein#add('gtags.vim')
+    call dein#add('b4b4r07/vim-hcl')
     " }}}
 
     " Git {{{

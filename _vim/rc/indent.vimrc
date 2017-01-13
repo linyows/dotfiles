@@ -2,7 +2,6 @@
 
 autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
 autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
 autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
@@ -28,6 +27,8 @@ autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType xhtml      setlocal sw=2 sts=2 ts=2 et
 autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+autocmd FileType c          setlocal sw=2 sts=2 ts=2 et
+autocmd FileType hcl        setlocal sw=2 sts=2 ts=2 et
 
 " for emblem.js syntax highlighting
 au BufNewFile,BufRead *.emblem set filetype=slim

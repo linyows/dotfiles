@@ -109,6 +109,7 @@ if v:version >= 704
     call dein#add('sumpygump/php-documentor-vim')
     call dein#add('puppetlabs/puppet-syntax-vim')
     call dein#add('c.vim')
+    call dein#add('szw/vim-tags')
     call dein#add('gtags.vim')
     call dein#add('b4b4r07/vim-hcl')
     " }}}
@@ -172,6 +173,7 @@ if v:version >= 704
     call dein#add('Shougo/unite.vim')
     call dein#add('Shougo/vimfiler')
     call dein#add('Shougo/neomru.vim')
+    call dein#add('Shougo/neoinclude.vim')
     "see more plugin http://bit.ly/m5PKnU
     call dein#add('Sixeight/unite-grep')
     call dein#add('tsukkee/unite-help')

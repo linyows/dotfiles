@@ -83,8 +83,8 @@ let s:iswin = has('win32') || has('win64')
     nmap P <Plug>(yankround-P)
     nmap gp <Plug>(yankround-gp)
     nmap gP <Plug>(yankround-gP)
-    nmap <C-p> <Plug>(yankround-prev)
-    nmap <C-n> <Plug>(yankround-next)
+    "nmap <C-p> <Plug>(yankround-prev)
+    "nmap <C-n> <Plug>(yankround-next)
     nnoremap <silent> ,y :<C-u>Unite yankround<CR>
 " }}}
 
@@ -117,11 +117,33 @@ let s:iswin = has('win32') || has('win64')
     nmap U :<C-u>GundoToggle<CR>
 " }}}
 
+" gtags.vim {{{
+    map <C-g> :Gtags 
+    map <C-h> :Gtags -f %<CR>
+    map <C-j> :GtagsCursor<CR>
+    map <C-n> :cn<CR>
+    map <C-p> :cp<CR>
+" }}}
+
+" unite-tag {{{
+    "noremap <silent> <C-]> :<C-u>Unite tags:<C-r>=expand('<cword>')<CR><CR>
+    noremap <silent> <C-]> :<C-u>Unite -immediately -no-start-insert tags:<C-r>=expand('<cword>')<CR><CR>
+    autocmd BufEnter *
+    \  if empty(&buftype)
+    \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+    \| endif
+    autocmd BufEnter *
+    \  if empty(&buftype)
+    \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
+    \| endif
+    nnoremap <silent> ,t :<C-u>Unite tag<CR>
+" }}}
+
 " taglist.vim {{{
     " 関数一覧
     set tags=tags
     "set tags+=~/.tags
-    "let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
+    let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
     let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
     let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
     let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
@@ -129,7 +151,7 @@ let s:iswin = has('win32') || has('win64')
     let Tlist_Auto_Open = 0                   " 自動表示
     let Tlist_Auto_Update = 1
     let Tlist_WinWidth = 30
-    "map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
+    map <silent> <leader>l :Tlist<CR>        " taglistを開くショットカットキー
 " }}}
 
 " Srcexpl {{{

@@ -60,7 +60,7 @@
 [help]
     autocorrect = true
 [http]
-    sslVerify = false
+	sslVerify = true
 [github]
     user = linyows
 #[apply]

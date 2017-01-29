@@ -171,12 +171,13 @@ set statusline+=%=%-14.(%l,%c%V%)\                 " right aligned file nav info
             set guioptions-=l
             set guioptions-=L
             "winpos 70 70               " ウィンドウの左上隅の位置をピクセル単位で指定で表示
-            set columns=200            " window横
-            set lines=50               " window縦
+            set columns=120            " window横
+            set lines=30               " window縦
             "set showtabline=2         " タブを常に表示
             "set imdisable             " IMを無効化
-            "autocmd FocusGained * set transparency=10     " フォーカス時透明度
-            "autocmd FocusLost * set transparency=80       " フォーカスしてない時透明度
+            autocmd FocusGained * set transparency=10     " フォーカス時透明度
+            autocmd FocusLost * set transparency=0       " フォーカスしてない時透明度
+            set transparency=10
             set antialias             " アンチエイリアス
             set guifont=VL_Gothic:h12 " フォント
         endif

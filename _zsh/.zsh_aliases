@@ -29,6 +29,11 @@ if [ -f /usr/local/bin/git ]; then
     alias git='/usr/local/bin/git'
 fi
 
+# ccat
+if [ -f /usr/local/bin/ccat ]; then
+    alias cat='/usr/local/bin/ccat'
+fi
+
 # ruby
 # if [ -f /usr/bin/ruby1.9.1 ]; then
     # alias ruby='/usr/bin/ruby1.9.1'

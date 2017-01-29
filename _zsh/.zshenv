@@ -47,6 +47,8 @@ _zshenv_add_path PATH "$HOME/.rbenv"
 _zshenv_add_path PATH "$HOME/.rbenv/bin"
 _zshenv_add_path PATH "$HOME/.rbenv/shims"
 _zshenv_add_path PATH "$HOME/.nodebrew/current/bin"
+_zshenv_add_path PATH "$HOME/.pyenv"
+_zshenv_add_path PATH "$HOME/.pyenv/bin"
 _zshenv_add_path PATH "/usr/local/bin"
 _zshenv_add_path PATH "/usr/local/sbin"
 _zshenv_add_path PATH "/usr/local/*/bin"
@@ -70,6 +72,7 @@ _zshenv_add_path PATH "/usr/local/src/apache-maven-2.2.1/bin"
 _zshenv_add_path PATH "/usr/local/ImageMagick-6.5.8-5/lib"
 _zshenv_add_path PATH "/usr/share/python"
 _zshenv_add_path PATH "/usr/local/share/python"
+_zshenv_add_path PATH "$HOME/.ghq/github.com/coreos/fleet/bin"
 
 export CPATH=
 _zshenv_add_path CPATH "/usr/local/include"
@@ -98,6 +101,20 @@ if [ `uname` = 'Darwin' ]; then
     fi
 fi
 
+if [ -d $HOME/.perl5 ]; then
+  export PERL_CPANM_OPT="--local-lib=~/.perl5"
+  export PERL5LIB=$HOME/.perl5/lib/perl5:$PERL5LIB;
+  #PATH="$HOME/.perl5/bin${PATH:+:${PATH}}"; export PATH;
+  #PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+  #PERL_LOCAL_LIB_ROOT="$HOME/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+  #PERL_MB_OPT="--install_base \"$HOME/.perl5\""; export PERL_MB_OPT;
+  #PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"; export PERL_MM_OPT;
+fi
+
+if [ `which direnv >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
+  eval "$(direnv hook zsh)"
+fi
+
 if [ -f "/etc/profile.d/nodebrew.sh" ]; then
     source "/etc/profile.d/nodebrew.sh"
 fi
@@ -108,6 +125,15 @@ fi
 
 if [ -d "$HOME/.rbenv" ]; then
     eval "$(rbenv init -)"
+fi
+
+if [ -f "/etc/profile.d/pyenv.sh" ]; then
+    source "/etc/profile.d/pyenv.sh"
+fi
+
+if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    eval "$(pyenv init -)"
 fi
 
 # load local.zshenv

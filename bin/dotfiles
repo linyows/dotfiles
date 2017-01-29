@@ -276,17 +276,8 @@ link_for_mac() {
 }
 
 setup_vim() {
-    info "Vim bundle install."
-    vim +PluginInstall +qall
-
-    cd $HOME/$DIR/_vim/bundle/vimproc
-    # mac
-    if [ -d /Users ]; then
-      make -f make_mac.mak
-    # linux
-    else
-      make -f make_unix.mak
-    fi
+    info "Vim dein install."
+    vim +'call dein#install()' +qall
 }
 
 setup_go() {

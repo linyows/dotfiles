@@ -10,8 +10,7 @@
 !empty
 
 # _vim
-/_vim/bundle/*
-/_vim/bundle/**/*
+/_vim/dein
 /_vim/tmp/backup/*
 /_vim/tmp/backup/**/*
 /_vim/tmp/swap/*

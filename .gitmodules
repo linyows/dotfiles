@@ -4,9 +4,6 @@
 [submodule "lib/git-diff-grep"]
 	path = lib/git-diff-grep
 	url = git://github.com/oscardelben/git-diff-grep.git
-[submodule "_vim/bundle/vundle"]
-	path = _vim/bundle/vundle
-	url = git://github.com/gmarik/vundle.git
 [submodule "lib/git-flow-completion"]
 	path = lib/git-flow-completion
 	url = git://github.com/bobthecow/git-flow-completion.git
@@ -25,3 +22,6 @@
 [submodule "lib/git-tools"]
 	path = lib/git-tools
 	url = git://github.com/tyru/gittools.git
+[submodule "_vim/dein/repos/github.com/Shougo/dein.vim"]
+	path = _vim/dein/repos/github.com/Shougo/dein.vim
+	url = https://github.com/Shougo/dein.vim.git

@@ -83,8 +83,8 @@ let s:iswin = has('win32') || has('win64')
     nmap P <Plug>(yankround-P)
     nmap gp <Plug>(yankround-gp)
     nmap gP <Plug>(yankround-gP)
-    nmap <C-p> <Plug>(yankround-prev)
-    nmap <C-n> <Plug>(yankround-next)
+    "nmap <C-p> <Plug>(yankround-prev)
+    "nmap <C-n> <Plug>(yankround-next)
     nnoremap <silent> ,y :<C-u>Unite yankround<CR>
 " }}}
 
@@ -117,11 +117,33 @@ let s:iswin = has('win32') || has('win64')
     nmap U :<C-u>GundoToggle<CR>
 " }}}
 
+" gtags.vim {{{
+    map <C-g> :Gtags 
+    map <C-h> :Gtags -f %<CR>
+    map <C-j> :GtagsCursor<CR>
+    map <C-n> :cn<CR>
+    map <C-p> :cp<CR>
+" }}}
+
+" unite-tag {{{
+    "noremap <silent> <C-]> :<C-u>Unite tags:<C-r>=expand('<cword>')<CR><CR>
+    noremap <silent> <C-]> :<C-u>Unite -immediately -no-start-insert tags:<C-r>=expand('<cword>')<CR><CR>
+    autocmd BufEnter *
+    \  if empty(&buftype)
+    \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+    \| endif
+    autocmd BufEnter *
+    \  if empty(&buftype)
+    \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
+    \| endif
+    nnoremap <silent> ,t :<C-u>Unite tag<CR>
+" }}}
+
 " taglist.vim {{{
     " 関数一覧
     set tags=tags
     "set tags+=~/.tags
-    "let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
+    let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
     let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
     let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
     let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
@@ -129,7 +151,7 @@ let s:iswin = has('win32') || has('win64')
     let Tlist_Auto_Open = 0                   " 自動表示
     let Tlist_Auto_Update = 1
     let Tlist_WinWidth = 30
-    "map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
+    map <silent> <leader>l :Tlist<CR>        " taglistを開くショットカットキー
 " }}}
 
 " Srcexpl {{{
@@ -206,48 +228,48 @@ let s:iswin = has('win32') || has('win64')
 " }}}
 
 " neocomplcache.vim {{{
-    let g:acp_enableAtStartup = 0                        " Disable AutoComplPop.
-    let g:neocomplcache_enable_at_startup = 1            " Use neocomplcache.
-    let g:neocomplcache_enable_smart_case = 1            " Use smartcase.
-    let g:neocomplcache_enable_camel_case_completion = 1 " Use camel case completion
-    let g:neocomplcache_enable_underbar_completion = 1   " Use underbar completion.
-    let g:neocomplcache_min_syntax_length = 3            " Set minimum syntax keyword length.
+    let g:acp_enableAtStartup = 0
+    let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_smart_case = 1
+    let g:neocomplcache_min_syntax_length = 3
     let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-    let g:neocomplcache_temporary_dir = $HOME . '/.vim/tmp/plugin/.neocon'
-    "let g:neocomplcache_enable_auto_select = 1           " AutoComplPop like behavior.
-    "let g:NeoComplCache_SkipInputTime = '1.5'            " 勝手にオムニ補完しない時間を設定
 
-    " Recommended key-mappings.
-    " inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>" " doesn't work o_O
-    " <C-h>, <BS>: close popup and delete backword char.
+    let g:neocomplcache_dictionary_filetype_lists = {
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell_hist',
+        \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
+
+    if !exists('g:neocomplcache_keyword_patterns')
+        let g:neocomplcache_keyword_patterns = {}
+    endif
+    let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+    inoremap <expr><C-g>     neocomplcache#undo_completion()
+    inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+    function! s:my_cr_function()
+      return neocomplcache#smart_close_popup() . "\<CR>"
+    endfunction
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
     inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-    inoremap <expr><C-y> neocomplcache#close_popup()
-    inoremap <expr><C-e> neocomplcache#cancel_popup()
-    " inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-    inoremap <expr><C-l> neocomplcache#complete_common_string()
+    inoremap <expr><C-y>  neocomplcache#close_popup()
+    inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-    let tmp = '~/.vim/bundle/snipmate.vim/snippets'
-    if isdirectory(tmp)
-        let g:neocomplcache_snippets_dir = tmp;
-    endif
-
-    " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-    " Enable heavy omni completion.
-    if !exists('g:neocomplcache_omni_patterns')
-        let g:neocomplcache_omni_patterns = {}
+    if !exists('g:neocomplcache_force_omni_patterns')
+      let g:neocomplcache_force_omni_patterns = {}
     endif
-    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-    "autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-    let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-    let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+    "let g:neocomplcache_force_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+    let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+    let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " }}}
 
 " neosnippet.vim {{{
@@ -265,9 +287,9 @@ let s:iswin = has('win32') || has('win64')
     \: "\<TAB>"
 
     " For snippet_complete marker.
-    if has('conceal')
-      set conceallevel=2 concealcursor=i
-    endif
+    "if has('conceal')
+    "  set conceallevel=2 concealcursor=i
+    "endif
 
     " Enable snipMate compatibility feature.
     "let g:neosnippet#enable_snipmate_compatibility = 1
@@ -276,11 +298,8 @@ let s:iswin = has('win32') || has('win64')
 " }}}
 
 " snippets {{{
-    let g:neosnippet#snippets_directory = [
-          \'~/.vim/snippets',
-          \'~/.vim/bundle/serverspec-snippets',
-          \'~/.vim/bundle/neosnippet_chef_recipe_snippet/autoload/neosnippet/snippets',
-          \]
+    let g:neosnippet#snippets_directory =
+      \'~/.vim/snippets,~/.vim/bundle/vim-go/gosnippets/snippets,~/.vim/bundle/serverspec-snippets,~/.vim/bundle/neosnippet_chef_recipe_snippet/autoload/neosnippet/snippets'
 " }}}
 
 " unite.vim {{{
@@ -488,15 +507,17 @@ let s:iswin = has('win32') || has('win64')
     au FileType go map ,t :w\|:!go test %<cr>
 
     if isdirectory('/usr/local/opt/go/libexec')
-        let g:gofmt_command = 'goimports'
+        let g:go_fmt_command = 'goimports'
         set rtp^=/usr/local/opt/go/libexec/misc/vim
     endif
 
     if isdirectory($GOPATH)
         exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
         set completeopt=menu,preview
-        auto BufWritePre *.go Fmt
+        au BufWritePre *.go :GoFmt
         au BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2
+        exe "set rtp+=".globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
+        autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
     endif
 
     au FileType go compiler go
@@ -523,4 +544,21 @@ let s:iswin = has('win32') || has('win64')
 
     autocmd FileType go :highlight goErr cterm=none ctermfg=DarkYellow
     autocmd FileType go :match goErr /\<err\>/
+" }}}
+
+" clang-gormat {{{
+    let g:clang_format#style_options = {
+            \ "BasedOnStyle": "LLVM",
+            \ "IndentWidth": 2,
+            \ "ColumnLimit": 100,
+            \ "BreakBeforeBraces": "Linux",
+            \ "AllowShortFunctionsOnASingleLine": "None"}
+    " map to <Leader>cf in C++ code
+    autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+    autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+    " if you install vim-operator-user
+    autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+    " Toggle auto formatting:
+    nmap <Leader>C :ClangFormatAutoToggle<CR>
+    autocmd FileType c ClangFormatAutoEnable
 " }}}

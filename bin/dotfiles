@@ -240,6 +240,14 @@ link_for_mac() {
         warn "Init for mac."
         info "Make links for dotfiles."
 
+        # macvim
+        if [ -L $HOME/.gvimrc_first.vim ]; then
+            rm -rf $HOME/.gvimrc_first.vim
+        elif [ -f $HOME/.gvimrc_first.vim ]; then
+            mv $HOME/.gvimrc_first.vim $BACKUP_PATH
+        fi
+        ln -fsv $HOME/$DIR/_vim/.gvimrc_first.vim $HOME/.gvimrc_first.vim
+
         # vimperator
         if [ -L $HOME/.vimperatorrc ]; then
             rm -rf $HOME/.vimperatorrc

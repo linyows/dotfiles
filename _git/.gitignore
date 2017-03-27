@@ -21,3 +21,4 @@ docker-build.log
 bin
 coverage
 tmp
+node_modules

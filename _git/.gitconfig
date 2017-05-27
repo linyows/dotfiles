@@ -61,6 +61,7 @@
     autocorrect = true
 [http]
 	sslVerify = true
+	cookiefile = ~/.gitcookies
 [github]
     user = linyows
 #[apply]

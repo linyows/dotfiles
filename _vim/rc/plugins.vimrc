@@ -102,7 +102,6 @@ if v:version >= 704
     call dein#add('tpope/vim-rails')
     call dein#add('joker1007/vim-ruby-heredoc-syntax')
     call dein#add('joker1007/vim-markdown-quote-syntax')
-    call dein#add('basyura/jslint.vim')
     call dein#add('othree/yajs.vim')
     call dein#add('othree/es.next.syntax.vim')
     call dein#add('moll/vim-node')

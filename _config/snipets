@@ -13,6 +13,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, REFERENCES, INDEX, ALTER, CREATE T
 SHOW VARIABLES LIKE 'character_set%';
 SHOW VARIABLES LIKE '%time_zone';
 SELECT version();
+SELECT table_name, table_rows FROM information_schema.tables WHERE table_schema = 'db_name';
 # for old password
 UPDATE mysql.user SET plugin = 'mysql_old_password';
 FLUSH PRIVILEGES;

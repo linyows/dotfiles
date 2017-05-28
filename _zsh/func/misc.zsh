@@ -72,6 +72,8 @@ function ssh_tmux() {
           display-message  "Started logging to $HOME/.tmux/#W/$(date +%Y%m%d-%H%M%S.log)"
 }
 if [[ $TMUX != '' ]] ; then
+  origin_ssh=$(which ssh)
+  alias sshi=$origin_ssh
   alias ssh=ssh_tmux
 fi
 

@@ -115,6 +115,7 @@ if v:version >= 704
     call dein#add('szw/vim-tags')
     call dein#add('gtags.vim')
     call dein#add('b4b4r07/vim-hcl')
+    call dein#add('sunaku/vim-ruby-minitest')
     " }}}
 
     " Git {{{

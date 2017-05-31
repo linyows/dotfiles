@@ -229,3 +229,6 @@ fi
 if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
+
+# added by travis gem
+[ -f /Users/enfar/.travis/travis.sh ] && source /Users/enfar/.travis/travis.sh

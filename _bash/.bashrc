@@ -189,3 +189,6 @@ function cd () {
     builtin cd $1
     ls -CF
 }
+
+# added by travis gem
+[ -f /Users/enfar/.travis/travis.sh ] && source /Users/enfar/.travis/travis.sh

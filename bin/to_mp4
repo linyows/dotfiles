@@ -5,7 +5,8 @@ for file in `ls | grep -e ".\(rm\|wmv\)$"`; do
   src="${PWD}/${file}"
   dst="${PWD}/${name}.mp4"
 
-  ffmpeg -i ${src} -c:v libx264 -crf 23 -c:a aac -q:a 100 ${dst}
+  ffmpeg -i ${src} -c:v libx264 -crf 23 -c:a aac -strict -2 -q:a 100 ${dst}
+  #ffmpeg -i ${src} -c:v libx264 -crf 23 -c:a aac -q:a 100 ${dst}
   #ffmpeg -i ${src} -c:v libx264 -crf 23 -c:a libvo_aacenc -q:a 100 ${dst}
   #ffmpeg -i ${src} -c:v libx264 -crf 23 -c:a libfaac -q:a 100 ${dst}
 

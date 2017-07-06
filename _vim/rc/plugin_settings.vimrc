@@ -400,6 +400,10 @@ let s:iswin = has('win32') || has('win64')
     endfunction
 " }}}
 
+" typescript-vim {{{
+    let g:typescript_indent_disable = 1
+" }}}
+
 " open-browser.vim {{{
     nmap <Leader>w :<C-u>call openbrowser#_keymapping_smart_search('n')<CR>
 " }}}

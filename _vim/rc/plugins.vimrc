@@ -106,6 +106,7 @@ if v:version >= 704
     call dein#add('othree/es.next.syntax.vim')
     call dein#add('moll/vim-node')
     call dein#add('jelera/vim-javascript-syntax')
+    call dein#add('leafgarland/typescript-vim')
     call dein#add('php.vim--Garvin')
     call dein#add('php.vim')
     call dein#add('php_localvarcheck.vim')

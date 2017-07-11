@@ -11,6 +11,7 @@
     join = merge --no-ff
     br = branch
     df = diff HEAD^ --word-diff
+    st = status
     stt = diff --stat
     diffstats = diff HEAD^ --stat
     wh = whatchanged

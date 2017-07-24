@@ -1,5 +1,9 @@
 " .vimrc
 
+if &compatible
+  set nocompatible
+endif
+
 source ~/.vim/rc/plugins.vimrc
 source ~/.vim/rc/settings.vimrc
 source ~/.vim/rc/appearance.vimrc

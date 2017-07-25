@@ -30,6 +30,9 @@ autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 autocmd FileType c          setlocal sw=2 sts=2 ts=2 et
 autocmd FileType hcl        setlocal sw=2 sts=2 ts=2 et
 
+autocmd BufRead,BufNewFile *.coffee set filetype=coffee
+autocmd QuickFixCmdPost * nested cwindow | redraw!
+
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
 autocmd FileType typescript :set makeprg=tsc
 autocmd QuickFixCmdPost [^l]* nested cwindow

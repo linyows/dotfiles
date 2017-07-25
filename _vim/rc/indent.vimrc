@@ -30,6 +30,8 @@ autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 autocmd FileType c          setlocal sw=2 sts=2 ts=2 et
 autocmd FileType hcl        setlocal sw=2 sts=2 ts=2 et
 
+autocmd BufRead,BufNewFile nginx/* set filetype=nginx
+
 autocmd BufRead,BufNewFile *.coffee set filetype=coffee
 autocmd QuickFixCmdPost * nested cwindow | redraw!
 

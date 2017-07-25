@@ -30,4 +30,5 @@ autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 autocmd FileType c          setlocal sw=2 sts=2 ts=2 et
 autocmd FileType hcl        setlocal sw=2 sts=2 ts=2 et
 
-au BufNewFile,BufRead *.emblem set filetype=slim
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+autocmd BufNewFile,BufRead *.emblem set filetype=slim

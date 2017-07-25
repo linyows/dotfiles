@@ -30,5 +30,10 @@ autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 autocmd FileType c          setlocal sw=2 sts=2 ts=2 et
 autocmd FileType hcl        setlocal sw=2 sts=2 ts=2 et
 
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
+autocmd FileType typescript :set makeprg=tsc
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 autocmd BufNewFile,BufRead *.emblem set filetype=slim

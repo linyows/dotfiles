@@ -1,0 +1,95 @@
+[[plugins]]
+repo = 'vim-scripts/sudo.vim'
+
+[[plugins]]
+repo = 'vim-scripts/Smooth-Scroll'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter.git'
+
+[[plugins]]
+repo = 'vim-scripts/AutoComplPop'
+
+[[plugins]]
+repo = 'Shougo/neocomplcache'
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'vim-scripts/xmledit'
+
+[[plugins]]
+repo = 'vim-scripts/Align'
+
+[[plugins]]
+repo = 'LeafCage/yankround.vim'
+
+[[plugins]]
+repo = 'vim-scripts/eregex.vim'
+
+[[plugins]]
+repo = 'nazo/pt.vim'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+
+[[plugins]]
+repo = 'tpope/vim-abolish'
+
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+[[plugins]]
+repo = 'vim-scripts/Source-Explorer-srcexpl.vim'
+
+[[plugins]]
+repo = 'taku-o/vim-copypath'
+
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+
+[[plugins]]
+repo = 'szw/vim-tags'
+
+[[plugins]]
+repo = 'vim-scripts/gtags.vim'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'banyan/recognize_charcode.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'Lokaltog/vim-easymotion'
+
+[[plugins]]
+repo = 'vim-scripts/fakeclip'
+
+[[plugins]]
+repo = 'Lokaltog/vim-powerline'
+
+[[plugins]]
+repo = 'vim-scripts/DrawIt'
+
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+
+[[plugins]]
+repo = 'koron/codic-vim'

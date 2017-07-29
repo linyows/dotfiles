@@ -1,0 +1,301 @@
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+on_source = ['unite.vim', 'vimshell.vim']
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+depends = 'unite.vim'
+on_map = {n = '<Plug>'}
+on_if = "isdirectory(bufname('%'))"
+hook_add = 'nnoremap <silent>   [Space]v   :<C-u>VimFiler -invisible<CR>'
+hook_source = '''
+call vimfiler#custom#profile('default', 'context', {
+      \ 'safe' : 0,
+      \ 'auto_expand' : 1,
+      \ 'parent' : 0,
+      \ })
+let g:vimfiler_as_default_explorer = 1
+if IsWindows()
+  let g:vimfiler_detect_drives = [
+        \ 'C:/', 'D:/', 'E:/', 'F:/', 'G:/', 'H:/', 'I:/',
+        \ 'J:/', 'K:/', 'L:/', 'M:/', 'N:/']
+  " Use trashbox.
+  let g:unite_kind_file_use_trashbox = 1
+else
+  " Like Textmate icons.
+  let g:vimfiler_tree_leaf_icon = ' '
+  let g:vimfiler_tree_opened_icon = '▾'
+  let g:vimfiler_tree_closed_icon = '▸'
+  let g:vimfiler_file_icon = ' '
+  let g:vimfiler_readonly_file_icon = '✗'
+  let g:vimfiler_marked_file_icon = '✓'
+endif
+autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
+function! s:vimfiler_my_settings() abort "{{{
+  nmap <buffer> <Tab> <Plug>(vimfiler_switch_to_other_window)
+endfunction"}}}
+'''
+
+[[plugins]]
+repo = 'Shougo/vimshell.vim'
+on_map = {n = '<Plug>'}
+
+[[plugins]]
+repo = 'ujihisa/vimshell-ssh'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_if = 1
+
+#see more plugin http://bit.ly/m5PKnU
+[[plugins]]
+repo = 'Sixeight/unite-grep'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'tsukkee/unite-help'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'h1mesuke/unite-outline'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'thinca/vim-unite-history'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'osyo-manga/unite-env'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'tungd/unite-session'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'tacroe/unite-alias'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'ujihisa/unite-font'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'ujihisa/unite-locate'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'mattn/unite-remotefile'
+depends = 'unite.vim'
+
+#[[plugins]]
+#repo = 'mattn/unite-mcdonalds-vim'
+#depends = 'unite.vim'
+
+#[[plugins]]
+#repo = 'mattn/unite-genpatsu-fukushima-vim'
+#depends = 'unite.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+depends = 'neosnippet'
+
+[[plugins]]
+repo = 'vim-scripts/c.vim'
+on_ft = 'c'
+
+[[plugins]]
+repo = 'rhysd/vim-clang-format'
+on_ft = 'c'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+
+[[plugins]]
+repo = 'rhysd/rust-doc.vim'
+on_ft = 'rust'
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'joker1007/vim-ruby-heredoc-syntax'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'sunaku/vim-ruby-minitest'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'rhysd/unite-ruby-require.vim'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'glidenote/serverspec-snippets'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'glidenote/rspec-result-syntax'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'rhysd/neco-ruby-keyword-args'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'ryuzee/neocomplcache_php_selenium_snippet'
+on_ft = 'php'
+
+[[plugins]]
+repo = 'vim-scripts/php.vim--Garvin'
+on_ft = 'php'
+
+[[plugins]]
+repo = 'vim-scripts/php.vim'
+on_ft = 'php'
+
+[[plugins]]
+repo = 'vim-scripts/php_localvarcheck.vim'
+on_ft = 'php'
+
+[[plugins]]
+repo = 'sumpygump/php-documentor-vim'
+on_ft = 'php'
+
+[[plugins]]
+repo = 'h1mesuke/vim-unittest'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'moll/vim-node'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'juvenn/mustache.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'othree/es.next.syntax.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = 'typescript'
+
+[[plugins]]
+repo = 'vim-scripts/nginx.vim'
+on_ft = 'nginx'
+
+[[plugins]]
+repo = 'tpope/vim-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'joker1007/vim-markdown-quote-syntax'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'superbrothers/vim-quickrun-markdown-gfm'
+
+[[plugins]]
+repo = 'digitaltoad/vim-jade'
+on_ft = 'jade'
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = 'coffeescript'
+
+[[plugins]]
+repo = 'tpope/vim-haml'
+on_ft = 'haml'
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = 'slim'
+
+[[plugins]]
+repo = 'puppetlabs/puppet-syntax-vim'
+on_ft = 'puppet'
+
+[[plugins]]
+repo = 'fatih/vim-hclfmt'
+on_ft = 'hcl'
+
+[[plugins]]
+repo = 'c9s/cascading.vim'
+on_ft = 'php'
+on_ft = 'ruby'
+on_ft = 'perl'
+
+[[plugins]]
+repo = 'mattboehm/vim-unstack'
+on_ft = 'go'
+on_ft = 'ruby'
+on_ft = 'python'
+on_ft = 'perl'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'thinca/vim-guicolorscheme'
+if   = '''! has('kaoriya')'''
+
+[[plugins]]
+repo = 'godlygeek/csapprox'
+if   = '''! has('kaoriya')'''
+
+[[plugins]]
+repo = 'larssmit/vim-getafe'
+if   = '''! has('kaoriya')'''
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+if   = '''! has('kaoriya')'''
+
+[[plugins]]
+repo = 'tomasr/molokai'
+if   = '''! has('kaoriya')'''
+
+[[plugins]]
+repo = 'Slashbunny/vim-colorsamplerpack'
+if   = '''! has('kaoriya')'''

@@ -11,10 +11,6 @@ let s:iswin = has('win32') || has('win64')
     nnoremap <Space>k :call SmoothScroll("u",1, 1)<Enter>
 " }}}
 
-" bufexplorer.vim バッファ一覧を表示 {{{
-    "cnoremap LS BufExplorer<Enter>
-" }}}
-
 " vim-indent-guides {{{
     nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<Enter>
     let g:indent_guides_auto_colors = 0
@@ -38,21 +34,6 @@ let s:iswin = has('win32') || has('win64')
 
 " autofmt 自動的に日本語入力(IM)をoffにする機能を有効 {{{
     "set imdisableactivate
-" }}}
-
-" Git {{{
-    let g:git_no_map_default = 1
-    let g:git_command_edit = 'rightbelow vnew'
-    nnoremap <Space>gd :<C-u>GitDiff --cached<Enter>
-    nnoremap <Space>gD :<C-u>GitDiff<Enter>
-    nnoremap <Space>gs :<C-u>GitStatus<Enter>
-    nnoremap <Space>gl :<C-u>GitLog<Enter>
-    nnoremap <Space>gL :<C-u>GitLog -u \| head -10000<Enter>
-    nnoremap <Space>ga :<C-u>GitAdd<Enter>
-    nnoremap <Space>gA :<C-u>GitAdd <cfile><Enter>
-    nnoremap <Space>gc :<C-u>GitCommit<Enter>
-    nnoremap <Space>gC :<C-u>GitCommit --amend<Enter>
-    nnoremap <Space>gp :<C-u>Git push
 " }}}
 
 " Align {{{
@@ -86,35 +67,6 @@ let s:iswin = has('win32') || has('win64')
     "nmap <C-p> <Plug>(yankround-prev)
     "nmap <C-n> <Plug>(yankround-next)
     nnoremap <silent> ,y :<C-u>Unite yankround<CR>
-" }}}
-
-" memolist.vim {{{
-    map <Leader>mn :MemoNew<CR>
-    map <Leader>ml :MemoList<CR>
-    map <Leader>mg :MemoGrep<CR>
-    let g:memolist_path = '~/Dropbox/Document/Note'
-    let g:memolist_memo_suffix       = 'md'
-    "let g:memolist_memo_date         = '%Y-%m-%d %H:%M'
-    "let g:memolist_memo_date         = 'epoch'
-    "let g:memolist_memo_date         = '%D %T'
-    "let g:memolist_prompt_tags       = 'true'
-    "let g:memolist_prompt_categories = 'true'
-    "let g:memolist_qfixgrep          = 'true'
-" }}}
-
-" evervim {{{
-    " 作業用ワークディレクトリ指定
-    let g:evervim_workdir = $HOME . '/.vim/tmp/plugin/.evervim'
-    " ノートの一覧表示
-    nnoremap <silent> ,el :<C-u>EvervimNotebookList<CR>
-    " タグ一覧表示
-    nnoremap <silent> ,et :<C-u>EvervimListTags<CR>
-    " 新規ノート
-    nnoremap <silent> ,en :<C-u>EvervimCreateNote<CR>
-" }}}
-
-" gundo.Vim {{{
-    nmap U :<C-u>GundoToggle<CR>
 " }}}
 
 " gtags.vim {{{
@@ -379,9 +331,6 @@ let s:iswin = has('win32') || has('win64')
     " see keybind: http://d.hatena.ne.jp/h1mesuke/20100611/p1
 " }}}
 
-" ack.vim {{{
-" }}}
-
 " snipmate.vim {{{
     "inoremap <silent> <c-b> <c-r>=TriggerSnippet()<cr>
     "snoremap <silent> <c-b> <esc>i<right><c-r>=TriggerSnippet()<cr>
@@ -402,10 +351,6 @@ let s:iswin = has('win32') || has('win64')
 
 " typescript-vim {{{
     let g:typescript_indent_disable = 1
-" }}}
-
-" open-browser.vim {{{
-    nmap <Leader>w :<C-u>call openbrowser#_keymapping_smart_search('n')<CR>
 " }}}
 
 " gitgutter {{{

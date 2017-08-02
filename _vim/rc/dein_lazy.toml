@@ -275,27 +275,3 @@ on_ft = 'ruby'
 on_ft = 'python'
 on_ft = 'perl'
 on_ft = 'javascript'
-
-[[plugins]]
-repo = 'thinca/vim-guicolorscheme'
-if   = '''! has('kaoriya')'''
-
-[[plugins]]
-repo = 'godlygeek/csapprox'
-if   = '''! has('kaoriya')'''
-
-[[plugins]]
-repo = 'larssmit/vim-getafe'
-if   = '''! has('kaoriya')'''
-
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
-if   = '''! has('kaoriya')'''
-
-[[plugins]]
-repo = 'tomasr/molokai'
-if   = '''! has('kaoriya')'''
-
-[[plugins]]
-repo = 'Slashbunny/vim-colorsamplerpack'
-if   = '''! has('kaoriya')'''

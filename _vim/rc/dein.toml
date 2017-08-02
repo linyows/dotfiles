@@ -93,3 +93,21 @@ repo = 'dhruvasagar/vim-table-mode'
 
 [[plugins]]
 repo = 'koron/codic-vim'
+
+[[plugins]]
+repo = 'thinca/vim-guicolorscheme'
+
+[[plugins]]
+repo = 'godlygeek/csapprox'
+
+[[plugins]]
+repo = 'larssmit/vim-getafe'
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'Slashbunny/vim-colorsamplerpack'

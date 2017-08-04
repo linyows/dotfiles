@@ -241,44 +241,6 @@ let s:iswin = has('win32') || has('win64')
       \'~/.vim/snippets,~/.vim/bundle/vim-go/gosnippets/snippets,~/.vim/bundle/serverspec-snippets,~/.vim/bundle/neosnippet_chef_recipe_snippet/autoload/neosnippet/snippets'
 " }}}
 
-" unite.vim {{{
-    let g:unite_data_directory = expand('~/.vim/tmp/plugin/.unite')
-    let g:unite_source_grep_default_opts = '-Hn --color=never'
-    if executable('ack-grep')
-        let g:unite_source_grep_command = 'ack-grep'
-        let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
-    endif
-    " 入力モードで開始する
-    "let g:unite_enable_start_insert=1
-    " バッファ一覧
-    nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-    " ファイル一覧
-    nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-    " レジスタ一覧
-    nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-    " 最近使用したファイル一覧
-    nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
-    " 常用セット
-    nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
-    " 全部乗せ
-    nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
-    " ウィンドウを分割して開く
-    au FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
-    au FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
-    " ウィンドウを縦に分割して開く
-    au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-    au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-    " ESCキーを2回押すと終了する
-    au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-    au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-
-    " <C-k> にマッピング http://vim-users.jp/2010/11/hack185/
-    imap <C-k> <Plug>(neocomplcache_snippets_expand)
-    smap <C-k> <Plug>(neocomplcache_snippets_expand)
-    inoremap <expr><C-g> neocomplcache#undo_completion()
-    inoremap <expr><C-l> neocomplcache#complete_common_string()
-" }}}
-
 " unite-plugins {{{
     " cnoremap UH Unite help<Enter>
     " cnoremap UO Unite outline<Enter>

@@ -31,16 +31,6 @@ let s:iswin = has('win32') || has('win64')
     "set imdisableactivate
 " }}}
 
-" yankround.vim {{{
-    nmap p <Plug>(yankround-p)
-    nmap P <Plug>(yankround-P)
-    nmap gp <Plug>(yankround-gp)
-    nmap gP <Plug>(yankround-gP)
-    "nmap <C-p> <Plug>(yankround-prev)
-    "nmap <C-n> <Plug>(yankround-next)
-    nnoremap <silent> ,y :<C-u>Unite yankround<CR>
-" }}}
-
 " gtags.vim {{{
     map <C-g> :Gtags 
     map <C-h> :Gtags -f %<CR>

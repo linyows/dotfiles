@@ -6,6 +6,10 @@ repo = 'vim-scripts/Smooth-Scroll'
 
 [[plugins]]
 repo = 'scrooloose/nerdcommenter.git'
+hook_add = '''
+  let g:NERDSpaceDelims=1
+  let g:NERDDefaultAlign='left'
+'''
 
 [[plugins]]
 repo = 'vim-scripts/AutoComplPop'

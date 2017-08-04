@@ -28,6 +28,13 @@ repo = 'vim-scripts/xmledit'
 
 [[plugins]]
 repo = 'vim-scripts/Align'
+hook_add = '''
+  let g:Align_xstrlen = 3
+  vmap <Space>s <Leader>tsp
+  smap <Space>s <Leader>tsp
+  vmap <Space>a : Align
+  smap <Space>a : Align
+'''
 
 [[plugins]]
 repo = 'LeafCage/yankround.vim'

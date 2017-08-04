@@ -31,14 +31,6 @@ let s:iswin = has('win32') || has('win64')
     "set imdisableactivate
 " }}}
 
-" Align {{{
-    let g:Align_xstrlen = 3
-    vmap <Space>s <Leader>tsp
-    smap <Space>s <Leader>tsp
-    vmap <Space>a : Align
-    smap <Space>a : Align
-" }}}
-
 " NERD_commenter.vim {{{
     "let g:NERDCreateDefaultMappings = 0 " デフォルトのマッピングを無効にする
     let g:NERDSpaceDelims = 1 " 行頭に1スペースを作ってコメントアウトする

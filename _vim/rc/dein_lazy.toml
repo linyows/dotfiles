@@ -246,6 +246,9 @@ on_ft = 'javascript'
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = 'typescript'
+hook_add = '''
+  let g:typescript_indent_disable = 1
+'''
 
 [[plugins]]
 repo = 'vim-scripts/nginx.vim'

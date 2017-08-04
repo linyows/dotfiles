@@ -298,10 +298,6 @@ let s:iswin = has('win32') || has('win64')
 "    endfunction
 " }}}
 
-" typescript-vim {{{
-    let g:typescript_indent_disable = 1
-" }}}
-
 " gitgutter {{{
     nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
     nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>

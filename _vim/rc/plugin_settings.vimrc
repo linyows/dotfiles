@@ -31,21 +31,6 @@ let s:iswin = has('win32') || has('win64')
     "set imdisableactivate
 " }}}
 
-" NERD_commenter.vim {{{
-    "let g:NERDCreateDefaultMappings = 0 " デフォルトのマッピングを無効にする
-    let g:NERDSpaceDelims = 1 " 行頭に1スペースを作ってコメントアウトする
-    " Toggle
-    map <Leader><Leader> <Leader>c<space>_
-    " Minimal
-    map <Space><Leader> <Leader>cm
-    " Invert
-    "map xxx <leader>ci
-    " Sexy
-    "map xxx <leader>cs
-    " 未対応ファイルタイプのエラーメッセージを表示しない
-    let NERDShutUp=1
-" }}}
-
 " yankround.vim {{{
     nmap p <Plug>(yankround-p)
     nmap P <Plug>(yankround-P)

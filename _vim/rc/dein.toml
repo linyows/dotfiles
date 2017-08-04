@@ -9,6 +9,7 @@ repo = 'scrooloose/nerdcommenter.git'
 hook_add = '''
   let g:NERDSpaceDelims=1
   let g:NERDDefaultAlign='left'
+  let g:NERDShutUp=1
 '''
 
 [[plugins]]

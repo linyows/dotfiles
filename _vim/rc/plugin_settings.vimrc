@@ -31,14 +31,6 @@ let s:iswin = has('win32') || has('win64')
     "set imdisableactivate
 " }}}
 
-" gtags.vim {{{
-    map <C-g> :Gtags 
-    map <C-h> :Gtags -f %<CR>
-    map <C-j> :GtagsCursor<CR>
-    map <C-n> :cn<CR>
-    map <C-p> :cp<CR>
-" }}}
-
 " unite-tag {{{
     "noremap <silent> <C-]> :<C-u>Unite tags:<C-r>=expand('<cword>')<CR><CR>
     noremap <silent> <C-]> :<C-u>Unite -immediately -no-start-insert tags:<C-r>=expand('<cword>')<CR><CR>

@@ -152,6 +152,17 @@ repo = 'rhysd/vim-clang-format'
 on_ft = 'c'
 
 [[plugins]]
+repo = 'vim-scripts/gtags.vim'
+on_ft = 'c'
+hook_add = '''
+  map <C-g> :Gtags 
+  map <C-h> :Gtags -f %<CR>
+  map <C-j> :GtagsCursor<CR>
+  map <C-n> :cn<CR>
+  map <C-p> :cp<CR>
+'''
+
+[[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
 

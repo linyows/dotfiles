@@ -83,9 +83,6 @@ repo = 'terryma/vim-multiple-cursors'
 repo = 'szw/vim-tags'
 
 [[plugins]]
-repo = 'vim-scripts/gtags.vim'
-
-[[plugins]]
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]

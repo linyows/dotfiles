@@ -3,6 +3,12 @@ repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
 repo = 'vim-scripts/Smooth-Scroll'
+hook_add = '''
+  nnoremap <Space>jj :call SmoothScroll("d",2, 2)<Enter>
+  nnoremap <Space>j :call SmoothScroll("d",1, 1)<Enter>
+  nnoremap <Space>kk :call SmoothScroll("u",2, 2)<Enter>
+  nnoremap <Space>k :call SmoothScroll("u",1, 1)<Enter>
+'''
 
 [[plugins]]
 repo = 'scrooloose/nerdcommenter.git'

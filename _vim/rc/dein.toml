@@ -170,6 +170,14 @@ hook_add = '''
 
 [[plugins]]
 repo = 'vim-scripts/Source-Explorer-srcexpl.vim'
+hook_add = '''
+  let g:SrcExpl_UpdateTags    = 1
+  let g:SrcExpl_RefreshTime   = 0
+  let g:SrcExpl_WinHeight     = 9
+  let g:SrcExpl_RefreshMapKey = "<Space>"
+  let g:SrcExpl_GoBackMapKey  = "<C-b>"
+  nmap <F8> :SrcExplToggle<CR>
+'''
 
 [[plugins]]
 repo = 'taku-o/vim-copypath'

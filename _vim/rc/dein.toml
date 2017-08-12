@@ -190,6 +190,10 @@ repo = 'szw/vim-tags'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
+  nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
+'''
 
 [[plugins]]
 repo = 'banyan/recognize_charcode.vim'

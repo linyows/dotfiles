@@ -39,33 +39,35 @@ repo = 'Shougo/vimfiler'
 depends = 'unite.vim'
 on_map = {n = '<Plug>'}
 on_if = "isdirectory(bufname('%'))"
-hook_add = 'nnoremap <silent>   [Space]v   :<C-u>VimFiler -invisible<CR>'
+hook_add = '''
+  nnoremap <silent>   [Space]v   :<C-u>VimFiler -invisible<CR>'
+  nnoremap [Space]ff :<C-u>VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle<CR>
+'''
 hook_source = '''
-call vimfiler#custom#profile('default', 'context', {
+  call vimfiler#custom#profile('default', 'context', {
       \ 'safe' : 0,
       \ 'auto_expand' : 1,
       \ 'parent' : 0,
       \ })
-let g:vimfiler_as_default_explorer = 1
-if IsWindows()
-  let g:vimfiler_detect_drives = [
+  let g:vimfiler_as_default_explorer = 1
+  if IsWindows()
+    let g:vimfiler_detect_drives = [
         \ 'C:/', 'D:/', 'E:/', 'F:/', 'G:/', 'H:/', 'I:/',
         \ 'J:/', 'K:/', 'L:/', 'M:/', 'N:/']
-  " Use trashbox.
-  let g:unite_kind_file_use_trashbox = 1
-else
-  " Like Textmate icons.
-  let g:vimfiler_tree_leaf_icon = ' '
-  let g:vimfiler_tree_opened_icon = '▾'
-  let g:vimfiler_tree_closed_icon = '▸'
-  let g:vimfiler_file_icon = ' '
-  let g:vimfiler_readonly_file_icon = '✗'
-  let g:vimfiler_marked_file_icon = '✓'
-endif
-autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
-function! s:vimfiler_my_settings() abort "{{{
-  nmap <buffer> <Tab> <Plug>(vimfiler_switch_to_other_window)
-endfunction"}}}
+    " Use trashbox.
+    let g:unite_kind_file_use_trashbox = 1
+  else
+    let g:vimfiler_tree_leaf_icon = ' '
+    let g:vimfiler_tree_opened_icon = '▾'
+    let g:vimfiler_tree_closed_icon = '▸'
+    let g:vimfiler_file_icon = ' '
+    let g:vimfiler_readonly_file_icon = '✗'
+    let g:vimfiler_marked_file_icon = '✓'
+  endif
+  autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
+  function! s:vimfiler_my_settings() abort "{{{
+    nmap <buffer> <Tab> <Plug>(vimfiler_switch_to_other_window)
+  endfunction"}}}
 '''
 
 [[plugins]]

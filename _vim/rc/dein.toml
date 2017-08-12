@@ -200,6 +200,9 @@ repo = 'banyan/recognize_charcode.vim'
 
 [[plugins]]
 repo = 'osyo-manga/vim-over'
+hook_add = '''
+  nnoremap <silent> <Leader>g :OverCommandLine<CR>%s/
+'''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'

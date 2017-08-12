@@ -73,6 +73,14 @@ hook_source = '''
 [[plugins]]
 repo = 'Shougo/vimshell.vim'
 on_map = {n = '<Plug>'}
+hook_add = '''
+  let g:vimshell_temporary_directory = expand('~/.vim/tmp/plugin/.vimshell')
+  nnoremap <silent> ,vs :<C-u>VimShell<CR>
+  nnoremap <silent> ,vp :<C-u>VimShellInteractive python<CR>
+  nnoremap <silent> ,vr :<C-u>VimShellInteractive irb<CR>
+  vmap <silent> ,ss :<C-u>VimShellSendString<CR>
+  nnoremap <silent> ,ss <S-v>:<C-u>VimShellSendString<CR>
+'''
 
 [[plugins]]
 repo = 'ujihisa/vimshell-ssh'

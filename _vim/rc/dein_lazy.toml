@@ -117,6 +117,19 @@ depends = 'unite.vim'
 [[plugins]]
 repo = 'tsukkee/unite-tag'
 depends = 'unite.vim'
+hook_add = '''
+  "noremap <silent> <C-]> :<C-u>Unite tags:<C-r>=expand('<cword>')<CR><CR>
+  noremap <silent> <C-]> :<C-u>Unite -immediately -no-start-insert tags:<C-r>=expand('<cword>')<CR><CR>
+  autocmd BufEnter *
+  \  if empty(&buftype)
+  \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+  \| endif
+  autocmd BufEnter *
+  \  if empty(&buftype)
+  \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
+  \| endif
+  nnoremap <silent> ,t :<C-u>Unite tag<CR>
+'''
 
 [[plugins]]
 repo = 'tacroe/unite-alias'

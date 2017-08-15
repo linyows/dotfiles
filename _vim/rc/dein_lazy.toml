@@ -229,6 +229,49 @@ hook_add = '''
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
+hook_add = '''
+  au FileType go map ,g :w\|:!go run %<cr>
+  au FileType go map ,t :w\|:!go test %<cr>
+
+  if isdirectory('/usr/local/opt/go/libexec')
+    let g:go_fmt_command = 'goimports'
+    set rtp^=/usr/local/opt/go/libexec/misc/vim
+  endif
+
+  if isdirectory($GOPATH)
+    exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+    set completeopt=menu,preview
+    au BufWritePre *.go :GoFmt
+    au BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2
+    "exe "set rtp+=".globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
+    "autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+  endif
+
+  au FileType go compiler go
+  " not showing tab-indent if golang
+  au FileType go set listchars=tab:\ \ 
+  au FileType go highlight NonText ctermbg=NONE ctermfg=DarkGreen
+  au FileType go highlight SpecialKey ctermbg=NONE ctermfg=DarkBlue
+  au FileType go auto BufWritePre * :%s/'/"/ge
+
+  let g:go_snippet_engine = 'neosnippet'
+  "let g:go_play_open_browser = 0
+  "let g:go_fmt_fail_silently = 1
+  "let g:go_fmt_autosave = 0
+  au FileType go nmap <Leader>i <Plug>(go-info)
+  au FileType go nmap <Leader>gd <Plug>(go-doc)
+  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+  au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+  au FileType go nmap <leader>r <Plug>(go-run)
+  au FileType go nmap <leader>b <Plug>(go-build)
+  au FileType go nmap <leader>t <Plug>(go-test)
+  au FileType go nmap <Leader>ds <Plug>(go-def-split)
+  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+  autocmd FileType go :highlight goErr cterm=none ctermfg=DarkYellow
+  autocmd FileType go :match goErr /\<err\>/
+'''
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'

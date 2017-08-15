@@ -292,6 +292,13 @@ on_ft = 'ruby'
 [[plugins]]
 repo = 'joker1007/vim-ruby-heredoc-syntax'
 on_ft = 'ruby'
+hook_add = '''
+  let g:ruby_heredoc_syntax_filetypes = {
+      \ "xml" : {
+      \   "start" : "XML",
+      \},
+    \}
+'''
 
 [[plugins]]
 repo = 'sunaku/vim-ruby-minitest'

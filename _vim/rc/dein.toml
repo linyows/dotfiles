@@ -277,20 +277,20 @@ hook_add = '''
   endfunction
 '''
 
-#[[plugins]]
-#repo = 'thinca/vim-guicolorscheme'
+[[plugins]]
+repo = 'thinca/vim-guicolorscheme'
 
-#[[plugins]]
-#repo = 'godlygeek/csapprox'
+[[plugins]]
+repo = 'godlygeek/csapprox'
 
-#[[plugins]]
-#repo = 'larssmit/vim-getafe'
+[[plugins]]
+repo = 'larssmit/vim-getafe'
 
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 
-#[[plugins]]
-#repo = 'tomasr/molokai'
+[[plugins]]
+repo = 'tomasr/molokai'
 
-#[[plugins]]
-#repo = 'Slashbunny/vim-colorsamplerpack'
+[[plugins]]
+repo = 'Slashbunny/vim-colorsamplerpack'

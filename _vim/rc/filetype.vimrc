@@ -29,6 +29,7 @@ autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 autocmd FileType c          setlocal sw=2 sts=2 ts=2 et
 autocmd FileType hcl        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType vue        syntax sync fromstart
 
 autocmd BufRead,BufNewFile nginx/* set filetype=nginx
 
@@ -42,3 +43,5 @@ autocmd QuickFixCmdPost    l* nested lwindow
 
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 autocmd BufNewFile,BufRead *.emblem set filetype=slim
+
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css

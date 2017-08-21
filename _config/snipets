@@ -93,6 +93,7 @@ zcat db13.foo_20140625.gz | nkf -w | less
 zcat db13.foo_20140625.gz | nkf -w | mysql -uroot -p
 sudo discoveryutil mdnsactivedirectory yes
 read -s p; echo "$p"
+ps auxf | grep haconiwa | grep -v _ | awk '{print $2}' | xargs -IPID cat /proc/PID/environ | tr '\0' "\n" | grep DOMAIN | awk -F= '{print $2}' | sort | uniq -c | sort -gr
 
 # openstack
 nova boot --config-drive=true --image="CentOS-7.1" --flavor="0204" --nic port-id="wan" --nic port-id="lan" --availability-zone "nova:comp-node0005.u01.openstack" --security-groups="default" --user-data="./user-data" www001.example.openstack

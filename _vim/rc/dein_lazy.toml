@@ -403,6 +403,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Quramy/tsuquyomi'
+on_ft = 'typescript'
+
+[[plugins]]
 repo = 'vim-scripts/nginx.vim'
 on_ft = 'nginx'
 

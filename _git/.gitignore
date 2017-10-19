@@ -22,5 +22,6 @@ docker-build.log
 coverage
 tmp
 node_modules
+.nyc_output
 .terraform
 .drone.sec.yml

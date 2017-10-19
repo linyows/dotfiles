@@ -405,6 +405,14 @@ hook_add = '''
 [[plugins]]
 repo = 'Quramy/tsuquyomi'
 on_ft = 'typescript'
+hook_add = '''
+  autocmd FileType typescript setlocal completeopt-=menu
+  autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
+  autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
+  set ballooneval
+  autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
+  autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+'''
 
 [[plugins]]
 repo = 'vim-scripts/nginx.vim'

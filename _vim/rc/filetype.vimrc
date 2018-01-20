@@ -33,9 +33,6 @@ autocmd FileType vue        syntax sync fromstart
 
 autocmd BufRead,BufNewFile nginx/* set filetype=nginx
 
-autocmd BufRead,BufNewFile *.coffee set filetype=coffee
-autocmd QuickFixCmdPost * nested cwindow | redraw!
-
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
 autocmd FileType typescript :set makeprg=tsc
 autocmd QuickFixCmdPost [^l]* nested cwindow

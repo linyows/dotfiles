@@ -290,17 +290,6 @@ repo = 'tpope/vim-rails'
 on_ft = 'ruby'
 
 [[plugins]]
-repo = 'joker1007/vim-ruby-heredoc-syntax'
-on_ft = 'ruby'
-hook_add = '''
-  let g:ruby_heredoc_syntax_filetypes = {
-      \ "xml" : {
-      \   "start" : "XML",
-      \},
-    \}
-'''
-
-[[plugins]]
 repo = 'sunaku/vim-ruby-minitest'
 on_ft = 'ruby'
 
@@ -445,10 +434,6 @@ repo = 'superbrothers/vim-quickrun-markdown-gfm'
 [[plugins]]
 repo = 'digitaltoad/vim-jade'
 on_ft = 'jade'
-
-[[plugins]]
-repo = 'kchmck/vim-coffee-script'
-on_ft = 'coffeescript'
 
 [[plugins]]
 repo = 'tpope/vim-haml'

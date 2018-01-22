@@ -191,5 +191,5 @@ function cd () {
 }
 
 # added by travis gem
-[ -f /Users/enfar/.travis/travis.sh ] && source /Users/enfar/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 export PATH=$HOME/.nodebrew/current/bin:$PATH

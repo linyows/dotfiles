@@ -274,13 +274,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'buoto/gotests-vim'
-on_ft = 'go'
-hook_add = '''
-  let g:gotests_bin = $GOPATH/bin/gotests
-'''
-
-[[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = 'rust'
 

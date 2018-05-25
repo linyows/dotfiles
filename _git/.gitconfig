@@ -41,7 +41,9 @@
 [status]
     short = true
 [diff]
-    algorithm = patience
+    tool = vimdiff
+    #algorithm = patience
+    algorithm = histogram
     noprefix = true
 [pull]
     default = simple

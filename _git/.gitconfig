@@ -10,8 +10,9 @@
     fork = checkout -b
     join = merge --no-ff
     br = branch
-    df = diff HEAD^ --word-diff
-    st = status
+    # https://qiita.com/skoji/items/28f1d6582cf81638cd3f
+    df = diff --word-diff-regex='[^\\x80-\\xbf][\\x80-\\xbf]*' --word-diff=color
+    dfh = diff HEAD^ --word-diff-regex='[^\\x80-\\xbf][\\x80-\\xbf]*' --word-diff=color
     stt = diff --stat
     diffstats = diff HEAD^ --stat
     wh = whatchanged

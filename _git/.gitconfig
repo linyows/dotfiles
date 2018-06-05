@@ -10,7 +10,9 @@
     fork = checkout -b
     join = merge --no-ff
     br = branch
-    df = diff HEAD^ --word-diff
+    # https://qiita.com/skoji/items/28f1d6582cf81638cd3f
+    df = diff --word-diff-regex='[^\\x80-\\xbf][\\x80-\\xbf]*' --word-diff=color
+    dfh = diff HEAD^ --word-diff-regex='[^\\x80-\\xbf][\\x80-\\xbf]*' --word-diff=color
     stt = diff --stat
     diffstats = diff HEAD^ --stat
     wh = whatchanged
@@ -39,7 +41,9 @@
 [status]
     short = true
 [diff]
-    algorithm = patience
+    tool = vimdiff
+    #algorithm = patience
+    algorithm = histogram
     noprefix = true
 [pull]
     default = simple
@@ -75,3 +79,8 @@
     diff = diff-highlight | less
 [push]
 	default = matching
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge --skip -- %f
+	process = git-lfs filter-process --skip
+	required = true

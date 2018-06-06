@@ -10,6 +10,7 @@ doc/tags-ja
 *.env
 .envrc
 vendor/bundle
+vendor
 setting.rb
 log
 id_rsa.no_passphrase

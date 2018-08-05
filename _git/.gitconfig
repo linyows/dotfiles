@@ -61,8 +61,6 @@
     tool = vimdiff
 [rerere]
     enabled = true
-[help]
-    autocorrect = true
 [http]
 	sslVerify = true
 	cookiefile = ~/.gitcookies

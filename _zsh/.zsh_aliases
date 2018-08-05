@@ -64,7 +64,6 @@ alias ll='ls -l'
 alias la='ls -lA'
 
 # alias sshfs='~/bin/sshfs-binaries/sshfs-static-leopard'
-alias python="/usr/local/bin/python3.4"
 alias wget='wget --no-check-certificate'
 # alias javac='javac -J-Dfile.encoding=UTF-8'
 # alias java='java -Dfile.encoding=UTF-8'

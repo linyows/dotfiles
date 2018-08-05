@@ -47,8 +47,6 @@ _zshenv_add_path PATH "$HOME/.rbenv"
 _zshenv_add_path PATH "$HOME/.rbenv/bin"
 _zshenv_add_path PATH "$HOME/.rbenv/shims"
 _zshenv_add_path PATH "$HOME/.nodebrew/current/bin"
-_zshenv_add_path PATH "$HOME/.pyenv"
-_zshenv_add_path PATH "$HOME/.pyenv/bin"
 _zshenv_add_path PATH "/usr/local/bin"
 _zshenv_add_path PATH "/usr/local/sbin"
 _zshenv_add_path PATH "/usr/local/*/bin"
@@ -70,8 +68,8 @@ _zshenv_add_path PATH "/usr/*/sbin"
 _zshenv_add_path PATH "/usr/local/lib/flex3/bin"
 _zshenv_add_path PATH "/usr/local/src/apache-maven-2.2.1/bin"
 _zshenv_add_path PATH "/usr/local/ImageMagick-6.5.8-5/lib"
-_zshenv_add_path PATH "/usr/share/python"
-_zshenv_add_path PATH "/usr/local/share/python"
+#_zshenv_add_path PATH "/usr/share/python"
+#_zshenv_add_path PATH "/usr/local/share/python"
 _zshenv_add_path PATH "$HOME/.ghq/github.com/coreos/fleet/bin"
 
 export CPATH=
@@ -79,7 +77,7 @@ _zshenv_add_path CPATH "/usr/local/include"
 _zshenv_add_path CPATH "/opt/local/include"
 _zshenv_add_path CPATH "/opt/include"
 
-export PYTHONPATH=/usr/share/python:/usr/local/share/python:$PYTHONPATH
+#export PYTHONPATH=/usr/share/python:/usr/local/share/python:$PYTHONPATH
 
 if [ `which go >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   if [ -d $HOME/.go ]; then
@@ -127,12 +125,9 @@ if [ -d "$HOME/.rbenv" ]; then
     eval "$(rbenv init -)"
 fi
 
-if [ -f "/etc/profile.d/pyenv.sh" ]; then
-    source "/etc/profile.d/pyenv.sh"
-fi
-
 if [ -d "$HOME/.pyenv" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
 fi
 

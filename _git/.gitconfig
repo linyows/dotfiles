@@ -4,6 +4,7 @@
 [color]
     ui = auto
 [alias]
+    st = status
     ch = checkout
     cm = commit -m
     ca = commit -a
@@ -62,8 +63,8 @@
 [rerere]
     enabled = true
 [http]
-	sslVerify = true
-	cookiefile = ~/.gitcookies
+    sslVerify = true
+    cookiefile = ~/.gitcookies
 [github]
     user = linyows
 #[apply]
@@ -76,9 +77,11 @@
     show = diff-highlight | less
     diff = diff-highlight | less
 [push]
-	default = matching
+    default = matching
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge --skip -- %f
-	process = git-lfs filter-process --skip
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge --skip -- %f
+    process = git-lfs filter-process --skip
+    required = true
+[help]
+	autocorrect = 1

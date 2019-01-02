@@ -47,16 +47,6 @@ function my_git_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX% $(parse_git_dirty) "
 }
 
-function rbenv_current_version() {
-    ruby_version=$(rbenv_prompt_info 2> /dev/null) || return
-    echo "$ruby_version"
-}
-
-function rvm_current_version() {
-    ruby_version=$(~/.rvm/bin/rvm-prompt 2> /dev/null) || return
-    echo "$ruby_version"
-}
-
 # right prompt
 #RPROMPT='$FG[236]%n@%m $FG[238]$(rbenv_current_version || rvm_current_version) $FG[240]$PWD%{$reset_color%}%'
 RPROMPT='$FG[236]%n@%m $FG[240]$PWD%{$reset_color%}%'

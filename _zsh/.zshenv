@@ -89,15 +89,16 @@ if [ `which go >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   fi
 fi
 
-if [ `uname` = 'Darwin' ]; then
-    export RUBY_CONFIGURE_OPTS="--disable-install-doc --with-gcc=clang \
-        --with-readline-dir=`brew --prefix readline` \
-        --with-openssl-dir=`brew --prefix openssl` \
-        --with-iconv-dir=`brew --prefix libiconv`"
-    if [ -f "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt" ]; then
-        export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
-    fi
-fi
+# brew command is slow
+# if [ `uname` = 'Darwin' ]; then
+#     export RUBY_CONFIGURE_OPTS="--disable-install-doc --with-gcc=clang \
+#         --with-readline-dir=`brew --prefix readline` \
+#         --with-openssl-dir=`brew --prefix openssl` \
+#         --with-iconv-dir=`brew --prefix libiconv`"
+#     if [ -f "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt" ]; then
+#         export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+#     fi
+# fi
 
 if [ -d $HOME/.perl5 ]; then
   export PERL_CPANM_OPT="--local-lib=~/.perl5"

@@ -114,24 +114,6 @@ if [ `which direnv >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   eval "$(direnv hook zsh)"
 fi
 
-if [ -f "/etc/profile.d/nodebrew.sh" ]; then
-    source "/etc/profile.d/nodebrew.sh"
-fi
-
-if [ -f "/etc/profile.d/rbenv.sh" ]; then
-    source "/etc/profile.d/rbenv.sh"
-fi
-
-if [ -d "$HOME/.rbenv" ]; then
-    eval "$(rbenv init -)"
-fi
-
-if [ -d "$HOME/.pyenv" ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-fi
-
 # load local.zshenv
 if [ -f "$HOME/.zshenv.local" ]; then
     source "$HOME/.zshenv.local"

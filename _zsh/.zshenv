@@ -116,5 +116,5 @@ fi
 
 # load local.zshenv
 if [ -f "$HOME/.zshenv.local" ]; then
-    source "$HOME/.zshenv.local"
+  source "$HOME/.zshenv.local"
 fi

@@ -1,39 +1,39 @@
 function _zshenv_add_path() {
-    if [ -f /bin/grep ]; then
-        grep=/bin/grep
+  if [ -f /bin/grep ]; then
+    grep=/bin/grep
+  else
+    grep=/usr/bin/grep
+  fi
+
+  _path=`eval echo \\$$1`
+
+  if ! dirs=`eval echo $2 2>/dev/null`; then
+    return
+  fi
+
+  reversed_dirs=
+  for dir in `eval echo $dirs`; do
+    reversed_dirs="$dir $reversed_dirs"
+  done
+
+  for dir in `eval echo $reversed_dirs`; do
+    if [ ! -d $dir ]; then
+      continue
+    fi
+    if echo $_path | $grep -Eq "(^|:)$dir($|:)"; then
+      continue
+    fi
+
+    if [ "$_path" = "" ]; then
+      eval _path=$dir
+    elif [ "$3" = "before" ]; then
+      eval _path=$dir:$_path
     else
-        grep=/usr/bin/grep
+      eval _path=$_path:$dir
     fi
+  done
 
-    _path=`eval echo \\$$1`
-
-    if ! dirs=`eval echo $2 2>/dev/null`; then
-        return
-    fi
-
-    reversed_dirs=
-    for dir in `eval echo $dirs`; do
-        reversed_dirs="$dir $reversed_dirs"
-    done
-
-    for dir in `eval echo $reversed_dirs`; do
-        if [ ! -d $dir ]; then
-            continue
-        fi
-        if echo $_path | $grep -Eq "(^|:)$dir($|:)"; then
-            continue
-        fi
-
-        if [ "$_path" = "" ]; then
-            eval _path=$dir
-        elif [ "$3" = "before" ]; then
-            eval _path=$dir:$_path
-        else
-            eval _path=$_path:$dir
-        fi
-    done
-
-    eval $1=$_path
+  eval $1=$_path
 }
 
 

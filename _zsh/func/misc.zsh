@@ -210,3 +210,38 @@ function weather() {
     fi
   done
 }
+
+function load_nodebrew() {
+  if [ -f "/etc/profile.d/nodebrew.sh" ]; then
+    source "/etc/profile.d/nodebrew.sh"
+    echo "Loaded: /etc/profile.d/nodebrew.sh"
+  else
+    echo "No script: /etc/profile.d/nodebrew.sh"
+  fi
+}
+
+function load_rbenv() {
+  if [ -f "/etc/profile.d/rbenv.sh" ]; then
+    source "/etc/profile.d/rbenv.sh"
+    echo "Loaded: /etc/profile.d/rbenv.sh"
+  else
+    echo "No script: /etc/profile.d/rbenv.sh"
+  fi
+  if [ -d "$HOME/.rbenv" ]; then
+    eval "$(rbenv init -)"
+    echo "Executed: rbenv init"
+  else
+    echo "No dir: $HOME/.rbenv"
+  fi
+}
+
+function load_pyenv() {
+  if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    echo "Executed: pyenv init"
+  else
+    echo "No dir: $HOME/.pyenv"
+  fi
+}

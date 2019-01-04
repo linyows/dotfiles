@@ -1,39 +1,39 @@
 function _zshenv_add_path() {
-    if [ -f /bin/grep ]; then
-        grep=/bin/grep
+  if [ -f /bin/grep ]; then
+    grep=/bin/grep
+  else
+    grep=/usr/bin/grep
+  fi
+
+  _path=`eval echo \\$$1`
+
+  if ! dirs=`eval echo $2 2>/dev/null`; then
+    return
+  fi
+
+  reversed_dirs=
+  for dir in `eval echo $dirs`; do
+    reversed_dirs="$dir $reversed_dirs"
+  done
+
+  for dir in `eval echo $reversed_dirs`; do
+    if [ ! -d $dir ]; then
+      continue
+    fi
+    if echo $_path | $grep -Eq "(^|:)$dir($|:)"; then
+      continue
+    fi
+
+    if [ "$_path" = "" ]; then
+      eval _path=$dir
+    elif [ "$3" = "before" ]; then
+      eval _path=$dir:$_path
     else
-        grep=/usr/bin/grep
+      eval _path=$_path:$dir
     fi
+  done
 
-    _path=`eval echo \\$$1`
-
-    if ! dirs=`eval echo $2 2>/dev/null`; then
-        return
-    fi
-
-    reversed_dirs=
-    for dir in `eval echo $dirs`; do
-        reversed_dirs="$dir $reversed_dirs"
-    done
-
-    for dir in `eval echo $reversed_dirs`; do
-        if [ ! -d $dir ]; then
-            continue
-        fi
-        if echo $_path | $grep -Eq "(^|:)$dir($|:)"; then
-            continue
-        fi
-
-        if [ "$_path" = "" ]; then
-            eval _path=$dir
-        elif [ "$3" = "before" ]; then
-            eval _path=$dir:$_path
-        else
-            eval _path=$_path:$dir
-        fi
-    done
-
-    eval $1=$_path
+  eval $1=$_path
 }
 
 
@@ -89,15 +89,16 @@ if [ `which go >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   fi
 fi
 
-if [ `uname` = 'Darwin' ]; then
-    export RUBY_CONFIGURE_OPTS="--disable-install-doc --with-gcc=clang \
-        --with-readline-dir=`brew --prefix readline` \
-        --with-openssl-dir=`brew --prefix openssl` \
-        --with-iconv-dir=`brew --prefix libiconv`"
-    if [ -f "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt" ]; then
-        export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
-    fi
-fi
+# brew command is slow
+# if [ `uname` = 'Darwin' ]; then
+#     export RUBY_CONFIGURE_OPTS="--disable-install-doc --with-gcc=clang \
+#         --with-readline-dir=`brew --prefix readline` \
+#         --with-openssl-dir=`brew --prefix openssl` \
+#         --with-iconv-dir=`brew --prefix libiconv`"
+#     if [ -f "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt" ]; then
+#         export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+#     fi
+# fi
 
 if [ -d $HOME/.perl5 ]; then
   export PERL_CPANM_OPT="--local-lib=~/.perl5"
@@ -113,25 +114,7 @@ if [ `which direnv >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
   eval "$(direnv hook zsh)"
 fi
 
-if [ -f "/etc/profile.d/nodebrew.sh" ]; then
-    source "/etc/profile.d/nodebrew.sh"
-fi
-
-if [ -f "/etc/profile.d/rbenv.sh" ]; then
-    source "/etc/profile.d/rbenv.sh"
-fi
-
-if [ -d "$HOME/.rbenv" ]; then
-    eval "$(rbenv init -)"
-fi
-
-if [ -d "$HOME/.pyenv" ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-fi
-
 # load local.zshenv
 if [ -f "$HOME/.zshenv.local" ]; then
-    source "$HOME/.zshenv.local"
+  source "$HOME/.zshenv.local"
 fi

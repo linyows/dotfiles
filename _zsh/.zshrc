@@ -1,3 +1,8 @@
+if [[ -z "$TMUX" ]]; then
+  tmux new-session
+  exit
+fi
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 

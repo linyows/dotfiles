@@ -242,3 +242,7 @@ if [ -f /usr/local/bin/vault ]; then
   autoload -U +X bashcompinit && bashcompinit
   complete -o nospace -C /usr/local/bin/vault vault
 fi
+
+if [ -f /usr/local/opt/libxml2/bin ]; then
+  export PATH="/usr/local/opt/libxml2/bin:$PATH"
+fi

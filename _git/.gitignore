@@ -27,3 +27,4 @@ node_modules
 .terraform
 .drone.sec.yml
 coverage.txt
+*-console.log

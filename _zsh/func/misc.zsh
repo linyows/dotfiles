@@ -199,9 +199,13 @@ function refresh_dhcp() {
 }
 # http://qiita.com/takeshinoda@github/items/2dec7a72930ec1f658af
 function weather() {
+  if [ -z "$OPENWEATHERMAP_APIKEY" ]; then
+    echo '$OPENWEATHERMAP_APIKEY is required'
+    return 1
+  fi
   typeset -A weathers
   weathers=(sky ☀️ clouds ☁️ rain ☔️ thunderstorm ⚡️ snow ⛄️ mist 🌁 )
-  owm=`curl -s 'http://api.openweathermap.org/data/2.5/weather?q=Fukuoka,jp' | jq -r '.weather[0].description'`
+  owm=$(curl -s "https://api.openweathermap.org/data/2.5/weather?q=Fukuoka,jp&APPID=$OPENWEATHERMAP_APIKEY" | jq -r '.weather[0].description')
   echo -n "$owm "
   for weather in ${(k)weathers}; do
     current=`echo $owm | grep $weather`

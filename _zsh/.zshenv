@@ -71,6 +71,7 @@ _zshenv_add_path PATH "/usr/local/ImageMagick-6.5.8-5/lib"
 #_zshenv_add_path PATH "/usr/share/python"
 #_zshenv_add_path PATH "/usr/local/share/python"
 _zshenv_add_path PATH "$HOME/.ghq/github.com/coreos/fleet/bin"
+_zshenv_add_path PATH "$HOME/.cargo/bin"
 
 export CPATH=
 _zshenv_add_path CPATH "/usr/local/include"

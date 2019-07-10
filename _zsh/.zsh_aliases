@@ -24,14 +24,17 @@ alias scexit='screen -r -X quit'
 # weechat (for broken display on tmux)
 alias wee='TERM=screen-256color weechat-curses'
 
-# git
 if [ -f /usr/local/bin/git ]; then
     alias git='/usr/local/bin/git'
 fi
-
-# other cat
 if [ -f /usr/local/bin/bat ]; then
     alias cat='/usr/local/bin/bat'
+fi
+if [ -f /usr/local/bin/exa ]; then
+    alias ls='/usr/local/bin/exa'
+fi
+if [ -f /usr/local/bin/python3.4 ]; then
+  alias python="/usr/local/bin/python3.4"
 fi
 
 # ruby

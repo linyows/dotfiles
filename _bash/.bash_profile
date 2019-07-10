@@ -42,3 +42,5 @@ export PATH=/usr/local/bin/:/usr/local/sbin/:$PATH
 export PATH=$HOME/.dotfiles/bin:$PATH
 export FLEETCTL_ENDPOINT=http://172.17.8.101:4001
 export KUBERNETES_MASTER=http://172.17.8.101:8080
+
+export PATH="$HOME/.cargo/bin:$PATH"

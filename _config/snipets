@@ -98,3 +98,15 @@ ps auxf | grep haconiwa | grep -v _ | awk '{print $2}' | xargs -IPID cat /proc/P
 # openstack
 nova boot --config-drive=true --image="CentOS-7.1" --flavor="0204" --nic port-id="wan" --nic port-id="lan" --availability-zone "nova:comp-node0005.u01.openstack" --security-groups="default" --user-data="./user-data" www001.example.openstack
 neutron port-list -c fixed_ips -c mac_address -c id -c device_id -c tenant_id -c status --sort-key tenant_id -D | grep "                 "
+
+# performance
+uptime
+dmesg | tail
+vmstat 1
+mpstat -P ALL 1
+pidstat 1
+iostat -xz 1
+free -m
+sar -n DEV 1
+sar -n TCP,ETCP 1
+top

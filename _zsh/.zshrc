@@ -252,3 +252,6 @@ if [ -f '/Users/linyows/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/linyows/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/linyows/Documents/google-cloud-sdk/completion.zsh.inc'; fi
+
+fpath=(~/.dotfiles/bin/zload(N-/) $fpath)
+autoload -Uz zload

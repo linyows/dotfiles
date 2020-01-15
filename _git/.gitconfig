@@ -86,3 +86,5 @@
     required = true
 [help]
 	autocorrect = 1
+[http "https://gopkg.in"]
+	followRedirects = true

@@ -65,6 +65,7 @@
 [http]
     sslVerify = true
     cookiefile = ~/.gitcookies
+	postBuffer = 524288000
 [github]
     user = linyows
 #[apply]

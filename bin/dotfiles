@@ -311,6 +311,14 @@ setup_ruby() {
     fi
 }
 
+setup_nodejs() {
+    if [ -d /Users ]; then
+        if [ `which nodebrew >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
+            brew install nodebrew
+        fi
+    fi
+}
+
 print_bye() {
     if [ $? -eq 0 ]; then
         success "Successfully initialized!"
@@ -335,6 +343,7 @@ case "$1" in
         link_for_mac
         setup_vim
         setup_go
+        setup_nodejs
         setup_ruby
         print_bye
         exit 2

@@ -274,6 +274,10 @@ link_for_mac() {
             mkdir -p $HOME/.config
         fi
 
+        if [ ! -f $HOME/.ghq ]; then
+            mkdir -p $HOME/.ghq
+        fi
+
         if [ -L $HOME/.config/peco ]; then
             rm -rf $HOME/.config/peco
         elif [ -f $HOME/.config/peco ]; then

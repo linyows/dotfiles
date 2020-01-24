@@ -313,17 +313,19 @@ setup_ruby() {
 
 setup_nodejs() {
     if [ -d /Users ]; then
-        if [ `which nodebrew >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
-            brew install nodebrew
+        if [ `which nodebrew >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
+            nodebrew install-binary latest
+            nodebrew use latest
         fi
     fi
 }
 
-setup_homebrew() {
+setup_homebrew_and_install_pkgs() {
     # https://brew.sh/
     if [ -d /Users ]; then
         if [ `which brew >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            brew install $(cat $HOME/$DIR/brewlist)
         fi
     fi
 }
@@ -350,7 +352,7 @@ case "$1" in
         init
         link
         link_for_mac
-        setup_homebrew
+        setup_homebrew_and_install_pkgs
         setup_vim
         setup_go
         setup_nodejs

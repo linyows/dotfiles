@@ -319,6 +319,15 @@ setup_nodejs() {
     fi
 }
 
+setup_homebrew() {
+    # https://brew.sh/
+    if [ -d /Users ]; then
+        if [ `which brew >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
+            /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        fi
+    fi
+}
+
 print_bye() {
     if [ $? -eq 0 ]; then
         success "Successfully initialized!"
@@ -341,6 +350,7 @@ case "$1" in
         init
         link
         link_for_mac
+        setup_homebrew
         setup_vim
         setup_go
         setup_nodejs

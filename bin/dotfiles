@@ -274,6 +274,10 @@ link_for_mac() {
             mkdir -p $HOME/.config
         fi
 
+        if [ ! -f $HOME/.ghq ]; then
+            mkdir -p $HOME/.ghq
+        fi
+
         if [ -L $HOME/.config/peco ]; then
             rm -rf $HOME/.config/peco
         elif [ -f $HOME/.config/peco ]; then
@@ -295,6 +299,34 @@ setup_go() {
         go get golang.org/x/tools/cmd/godoc
         go get golang.org/x/tools/cmd/cover
         go get golang.org/x/lint/golint
+    fi
+}
+
+setup_ruby() {
+    if [ -d /Users ]; then
+        if [ `which rbenv >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
+            # https://gist.github.com/linyows/25dd64a7a93ec3040b91
+            curl -s -L http://git.io/vYOur | sh
+        fi
+    fi
+}
+
+setup_nodejs() {
+    if [ -d /Users ]; then
+        if [ `which nodebrew >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
+            nodebrew install-binary latest
+            nodebrew use latest
+        fi
+    fi
+}
+
+setup_homebrew_and_install_pkgs() {
+    # https://brew.sh/
+    if [ -d /Users ]; then
+        if [ `which brew >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
+            /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            brew install $(cat $HOME/$DIR/brewlist)
+        fi
     fi
 }
 
@@ -320,8 +352,11 @@ case "$1" in
         init
         link
         link_for_mac
+        setup_homebrew_and_install_pkgs
         setup_vim
         setup_go
+        setup_nodejs
+        setup_ruby
         print_bye
         exit 2
 esac

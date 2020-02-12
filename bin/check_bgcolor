@@ -1,0 +1,15 @@
+#!/usr/bin/osascript
+
+tell application "System Events"
+  set front_app to name of (path to frontmost application)
+  if front_app is not "iTerm.app" then return
+end tell
+
+tell application "iTerm"
+  tell current session of current terminal
+    set bgcolor to background color
+  end tell
+end tell
+
+set text item delimiters of AppleScript to ","
+"{" & bgcolor & "}"

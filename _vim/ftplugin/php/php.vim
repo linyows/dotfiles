@@ -40,12 +40,14 @@ if has('win32')
     nmap ,r :let @b=expand("<cWORD>")<CR>oecho '<pre>'; var_dump(<ESC>"bpA); echo '</pre>'; die;<ESC>0 " 変数の上で,rでDump
     nmap ,R :let @b=expand("<cword>")<CR>oecho '<pre>'; var_dump(<ESC>"bpA); echo '</pre>'; die;<ESC>0 " 変数の上で,RでDump
     nmap ,m :let @b=expand("<cWORD>")<CR>:let @m=expand(g:php_debug_mail)<CR>o@mb_send_mail('<ESC>"mpA', 'Debug', print_r(<ESC>"bpA, true));<ESC>0 " 変数の上で,mでMailDebug
-    nmap ,t :let @b=expand("")<CR>o$this-><ESC>0
-    nmap ,T :let @b=expand("")<CR>o$this->_<ESC>0
+    "nmap ,t :let @b=expand("")<CR>o$this-><ESC>0
+    "nmap ,T :let @b=expand("")<CR>o$this->_<ESC>0
 else
     nmap ,r :let @b=expand("<cWORD>")<CR>oecho '<pre>'; var_dump(<ESC>"bpA); echo '</pre>'; die;<ESC> " 変数の上で,rでDump
     nmap ,R :let @b=expand("<cword>")<CR>oecho '<pre>'; var_dump(<ESC>"bpA); echo '</pre>'; die;<ESC> " 変数の上で,RでDump
     nmap ,m :let @b=expand("<cWORD>")<CR>:let @m=expand(g:php_debug_mail)<CR>o@mb_send_mail('<ESC>"mpA', 'Debug', print_r(<ESC>"bpA, true));<ESC> " 変数の上で,mでMailDebug
-    nmap ,t :let @b=expand("")<CR>o$this-><ESC>
-    nmap ,T :let @b=expand("")<CR>o$this->_<ESC>
+    "nmap ,t :let @b=expand("")<CR>o$this-><ESC>
+    "nmap ,T :let @b=expand("")<CR>o$this->_<ESC>
+    nmap <silent> ,t O/**<Esc>o* @test<Esc>o*/<Esc>
+    nmap ,s :let @b=expand("<cWORD>")<CR>ofwrite(fopen('php://stdout', 'w'), spl_object_hash($this) . " - " . var_export(<ESC>"bpA, true) . "\n");<ESC>0
 endif

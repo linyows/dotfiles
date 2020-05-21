@@ -110,3 +110,13 @@ free -m
 sar -n DEV 1
 sar -n TCP,ETCP 1
 top
+
+# php
+Logger::info(spl_object_hash($this) . ' - ' . str_replace('  ', '', str_replace(PHP_EOL, '', var_export([session_id(), $_SESSION, debug_backtrace()], true))));
+
+strace -Ttt -ff -s 1500000 -p25574 -e trace=execve
+strace -Ttt -ff -s 1500000 -p25574
+
+# consul
+curl http://127.0.0.1:8500/v1/health/state/any | jq .
+consul watch -type checks -state critical "jq ."

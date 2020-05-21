@@ -71,8 +71,8 @@
 #[apply]
     #whitespace = nowarn
 [ghq]
-    root = ~/.ghq
     root = ~/.go/src
+    root = ~/.ghq
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less

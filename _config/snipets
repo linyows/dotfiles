@@ -120,3 +120,6 @@ strace -Ttt -ff -s 1500000 -p25574
 # consul
 curl http://127.0.0.1:8500/v1/health/state/any | jq .
 consul watch -type checks -state critical "jq ."
+
+# imap dir
+find . -type f -ls | sort -rnk7 | head | ruby -r 'net/imap' -ne 'print Net::IMAP.decode_utf7($_)'

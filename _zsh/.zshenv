@@ -119,3 +119,4 @@ fi
 if [ -f "$HOME/.zshenv.local" ]; then
   source "$HOME/.zshenv.local"
 fi
+source "$HOME/.cargo/env"

@@ -197,3 +197,4 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 if [ -f /usr/local/bin/vault ]; then
     complete -C /usr/local/bin/vault vault
 fi
+source "$HOME/.cargo/env"

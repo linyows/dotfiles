@@ -313,6 +313,8 @@ setup_go() {
         go get golang.org/x/tools/cmd/godoc
         go get golang.org/x/tools/cmd/cover
         go get golang.org/x/lint/golint
+    else
+        notice "Skip golang setup, So golang not found"
     fi
 }
 
@@ -321,6 +323,8 @@ setup_ruby() {
         if [ `which rbenv >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
             # https://gist.github.com/linyows/25dd64a7a93ec3040b91
             curl -s -L http://git.io/vYOur | sh
+        else
+            notice "Skip rbenv setup, So rbenv not found"
         fi
     fi
 }
@@ -330,6 +334,8 @@ setup_nodejs() {
         if [ `which nodebrew >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
             nodebrew install-binary latest
             nodebrew use latest
+        else
+            notice "Skip nodejs setup, So nodebrew not found"
         fi
     fi
 }
@@ -340,6 +346,8 @@ setup_homebrew_and_install_pkgs() {
         if [ `which brew >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
             brew install $(cat $HOME/$DIR/brewlist)
+        else
+            notice "Skip homebrew setup, So homebrew not found"
         fi
     fi
 }

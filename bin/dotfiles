@@ -284,6 +284,13 @@ link_for_mac() {
             mv $HOME/.config/peco $BACKUP_PATH
         fi
         ln -fsv $HOME/$DIR/_config/peco $HOME/.config/peco
+
+        if [ -L $HOME/.config/karabiner ]; then
+            rm -rf $HOME/.config/karabiner
+        elif [ -f $HOME/.config/karabiner ]; then
+            mv $HOME/.config/karabiner $BACKUP_PATH
+        fi
+        ln -fsv $HOME/$DIR/_config/karabiner $HOME/.config/karabiner
     fi
 }
 

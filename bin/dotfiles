@@ -280,21 +280,21 @@ link_for_mac() {
 
         if [ -L $HOME/.config/peco ]; then
             rm -rf $HOME/.config/peco
-        elif [ -f $HOME/.config/peco ]; then
+        elif [ -e $HOME/.config/peco ]; then
             mv $HOME/.config/peco $BACKUP_PATH
         fi
         ln -fsv $HOME/$DIR/_config/peco $HOME/.config/peco
 
         if [ -L $HOME/.config/alacritty ]; then
             rm -rf $HOME/.config/alacritty
-        elif [ -f $HOME/.config/alacritty ]; then
+        elif [ -e $HOME/.config/alacritty ]; then
             mv $HOME/.config/alacritty $BACKUP_PATH
         fi
         ln -fsv $HOME/$DIR/_config/alacritty $HOME/.config/alacritty
 
         if [ -L $HOME/.config/karabiner ]; then
             rm -rf $HOME/.config/karabiner
-        elif [ -f $HOME/.config/karabiner ]; then
+        elif [ -e $HOME/.config/karabiner ]; then
             mv $HOME/.config/karabiner $BACKUP_PATH
         fi
         ln -fsv $HOME/$DIR/_config/karabiner $HOME/.config/karabiner

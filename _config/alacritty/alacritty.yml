@@ -6,17 +6,22 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    # family: monospace
-    family: Monaco
-    style: Regular
+    # family: Monaco
+    # style: Regular
+    family: VL ゴシック
+    style: regular
   bold:
     # family: monospace
-    family: Monaco
-    style: Bold
+    # family: Monaco
+    # style: Bold
+    family: VL ゴシック
+    style: bold
   italic:
     # family: monospace
-    family: Monaco
-    style: Italic
+    # family: Monaco
+    # style: Italic
+    family: VL ゴシック
+    style: italic
   # Point size
   size: 14.0
 

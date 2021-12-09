@@ -198,3 +198,6 @@ if [ -f /usr/local/bin/vault ]; then
     complete -C /usr/local/bin/vault vault
 fi
 source "$HOME/.cargo/env"
+
+# anyenv
+eval "$(anyenv init -)"

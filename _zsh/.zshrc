@@ -255,3 +255,6 @@ if [ -f '/Users/linyows/Documents/google-cloud-sdk/completion.zsh.inc' ]; then .
 
 fpath=(~/.dotfiles/bin/zload(N-/) $fpath)
 autoload -Uz zload
+
+# anyenv
+eval "$(anyenv init -)"

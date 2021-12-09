@@ -26,3 +26,4 @@
 /history/*
 
 /_config/keypass
+/_config/karabiner/automatic_backups/*.json

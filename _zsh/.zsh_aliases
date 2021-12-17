@@ -120,3 +120,5 @@ alias -g V="| vim -"
 # for Mac
 alias there="fcd"
 alias here="open ."
+
+alias arm="exec arch -arm64 /bin/zsh --login"

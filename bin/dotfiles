@@ -307,36 +307,37 @@ setup_vim() {
 }
 
 setup_go() {
-    if [ `which go >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
-        go get github.com/nsf/gocode
-        go get golang.org/x/tools/cmd/goimports
-        go get golang.org/x/tools/cmd/godoc
-        go get golang.org/x/tools/cmd/cover
-        go get golang.org/x/lint/golint
+    if [ `which go >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
+        brew install go
     else
-        notice "Skip golang setup, So golang not found"
+        brew upgrade go
     fi
+    go install golang.org/x/tools/gopls@latest
+    go install golang.org/x/tools/cmd/godoc@latest
+    go install golang.org/x/tools/cmd/goimports@latest
+    go install golang.org/x/tools/cmd/cover@latest
+    brew install golangci-lint
 }
 
 setup_ruby() {
     if [ -d /Users ]; then
         if [ `which rbenv >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
-            # https://gist.github.com/linyows/25dd64a7a93ec3040b91
-            curl -s -L http://git.io/vYOur | sh
+            brew install rbenv ruby-build
         else
-            notice "Skip rbenv setup, So rbenv not found"
+            brew upgrade rbenv ruby-build
         fi
     fi
 }
 
 setup_nodejs() {
     if [ -d /Users ]; then
-        if [ `which nodebrew >/dev/null 2>&1 ; echo $?` -eq 0 ]; then
-            nodebrew install-binary latest
-            nodebrew use latest
+        if [ `which nodebrew >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
+            brew install nodebrew
+            mkdir ~/.nodebrew
         else
-            notice "Skip nodejs setup, So nodebrew not found"
+            brew upgrade nodebrew
         fi
+        nodebrew install-binary stable
     fi
 }
 
@@ -345,9 +346,16 @@ setup_homebrew_and_install_pkgs() {
     if [ -d /Users ]; then
         if [ `which brew >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-            brew install $(cat $HOME/$DIR/brewlist)
         else
-            notice "Skip homebrew setup, So homebrew not found"
+            notice "Skip homebrew setup"
+        fi
+        if [ $HOMEBREW_GITHUB_API_TOKEN == '' ]; then
+            notice "Please set: HOMEBREW_GITHUB_API_TOKEN"
+        else
+            list=`cat $HOME/$DIR/brewlist`
+            for pkg in $list; do
+              brew install pkg
+            done
         fi
     fi
 }
@@ -369,6 +377,12 @@ case "$1" in
         ;;
     vim)
         setup_vim
+        ;;
+    mac)
+        setup_homebrew_and_install_pkgs
+        setup_go
+        setup_nodejs
+        setup_ruby
         ;;
     *)
         init

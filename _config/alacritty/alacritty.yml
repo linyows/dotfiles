@@ -49,7 +49,7 @@ colors:
     cyan:    '0x93a1a1' # base1
     white:   '0xfdf6e3' # base3
 
-background_opacity: 0.87
 window:
   decorations: none
   startup_mode: Maximized
+  opacity: 0.87

@@ -247,6 +247,10 @@ if [ -f /usr/local/opt/libxml2/bin ]; then
   export PATH="/usr/local/opt/libxml2/bin:$PATH"
 fi
 
+if [ -f /opt/homebrew/bin ]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/linyows/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/linyows/Documents/google-cloud-sdk/path.zsh.inc'; fi
 

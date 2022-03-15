@@ -262,3 +262,4 @@ autoload -Uz zload
 
 # anyenv
 eval "$(anyenv init -)"
+source <(kubectl completion zsh)

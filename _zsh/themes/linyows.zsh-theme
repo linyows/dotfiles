@@ -43,11 +43,11 @@ ZSH_THEME_GIT_PROMPT_CLEAN=$prompt_surfin
 #ZSH_THEME_GIT_PROMPT_DELETED="%{$my_dark_navy%}"
 #ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[black]%}"
 
-ARCH=`/usr/bin/uname -m | cut -c 1-3`
+#ARCH=`/usr/bin/uname -m | cut -c 1-3`
 
 # main prompt
 #PROMPT='%{$fg_bold[blue]%}%p%{$fg[blue]%}%c %{$fg_bold[cyan]%}$(my_git_prompt_info)%{$my_green%} % $(git_prompt_status)$prompt_cross%{$reset_color%} '
-PROMPT='${ARCH} %{$my_navy%}%p%c $(my_git_prompt_info)'
+PROMPT='%{$my_navy%}%p%c $(my_git_prompt_info)'
 
 function my_git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null)

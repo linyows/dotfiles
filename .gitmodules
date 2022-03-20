@@ -1,27 +1,27 @@
 [submodule "_zsh/oh-my-zsh"]
 	path = _zsh/oh-my-zsh
-	url = git://github.com/robbyrussell/oh-my-zsh.git
+	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule "lib/git-diff-grep"]
 	path = lib/git-diff-grep
-	url = git://github.com/oscardelben/git-diff-grep.git
+	url = https://github.com/oscardelben/git-diff-grep.git
 [submodule "lib/git-flow-completion"]
 	path = lib/git-flow-completion
-	url = git://github.com/bobthecow/git-flow-completion.git
+	url = https://github.com/bobthecow/git-flow-completion.git
 [submodule "_vimperator/colors/indigo"]
 	path = _vimperator/colors/indigo
-	url = git://github.com/vimpr/vimperator-colors.git
+	url = https://github.com/vimpr/vimperator-colors.git
 [submodule "_zsh/plugin/z"]
 	path = _zsh/plugin/z
-	url = git://github.com/rupa/z.git
+	url = https://github.com/rupa/z.git
 [submodule "_zsh/plugin/auto-fu"]
 	path = _zsh/plugin/auto-fu
-	url = git://github.com/hchbaw/auto-fu.zsh.git
+	url = https://github.com/hchbaw/auto-fu.zsh.git
 [submodule "lib/git-now"]
 	path = lib/git-now
-	url = git://github.com/toshi-kawanishi/git-now.git
+	url = https://github.com/iwata/git-now.git
 [submodule "lib/git-tools"]
 	path = lib/git-tools
-	url = git://github.com/tyru/gittools.git
+	url = https://github.com/tyru/gittools.git
 [submodule "_vim/dein/repos/github.com/Shougo/dein.vim"]
 	path = _vim/dein/repos/github.com/Shougo/dein.vim
 	url = https://github.com/Shougo/dein.vim.git

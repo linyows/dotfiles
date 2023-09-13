@@ -261,5 +261,5 @@ fpath=(~/.dotfiles/bin/zload(N-/) $fpath)
 autoload -Uz zload
 
 # anyenv
-eval "$(anyenv init -)"
+#eval "$(anyenv init -)"
 source <(kubectl completion zsh)

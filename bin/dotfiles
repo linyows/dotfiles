@@ -298,6 +298,10 @@ link_for_mac() {
             mv $HOME/.config/karabiner $BACKUP_PATH
         fi
         ln -fsv $HOME/$DIR/_config/karabiner $HOME/.config/karabiner
+
+        if [ ! -f $HOME/.config/bat/config ]; then
+          ln -fsv $HOME/$DIR/_config/bat $HOME/.config/bat/config
+        fi
     fi
 }
 

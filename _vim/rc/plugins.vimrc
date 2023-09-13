@@ -10,6 +10,7 @@ if &runtimepath !~# '/dein.vim'
   execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
+" This if can cause an error: `Not an editor command: Unite buffer`
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   let g:rc_dir    = expand('~/.vim/rc')

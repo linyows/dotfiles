@@ -474,3 +474,6 @@ on_ft = 'vue'
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = 'html'
+
+[[plugins]]
+repo = 'github/copilot.vim'

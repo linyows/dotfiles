@@ -192,7 +192,7 @@ function cd () {
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=/opt/homebrew/bin:$HOME/.nodebrew/current/bin:$PATH
 
 if [ -f /usr/local/bin/vault ]; then
     complete -C /usr/local/bin/vault vault

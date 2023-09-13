@@ -233,13 +233,8 @@ hook_add = '''
   au FileType go map ,g :w\|:!go run %<cr>
   au FileType go map ,t :w\|:!go test %<cr>
 
-  if isdirectory('/usr/local/opt/go/libexec')
-    let g:go_fmt_command = 'goimports'
-    set rtp^=/usr/local/opt/go/libexec/misc/vim
-  endif
-
   if isdirectory($GOPATH)
-    exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+    "exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
     set completeopt=menu,preview
     au BufWritePre *.go :GoFmt
     au BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2
@@ -254,7 +249,10 @@ hook_add = '''
   au FileType go highlight SpecialKey ctermbg=NONE ctermfg=DarkBlue
   "au FileType go auto BufWritePre * :%s/'/"/ge
 
+  let g:go_fmt_command = 'goimports'
+  "set rtp^=/usr/local/opt/go/libexec/misc/vim
   let g:go_snippet_engine = 'neosnippet'
+  let g:go_auto_type_info = 1
   "let g:go_play_open_browser = 0
   "let g:go_fmt_fail_silently = 1
   "let g:go_fmt_autosave = 0

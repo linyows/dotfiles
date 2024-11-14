@@ -1,0 +1,19 @@
+#!/bin/bash
+
+user=linyows
+
+if [ "$GITHUB_TOKEN" == "" ]; then
+  echo "Please set \$GITHUB_TOKEN"
+  exit 1
+fi
+
+if [ "$1" == "" ]; then
+  echo "Plsease set an argument for repository: org/repo"
+  exit 1
+fi
+
+curl -X POST https://api.github.com/repos/$1/dispatches \
+  -H 'Accept: application/vnd.github.everest-preview+json' \
+  -u $user:$GITHUB_TOKEN \
+  --data '{"event_type": "Trigger from Local", "client_payload": { "message": "curl" }}' \
+  -o /dev/null -w '%{http_code}\n' -sS

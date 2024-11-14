@@ -209,8 +209,8 @@ fi
       _z --add "$(pwd -P)"
     }
 
-    # incriment search
-    source $HOME/.zsh/plugin/incr*.zsh
+    # incriment search was broken
+    #source $HOME/.zsh/plugin/incr*.zsh
 
     # Incriment
     # https://github.com/hchbaw/auto-fu.zsh

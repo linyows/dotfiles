@@ -1,11 +1,11 @@
 # vim
-if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
-    export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
-    alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g "$@"'
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-else
+#if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+#    export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
+#    alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g "$@"'
+#    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+#else
     export EDITOR='vim'
-fi
+#fi
 alias vi='vim -u NONE'
 alias vim-utf8='vim -c ":e ++enc=utf8"'
 alias vim-eucjp='vim -c ":e ++enc=euc-jp"'

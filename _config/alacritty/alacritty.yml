@@ -1,5 +1,4 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
-
 font:
   normal:
     # Default:
@@ -8,22 +7,29 @@ font:
     #   - (Windows) Consolas
     # family: Monaco
     # style: Regular
-    family: VL ゴシック
-    style: regular
+    #family: VL ゴシック
+    #style: regular
+    family: HackGen Console NF
+    style: Regular
   bold:
     # family: monospace
     # family: Monaco
     # style: Bold
-    family: VL ゴシック
-    style: bold
+    #family: VL ゴシック
+    #style: bold
+    family: HackGen Console NF
+    style: Regular
   italic:
     # family: monospace
     # family: Monaco
     # style: Italic
-    family: VL ゴシック
-    style: italic
+    #family: VL ゴシック
+    #style: italic
+    family: HackGen Console NF
+    style: Italic
   # Point size
-  size: 14.0
+  #size: 14.0
+  size: 17.0
 
 colors:
   # Solarized Dark

@@ -35,6 +35,7 @@ ZSH_THEME="../../themes/linyows"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git ruby gem node npm vi-mode vagrant osx fabric deb compleat rbenv pow powder pip python cpanm)
+plugins=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 

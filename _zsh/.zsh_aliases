@@ -13,9 +13,9 @@ alias vim-iso2022='vim -c ":e ++enc=iso-2022-jp"'
 alias vim-cp932='vim -c ":e ++enc=cp932"'
 
 # ctags
-if [ -f /Applications/MacVim.app/Contents/MacOS/ctags ]; then
-    alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
-fi
+#if [ -f /Applications/MacVim.app/Contents/MacOS/ctags ]; then
+#    alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+#fi
 
 # screen
 alias sc='screen'

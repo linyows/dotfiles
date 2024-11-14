@@ -30,11 +30,20 @@ fi
 if [ -f /opt/homebrew/bin/bat ]; then
     alias cat='/opt/homebrew/bin/bat'
 fi
-if [ -f /opt/homebrew/bin/exa ]; then
-    alias ls='/opt/homebrew/bin/exa'
-fi
-if [ -f /opt/homebrew/bin/rg ]; then
-    alias grep='/opt/homebrew/bin/rg'
+if [ -f /opt/homebrew/bin/eza ]; then
+  alias ls='/opt/homebrew/bin/eza'
+  alias ea="eza -aa --icons --git --time-style relative"
+  alias el="eza -aal --icons --git --time-style relative"
+  alias ela="eza -aalh --icons --git --time-style relative"
+  alias et="eza -T -L 3 -a -I 'node_modules|.git|.cache' --icons"
+  alias eta="eza -T -a -I 'node_modules|.git|.cache' --color=always --icons | less -r"
+  alias l=el
+  alias la=ea
+  alias ll=ela
+else
+  alias l='ls -A'
+  alias ll='ls -l'
+  alias la='ls -lA'
 fi
 if [ -f /opt/homebrew/bin/fd ]; then
     alias find='/opt/homebrew/bin/fd'
@@ -61,19 +70,6 @@ fi
 
 # other
 alias ana='request-log-analyzer'
-
-# ls
-# case "$OSTYPE" in
-    # freebsd*|darwin*)
-        # alias ls='ls -G -w'
-    # ;;
-    # *)
-        # alias ls='ls --color=auto'
-    # ;;
-# esac
-alias l='ls -A'
-alias ll='ls -l'
-alias la='ls -lA'
 
 # alias sshfs='~/bin/sshfs-binaries/sshfs-static-leopard'
 alias wget='wget --no-check-certificate'

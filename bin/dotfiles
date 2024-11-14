@@ -302,6 +302,12 @@ link_for_mac() {
         if [ ! -f $HOME/.config/bat/config ]; then
           ln -fsv $HOME/$DIR/_config/bat $HOME/.config/bat/config
         fi
+
+        if [ ! -f $HOME/.config/eza ]; then
+          brew install eza font-hackgen-nerd
+          mkdir $HOME/.config/eza
+          ln -fs $HOME/.dotfiles/eza-themes/themes/default.yml $HOME/.config/eza/theme.yml
+        fi
     fi
 }
 

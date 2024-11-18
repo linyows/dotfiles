@@ -1,5 +1,4 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
-
 font:
   normal:
     # Default:
@@ -8,48 +7,115 @@ font:
     #   - (Windows) Consolas
     # family: Monaco
     # style: Regular
-    family: VL ゴシック
-    style: regular
+    #family: VL ゴシック
+    #style: regular
+    family: HackGen Console NF
+    style: Regular
   bold:
     # family: monospace
     # family: Monaco
     # style: Bold
-    family: VL ゴシック
-    style: bold
+    #family: VL ゴシック
+    #style: bold
+    family: HackGen Console NF
+    style: Regular
   italic:
     # family: monospace
     # family: Monaco
     # style: Italic
-    family: VL ゴシック
-    style: italic
+    #family: VL ゴシック
+    #style: italic
+    family: HackGen Console NF
+    style: Italic
   # Point size
-  size: 14.0
+  #size: 14.0
+  size: 17.0
 
 colors:
   # Solarized Dark
+  #primary:
+  #  background: '0x002b36' # base03
+  #  foreground: '0x839496' # base0
+  #normal:
+  #  black:   '0x073642' # base02
+  #  red:     '0xdc322f' # red
+  #  green:   '0x859900' # green
+  #  yellow:  '0xb58900' # yellow
+  #  blue:    '0x268bd2' # blue
+  #  magenta: '0xd33682' # magenta
+  #  cyan:    '0x2aa198' # cyan
+  #  white:   '0xeee8d5' # base2
+  #bright:
+  #  black:   '0x002b36' # base03
+  #  red:     '0xcb4b16' # orange
+  #  green:   '0x586e75' # base01
+  #  yellow:  '0x657b83' # base00
+  #  blue:    '0x839496' # base0
+  #  magenta: '0x6c71c4' # violet
+  #  cyan:    '0x93a1a1' # base1
+  #  white:   '0xfdf6e3' # base3
+
+  # Marine Dark
+  # https://github.com/ProDeSquare/alacritty-colorschemes/blob/master/themes/marine_dark.yaml
   primary:
-    background: '0x002b36' # base03
-    foreground: '0x839496' # base0
+    background: '0x002221'
+    foreground: '0xe6f8f8'
   normal:
-    black:   '0x073642' # base02
-    red:     '0xdc322f' # red
-    green:   '0x859900' # green
-    yellow:  '0xb58900' # yellow
-    blue:    '0x268bd2' # blue
-    magenta: '0xd33682' # magenta
-    cyan:    '0x2aa198' # cyan
-    white:   '0xeee8d5' # base2
+    black:   '0x002221'
+    red:     '0xea3431'
+    green:   '0x00b6b6'
+    yellow:  '0xf8b017'
+    blue:    '0x4894fd'
+    magenta: '0xe01dca'
+    cyan:    '0x1ab2ad'
+    white:   '0x99dddb'
   bright:
-    black:   '0x002b36' # base03
-    red:     '0xcb4b16' # orange
-    green:   '0x586e75' # base01
-    yellow:  '0x657b83' # base00
-    blue:    '0x839496' # base0
-    magenta: '0x6c71c4' # violet
-    cyan:    '0x93a1a1' # base1
-    white:   '0xfdf6e3' # base3
+    black:   '0x006562'
+    red:     '0xea3431'
+    green:   '0x00b6b6'
+    yellow:  '0xf8b017'
+    blue:    '0x4894fd'
+    magenta: '0xe01dca'
+    cyan:    '0x1ab2ad'
+    white:   '0xe6f6f6'
+
+  # Kanagawa
+  # https://github.com/rebelot/kanagawa.nvim/blob/master/extras/alacritty_kanagawa.yml
+  #primary:
+  #  background: '0x1f1f28'
+  #  foreground: '0xdcd7ba'
+  #normal:
+  #  black:   '0x090618'
+  #  red:     '0xc34043'
+  #  green:   '0x76946a'
+  #  yellow:  '0xc0a36e'
+  #  blue:    '0x7e9cd8'
+  #  magenta: '0x957fb8'
+  #  cyan:    '0x6a9589'
+  #  white:   '0xc8c093'
+  #bright:
+  #  black:   '0x727169'
+  #  red:     '0xe82424'
+  #  green:   '0x98bb6c'
+  #  yellow:  '0xe6c384'
+  #  blue:    '0x7fb4ca'
+  #  magenta: '0x938aa9'
+  #  cyan:    '0x7aa89f'
+  #  white:   '0xdcd7ba'
+  #selection:
+  #  background: '0x2d4f67'
+  #  foreground: '0xc8c093'
+  #indexed_colors:
+  #  - { index: 16, color: '0xffa066' }
+  #  - { index: 17, color: '0xff5d62' }
 
 window:
   decorations: none
   startup_mode: Maximized
   opacity: 0.87
+
+# use true color
+# https://qiita.com/tetzng/items/0fa27275255069142c32
+# ~/.tmux.conf
+env:
+  TERM: alacritty

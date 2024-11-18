@@ -25,3 +25,6 @@
 [submodule "_vim/dein/repos/github.com/Shougo/dein.vim"]
 	path = _vim/dein/repos/github.com/Shougo/dein.vim
 	url = https://github.com/Shougo/dein.vim.git
+[submodule "eza-themes"]
+	path = eza-themes
+	url = https://github.com/eza-community/eza-themes.git

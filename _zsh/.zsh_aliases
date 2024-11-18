@@ -1,11 +1,11 @@
 # vim
-if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
-    export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
-    alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g "$@"'
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-else
+#if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+#    export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
+#    alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g "$@"'
+#    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+#else
     export EDITOR='vim'
-fi
+#fi
 alias vi='vim -u NONE'
 alias vim-utf8='vim -c ":e ++enc=utf8"'
 alias vim-eucjp='vim -c ":e ++enc=euc-jp"'
@@ -13,9 +13,9 @@ alias vim-iso2022='vim -c ":e ++enc=iso-2022-jp"'
 alias vim-cp932='vim -c ":e ++enc=cp932"'
 
 # ctags
-if [ -f /Applications/MacVim.app/Contents/MacOS/ctags ]; then
-    alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
-fi
+#if [ -f /Applications/MacVim.app/Contents/MacOS/ctags ]; then
+#    alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+#fi
 
 # screen
 alias sc='screen'
@@ -30,11 +30,20 @@ fi
 if [ -f /opt/homebrew/bin/bat ]; then
     alias cat='/opt/homebrew/bin/bat'
 fi
-if [ -f /opt/homebrew/bin/exa ]; then
-    alias ls='/opt/homebrew/bin/exa'
-fi
-if [ -f /opt/homebrew/bin/rg ]; then
-    alias grep='/opt/homebrew/bin/rg'
+if [ -f /opt/homebrew/bin/eza ]; then
+  alias ls='/opt/homebrew/bin/eza'
+  alias ea="eza -aa --icons --git --time-style relative"
+  alias el="eza -aal --icons --git --time-style relative"
+  alias ela="eza -aalh --icons --git --time-style relative"
+  alias et="eza -T -L 3 -a -I 'node_modules|.git|.cache' --icons"
+  alias eta="eza -T -a -I 'node_modules|.git|.cache' --color=always --icons | less -r"
+  alias l=el
+  alias la=ea
+  alias ll=ela
+else
+  alias l='ls -A'
+  alias ll='ls -l'
+  alias la='ls -lA'
 fi
 if [ -f /opt/homebrew/bin/fd ]; then
     alias find='/opt/homebrew/bin/fd'
@@ -61,19 +70,6 @@ fi
 
 # other
 alias ana='request-log-analyzer'
-
-# ls
-# case "$OSTYPE" in
-    # freebsd*|darwin*)
-        # alias ls='ls -G -w'
-    # ;;
-    # *)
-        # alias ls='ls --color=auto'
-    # ;;
-# esac
-alias l='ls -A'
-alias ll='ls -l'
-alias la='ls -lA'
 
 # alias sshfs='~/bin/sshfs-binaries/sshfs-static-leopard'
 alias wget='wget --no-check-certificate'

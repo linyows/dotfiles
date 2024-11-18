@@ -294,3 +294,6 @@ repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'Slashbunny/vim-colorsamplerpack'
+
+[[plugins]]
+repo = 'Glench/Vim-Jinja2-Syntax'

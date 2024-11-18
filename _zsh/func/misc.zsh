@@ -216,11 +216,11 @@ function weather() {
 }
 
 function load_nodebrew() {
-  if [ -f "/etc/profile.d/nodebrew.sh" ]; then
-    source "/etc/profile.d/nodebrew.sh"
-    echo "Loaded: /etc/profile.d/nodebrew.sh"
+  if [ -d "$HOME/.nodebrew" ]; then
+    export PATH=$HOME/.nodebrew/current/bin:$PATH
+    #export NODEBREW_ROOT=/opt/homebrew
   else
-    echo "No script: /etc/profile.d/nodebrew.sh"
+    echo "No dir: $HOME/.nodebrew"
   fi
 }
 

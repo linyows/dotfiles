@@ -36,6 +36,7 @@ autocmd BufRead,BufNewFile *.ts set filetype=typescript
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 autocmd BufNewFile,BufRead *.emblem set filetype=slim
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+autocmd BufRead,BufNewFile *.j2 setlocal filetype=jinja
 
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow

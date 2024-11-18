@@ -27,3 +27,5 @@
 
 /_config/keypass
 /_config/karabiner/automatic_backups/*.json
+
+/_zsh/plugin

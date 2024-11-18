@@ -28,3 +28,6 @@
 [submodule "eza-themes"]
 	path = eza-themes
 	url = https://github.com/eza-community/eza-themes.git
+[submodule "_zsh/oh-my-zsh/plugins/zsh-autosuggestions"]
+	path = _zsh/oh-my-zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions

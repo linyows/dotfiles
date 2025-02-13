@@ -333,7 +333,17 @@ setup_go() {
     go install golang.org/x/tools/cmd/godoc@latest
     go install golang.org/x/tools/cmd/goimports@latest
     go install golang.org/x/tools/cmd/cover@latest
-    brew install golangci-lint
+    go install github.com/golangci/golangci-lint@latest
+}
+
+setup_python() {
+    if [ -d /Users ]; then
+        if [ `which pyenv >/dev/null 2>&1 ; echo $?` -eq 1 ]; then
+            brew install pyenv
+        else
+            brew upgrade pyenv
+        fi
+    fi
 }
 
 setup_ruby() {
@@ -398,6 +408,7 @@ case "$1" in
     mac)
         setup_homebrew_and_install_pkgs
         setup_go
+        setup_python
         setup_nodejs
         setup_ruby
         ;;

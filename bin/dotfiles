@@ -292,6 +292,13 @@ link_for_mac() {
         fi
         ln -fsv $HOME/$DIR/_config/alacritty $HOME/.config/alacritty
 
+        if [ -L $HOME/.claude/settings.json ]; then
+            rm -rf $HOME/.claude/settings.json
+        elif [ -e $HOME/.claude/settings.json ]; then
+            mv $HOME/.claude/settings.json $BACKUP_PATH
+        fi
+        ln -fsv $HOME/$DIR/_config/claude/settings.json $HOME/.claude/settings.json
+
         if [ -L $HOME/.config/ghostty ]; then
             rm -rf $HOME/.config/ghostty
         elif [ -e $HOME/.config/ghostty ]; then

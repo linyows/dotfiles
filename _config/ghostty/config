@@ -7,3 +7,5 @@ background-opacity = 0.9
 background-blur-radius = 12
 font-size = 17
 macos-non-native-fullscreen = true
+# https://github.com/ghostty-org/ghostty/issues/5372#issuecomment-2614259192
+font-feature = -dlig

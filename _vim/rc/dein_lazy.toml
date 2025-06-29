@@ -232,6 +232,7 @@ on_ft = 'go'
 hook_add = '''
   au FileType go map ,g :w\|:!go run %<cr>
   au FileType go map ,t :w\|:!go test %<cr>
+  map <C-G> :GoAlternate<CR>
 
   if isdirectory($GOPATH)
     "exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
@@ -337,10 +338,6 @@ hook_add = '''
 [[plugins]]
 repo = 'rhysd/neco-ruby-keyword-args'
 on_ft = 'ruby'
-
-[[plugins]]
-repo = 'ryuzee/neocomplcache_php_selenium_snippet'
-on_ft = 'php'
 
 [[plugins]]
 repo = 'vim-scripts/php.vim--Garvin'

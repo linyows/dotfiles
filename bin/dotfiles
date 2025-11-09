@@ -154,12 +154,13 @@ link_git() {
     fi
     ln -fsv $HOME/$DIR/_git/.gitconfig $HOME/.gitconfig
 
-    if [ -L $HOME/.gitignore ]; then
-        rm -rf $HOME/.gitignore
-    elif [ -f $HOME/.gitignore ]; then
-        mv $HOME/.gitignore $BACKUP_PATH
+    if [ -L $HOME/.config/git ]; then
+        rm -rf $HOME/.config/git
+    elif [ -e $HOME/.config/git ]; then
+        mv $HOME/.config/git $BACKUP_PATH
     fi
-    ln -fsv $HOME/$DIR/_git/.gitignore $HOME/.gitignore
+    ln -fsv $HOME/$DIR/_config/git $HOME/.config/git
+
 }
 
 link_vim() {

@@ -49,7 +49,6 @@
 [pull]
     default = simple
 [core]
-    excludesfile = ~/.gitignore
     quotepath = false
     editor = vim
     pager = less -r

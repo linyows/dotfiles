@@ -276,4 +276,4 @@ export PATH="$HOME/.tiup/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 # bun completions
-[ -s "/Users/t-oda/.bun/_bun" ] && source "/Users/t-oda/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

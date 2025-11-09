@@ -1,6 +1,7 @@
 [user]
     name = linyows
     email = linyows@gmail.com
+    signingkey = FE164F06E3E0DA44A3C1257B09C6A6237B0ACCB2
 [color]
     ui = auto
 [alias]

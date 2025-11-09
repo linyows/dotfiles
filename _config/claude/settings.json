@@ -2,8 +2,28 @@
   "permissions": {
     "allow": [
       "Bash(go build:*)",
-      "Bash(go test:*)"
+      "Bash(go test:*)",
+      "Bash(go mod:*)",
+      "Bash(go get:*)"
     ],
     "deny": []
-  }
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -message 'Claude completed the task!' -sound Blow"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); printf \"[%s] %s\" \"$(echo \"$input\" | jq -r '.model.display_name')\" \"$(basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\")\""
+  },
+  "alwaysThinkingEnabled": true
 }

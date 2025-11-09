@@ -53,6 +53,15 @@ function pcolor() {
     echo
 }
 
+function ppcolor() {
+  for i in {0..255}; do
+      printf "\033[48;5;%sm %3d \033[0m" "$i" "$i"
+      if [ $(( (i+1) % 16 )) -eq 0 ]; then
+          echo
+      fi
+  done
+}
+
 # show rvm prompt like "1.9.2@gemset_name"
 function rvm_prompt {
     result=`rvm-prompt v g 2> /dev/null`

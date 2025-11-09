@@ -64,7 +64,7 @@
 [http]
     sslVerify = true
     cookiefile = ~/.gitcookies
-	postBuffer = 524288000
+    postBuffer = 524288000
 [github]
     user = linyows
 #[apply]
@@ -84,10 +84,12 @@
     process = git-lfs filter-process --skip
     required = true
 [help]
-	autocorrect = 1
+    autocorrect = 1
 [http "https://gopkg.in"]
-	followRedirects = true
+    followRedirects = true
 [commit]
-	gpgsign = true
+    gpgsign = true
 [gpg]
-	program = /opt/homebrew/bin/gpg
+    program = /opt/homebrew/bin/gpg
+[init]
+    defaultBranch = main

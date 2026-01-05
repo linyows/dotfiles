@@ -25,5 +25,8 @@
     "type": "command",
     "command": "input=$(cat); printf \"[%s] %s\" \"$(echo \"$input\" | jq -r '.model.display_name')\" \"$(basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\")\""
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  }
 }

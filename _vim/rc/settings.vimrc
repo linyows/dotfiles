@@ -31,3 +31,6 @@ set smartcase   " 検索文字列に大文字が含まれている場合は区�
 set incsearch   " インクリメンタルサーチ 検索文字を打っている途中で、目的の単語を見つけたらEnterを押下 検索をやめたい場合はEscを押下
 set wrapscan    " 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
 set noincsearch " 検索文字列入力時に順次対象文字列にヒットさせない
+
+" use v2 engine
+set re=2

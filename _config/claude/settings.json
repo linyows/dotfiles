@@ -4,9 +4,19 @@
       "Bash(go build:*)",
       "Bash(go test:*)",
       "Bash(go mod:*)",
-      "Bash(go get:*)"
+      "Bash(go get:*)",
+      "Bash(probe:*)",
+      "Bash(golangci-lint:*)"
     ],
-    "deny": []
+    "ask": [
+      "Bash(curl *)"
+    ],
+    "deny": [
+      "Bash(wget *)",
+      "Bash(ssh *)",
+      "Read(**/.env*)",
+      "Read(**/*.pem)"
+    ]
   },
   "hooks": {
     "Stop": [
@@ -19,14 +29,49 @@
           }
         ]
       }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat); terminal-notifier -title 'Claude Code' -subtitle \"$(basename \"$(echo \"$input\" | jq -r '.cwd')\")\" -message \"$(echo \"$input\" | jq -r '.message')\" -sound Ping -activate com.mitchellh.ghostty",
+            "timeout": 5
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
     "type": "command",
     "command": "input=$(cat); printf \"[%s] %s\" \"$(echo \"$input\" | jq -r '.model.display_name')\" \"$(basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\")\""
   },
-  "alwaysThinkingEnabled": true,
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true
-  }
+    "frontend-design@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "claude-obsidian@agricidaniel-claude-obsidian": true
+  },
+  "extraKnownMarketplaces": {
+    "agricidaniel-claude-obsidian": {
+      "source": {
+        "source": "github",
+        "repo": "AgriciDaniel/claude-obsidian"
+      }
+    }
+  },
+  "language": "Japaese",
+  "alwaysThinkingEnabled": true,
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
+  "editorMode": "vim",
+  "preferredNotifChannel": "ghostty",
+  "agentPushNotifEnabled": true
 }

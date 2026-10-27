@@ -273,6 +273,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'https://codeberg.org/ziglang/zig.vim'
+on_ft = 'zig'
+
+[[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = 'rust'
 hook_add = '''
